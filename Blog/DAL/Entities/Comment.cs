@@ -1,8 +1,9 @@
 ﻿using Blog.DAL.Entities.Interfaces;
+using Blog.DAL.Entities;
 
 namespace Blog.DAL.Entities
 {
-    public class Comment : IDate
+    public class Comment : BaseEntity
     {
         public long Id { get; set; }
         public string Text { get; set; }
@@ -14,8 +15,6 @@ namespace Blog.DAL.Entities
         public List<Comment>? ChildComments { get; set; }
         public long? ParentCommentId { get; set; }
         public Comment? ParentComment { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
 
     }
 }

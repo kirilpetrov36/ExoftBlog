@@ -29,7 +29,7 @@ namespace Blog.DAL.Extensions
             modelBuilder.Entity<Comment>()
                 .HasOne(p => p.User)
                 .WithMany(p => p.Comments)
-                .HasForeignKey(p => p.User.Id)
+                .HasForeignKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
@@ -41,7 +41,7 @@ namespace Blog.DAL.Extensions
                 .HasOne(p => p.ParentComment)
                 .WithMany(p => p.ChildComments)
                 .HasForeignKey(p => p.ParentCommentId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Comment>()
                 .Property(p => p.CreatedAt)

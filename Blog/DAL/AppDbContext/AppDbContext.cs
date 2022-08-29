@@ -8,6 +8,7 @@ namespace Blog.DAL.Entities
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Post> Posts { get; set; }

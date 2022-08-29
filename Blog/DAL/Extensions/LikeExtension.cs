@@ -45,8 +45,8 @@ namespace Blog.DAL.Extensions
                 .IsRequired();
 
             modelBuilder.Entity<PostLike>()
-                .Property(p => p.isEnable)
-                .HasDefaultValue(true);
+                .Property(p => p.IsDeleted)
+                .HasDefaultValue(false);
 
         }
     }
@@ -66,7 +66,7 @@ namespace Blog.DAL.Extensions
                 .HasOne(p => p.User)
                 .WithMany(b => b.CommentLikes)
                 .HasForeignKey(p => p.UserId)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
             modelBuilder.Entity<CommentLike>()
@@ -93,9 +93,8 @@ namespace Blog.DAL.Extensions
                 .IsRequired();
 
             modelBuilder.Entity<CommentLike>()
-                .Property(p => p.isEnable)
-                .HasDefaultValue(true);
-
+                .Property(p => p.IsDeleted)
+                .HasDefaultValue(false);
         }
     }
 }
