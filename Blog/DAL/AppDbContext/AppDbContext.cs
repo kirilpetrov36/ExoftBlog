@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Blog.DAL.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Blog.DAL.Entities
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -26,6 +27,7 @@ namespace Blog.DAL.Entities
             modelBuilder.BuildCommentModel();
             modelBuilder.BuildUserModel();
             modelBuilder.BuildImageModel();
+            modelBuilder.BuildRefreshTokenModel();
         }
     }
 }

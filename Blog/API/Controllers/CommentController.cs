@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Blog.DAL.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.CommentDto;
-using Blog.BLL.DTO;
 
 namespace Blog.API.Controllers
 {

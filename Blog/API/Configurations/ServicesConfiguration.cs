@@ -12,7 +12,7 @@ namespace Blog.API.Configurations
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IPostService, PostService>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IPostLikeService, PostLikeService>();
             services.AddTransient<ICommentLikeService, CommentLikeService>();

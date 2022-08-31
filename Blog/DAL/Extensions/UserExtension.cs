@@ -15,7 +15,12 @@ namespace Blog.DAL.Extensions
                 .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<User>()
-                .Property(p => p.Name)
+                .Property(p => p.FirstName)
+                .HasMaxLength(32)
+                .IsRequired();
+
+            modelBuilder.Entity<User>()
+                .Property(p => p.LastName)
                 .HasMaxLength(32)
                 .IsRequired();
 
