@@ -10,8 +10,8 @@ namespace Blog.BLL.DTO.LoginRegisterDto
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public string ReturnUrl { get; set; }
+        //public string ReturnUrl { get; set; }
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        //public IList<AuthenticationScheme> ExternalLogins { get; set; }
     }
 }

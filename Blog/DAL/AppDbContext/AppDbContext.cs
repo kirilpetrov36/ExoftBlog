@@ -28,6 +28,7 @@ namespace Blog.DAL.Entities
             modelBuilder.BuildUserModel();
             modelBuilder.BuildImageModel();
             modelBuilder.BuildRefreshTokenModel();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

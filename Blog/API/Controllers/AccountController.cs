@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +12,7 @@ using Blog.BLL.DTO.LoginRegisterDto;
 using Blog.BLL.DTO.AccountDto;
 using Blog.BLL.DTO.UserDto;
 using Blog.DAL.Entities;
-//using Blog.BLL.DTO.Services.ExternalServices;
+using Blog.BLL.Services.ExternalServices;
 using Blog.BLL.Services.Interfaces;
 //using Blog.DAL.EF.Models;
 using Blog.BLL.Constants;

@@ -282,3 +282,13 @@ D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.AspNetCore.Identity
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Extensions.Logging.File.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Sinks.Async.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Sinks.RollingFile.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MailKit.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MimeKit.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\BouncyCastle.Crypto.dll

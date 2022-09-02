@@ -2,6 +2,7 @@
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.PostDto;
 using Blog.BLL.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blog.API.Controllers
 {
@@ -18,6 +19,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Post
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<ReadPostDto>>> GetPosts()
         {
 
@@ -126,6 +128,7 @@ namespace Blog.API.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<ReadPostDto>> PostPost([FromBody]CreatePostDto post)
         {
             ReadPostDto newPost = await _postService.CreatePostAsync(post);
