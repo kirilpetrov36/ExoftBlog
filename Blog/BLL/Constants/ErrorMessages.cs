@@ -8,5 +8,6 @@
         public const string IncorrectRefreshToken = "Refresh token is incorrect";
         public const string RefreshTokenExpired = "Refresh Token expired";
         public const string InvalidData = "Invalid data";
+        public const string InvalidFileFormat = "InvalidFileFormat";
     }
 }

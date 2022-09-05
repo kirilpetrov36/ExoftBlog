@@ -4,6 +4,7 @@ using Blog.BLL.DTO.UserDto;
 using Blog.BLL.DTO.LikeDto;
 using Blog.BLL.DTO.CommentDto;
 using Blog.DAL.Entities;
+using Blog.BLL.DTO.File;
 
 namespace Blog.BLL.Configurations.MapperConfig
 {
@@ -35,6 +36,8 @@ namespace Blog.BLL.Configurations.MapperConfig
             CreateMap<CommentLike, CreateCommentLikeDto>().ReverseMap();
             CreateMap<CommentLike, ReadCommentLikeDto>().ReverseMap();
             CreateMap<CommentLike, ReadLikeDto>().ReverseMap();
+
+            CreateMap<MediaFile, ReadFileDto>().ReverseMap();
 
         }
     }

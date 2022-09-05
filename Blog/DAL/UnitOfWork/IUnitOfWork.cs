@@ -10,7 +10,7 @@ namespace Blog.DAL.UnitOfWork
         IRepository<CommentLike> CommentLikeRepository { get; }
         IRepository<PostLike> PostLikeRepository { get; }
         IUserRepository UserRepository { get; }
-        IRepository<Image> ImageRepository { get; }
+        IRepository<MediaFile> MediaFileRepository { get; }
         Task SaveChanges();
     }
 

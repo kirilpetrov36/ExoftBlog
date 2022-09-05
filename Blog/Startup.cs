@@ -148,6 +148,10 @@ namespace Blog
 
             app.UseRouting();
 
+            //app.MapControllerRoute(
+            //   name: "ConfirmEmail",
+            //       pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -157,7 +161,9 @@ namespace Blog
                 endpoints.MapControllers();
             });
 
-            
+           
+
+
             CreateUserRoles(serviceProvider).Wait();
         }
 

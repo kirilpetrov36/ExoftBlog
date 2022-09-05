@@ -9,7 +9,7 @@ namespace Blog.DAL.Entities
         public string Content { get; set; }
         public List<PostLike>? Likes { get; set; }
         public List<Comment>? Comments { get; set; }
-        public List<Image>? Images { get; set; }
+        public List<MediaFile>? MediaFiles { get; set; }
 
     }
 }

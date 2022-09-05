@@ -16,7 +16,7 @@ namespace Blog.DAL.UnitOfWork
         public IRepository<CommentLike> CommentLikeRepository => new CommentLikeRepository(_context);
         public IRepository<PostLike> PostLikeRepository => new PostLikeRepository(_context);
         public IUserRepository UserRepository => new UserRepository(_context);
-        public IRepository<Image> ImageRepository => new Repository<Image>(_context);
+        public IRepository<MediaFile> MediaFileRepository => new Repository<MediaFile>(_context);
 
         private bool _disposed;
         public void Dispose(bool disposing)

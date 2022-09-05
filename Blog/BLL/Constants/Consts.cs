@@ -1,4 +1,6 @@
-﻿namespace Blog.BLL.Constants
+﻿using Blog.DAL.Enums;
+
+namespace Blog.BLL.Constants
 {
     public static class Consts
     {
@@ -8,16 +10,16 @@
 
         public const int MaxFileCount = 5;
 
-        //public static Dictionary<string, ContentType> SupportedFileFormats = new Dictionary<string, ContentType>()
-        //{
-        //    { "image/png", ContentType.Image },
-        //    { "image/tiff", ContentType.Image },
-        //    { "image/jpeg", ContentType.Image },
-        //    { "video/mp4", ContentType.Video },
-        //    { "video/mov", ContentType.Video },
-        //    { "video/wmv", ContentType.Video },
-        //    { "video/avi", ContentType.Video },
-        //};
+        public static Dictionary<string, ContentType> SupportedFileFormats = new Dictionary<string, ContentType>()
+        {
+            { "image/png", ContentType.Image },
+            { "image/tiff", ContentType.Image },
+            { "image/jpeg", ContentType.Image },
+            { "video/mp4", ContentType.Video },
+            { "video/mov", ContentType.Video },
+            { "video/wmv", ContentType.Video },
+            { "video/avi", ContentType.Video },
+        };
         public const string Id = "Id";
     }
 }

@@ -28,7 +28,7 @@ namespace Blog.DAL.Repositories
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
                         .ThenInclude(p => p.User)
-                    .Include(p => p.Images)
+                    .Include(p => p.MediaFiles)
                     .SingleOrDefaultAsync(x => x.Id == id);
 
             }
@@ -45,7 +45,7 @@ namespace Blog.DAL.Repositories
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
                         .ThenInclude(p => p.User)
-                    .Include(p => p.Images)
+                    .Include(p => p.MediaFiles)
                     .ToListAsync();
         }
 
@@ -56,7 +56,7 @@ namespace Blog.DAL.Repositories
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
                         .ThenInclude(p => p.User)
-                    .Include(p => p.Images)
+                    .Include(p => p.MediaFiles)
                     .OrderByDescending(p => p.Comments.Count())
                     .ToListAsync();
                     
@@ -69,7 +69,7 @@ namespace Blog.DAL.Repositories
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
                         .ThenInclude(p => p.User)
-                    .Include(p => p.Images)
+                    .Include(p => p.MediaFiles)
                     .OrderByDescending(p => p.Likes.Count())
                     .ToListAsync();
         }

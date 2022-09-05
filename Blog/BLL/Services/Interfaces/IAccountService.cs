@@ -8,9 +8,6 @@ namespace Blog.BLL.Services.Interfaces
 {
     public interface IAccountService
     {
-        Task<AuthenticationResultDto> ExternalRegisterAsync(ExternalLoginInfo info, CancellationToken cancellationToken = default);
-        Task<AuthenticationResultDto> RegisterAsync(RegisterDto registerViewModel, CancellationToken cancellationToken = default);
-        Task<AuthenticationResultDto> ExternalLoginAsync(ExternalLoginInfo info, CancellationToken cancellationToken = default);
         Task<AuthenticationResultDto> LoginAsync(LoginDto registerViewModel, CancellationToken cancellationToken = default);
         AuthenticationResultDto LogoutAsync(RefreshTokenDto registerViewModel, CancellationToken cancellationToken = default);
         Task<AuthenticationResultDto> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default);

@@ -11,15 +11,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Blog.BLL.Constants;
-//using UJP.SportNews.BLL.Services.ExternalServices.GoogleDriveService;
 using Blog.BLL.Services.Interfaces;
 using Blog.DAL.Entities;
 using Blog.BLL.DTO.AccountDto;
 using Blog.DAL.UnitOfWork;
 using Blog.BLL.DTO.LoginRegisterDto;
 using Blog.BLL.DTO.UserDto;
-//using UJP.SportNews.DAL.EF.Models;
-//using UJP.SportNews.BLL.Services.ExternalServices;
 
 namespace Blog.BLL.Services
 {
@@ -45,130 +42,45 @@ namespace Blog.BLL.Services
             _userManager = userManager;
         }
 
-        public async Task<AuthenticationResultDto> ExternalRegisterAsync(ExternalLoginInfo info, CancellationToken cancellationToken = default)
-        {
-            RegisterDto registerViewModel = new RegisterDto()
-            {
-                FirstName = info.Principal.FindFirstValue(ClaimTypes.GivenName),
-                LastName = info.Principal.FindFirstValue(ClaimTypes.Surname),
-                Email = info.Principal.FindFirstValue(ClaimTypes.Email)
-            };
-            if (string.IsNullOrEmpty(registerViewModel.LastName))
-            {
-                // If LastName is empty, DB throws error (cannot insert NULL into LastName)
-                registerViewModel.LastName = PLACEHOLDER_SURNAME;
-            }
-            MapperConfiguration config = new MapperConfiguration(config => config.CreateMap<RegisterDto, User>().ForMember(x => x.UserName, x => x.MapFrom(m => m.Email)));
-            Mapper mapper = new Mapper(config);
-            User user = mapper.Map<User>(registerViewModel);
+        //public async Task<AuthenticationResultDto> RegisterAsync(RegisterDto registerViewModel, CancellationToken cancellationToken = default)
+        //{
+        //    MapperConfiguration config = new MapperConfiguration(config => config.CreateMap<RegisterDto, User>()
+        //        .ForMember(x => x.UserName, x => x.MapFrom(m => m.Email)));
+        //    Mapper mapper = new Mapper(config);
+        //    User user = mapper.Map<User>(registerViewModel);
+        //    try
+        //    {
+        //        IdentityResult signupUserResult = await _userManager.CreateAsync(user, registerViewModel.Password);
 
-            try
-            {
-                IdentityResult signupUserResult = await _userManager.CreateAsync(user);
-                if (signupUserResult.Succeeded)
-                {
-                    // Associate user with external login info
-                    await _userManager.AddLoginAsync(user, info);
-                    IdentityResult addToRoleUserResult = await _userManager.AddToRoleAsync(user, Roles.user);
-                    string refreshToken = GetRefreshToken(user);
-                    SaveToken(user, refreshToken);
-                    return new AuthSucceededResponseDto
-                    {
-                        Token = await GetAccessTokenAsync(user),
-                        RefreshToken = refreshToken,
-                        Success = true
-                    };
-                }
-
-                return new AuthFailedResponseDto
-                {
-                    ErrorCode = StatusCodes.Status400BadRequest,
-                    Errors = signupUserResult.Errors.Select(x => x.Description)
-                };
-            }
-            catch (SqlException sqlExc)
-            {
-                return GetErrors(sqlExc);
-            }
-            catch (Exception ex)
-            {
-                return GetErrors(ex);
-            }
-        }
-
-        public async Task<AuthenticationResultDto> RegisterAsync(RegisterDto registerViewModel, CancellationToken cancellationToken = default)
-        {
-            MapperConfiguration config = new MapperConfiguration(config => config.CreateMap<RegisterDto, User>()
-                .ForMember(x => x.UserName, x => x.MapFrom(m => m.Email)));
-            Mapper mapper = new Mapper(config);
-            User user = mapper.Map<User>(registerViewModel);
-
-
-            try
-            {
-                IdentityResult signupUserResult = await _userManager.CreateAsync(user, registerViewModel.Password);
-
-                if (signupUserResult.Succeeded)
-                {
-                    IdentityResult addToRoleUserResult = await _userManager.AddToRoleAsync(user, Roles.user);
-                    string refreshToken = GetRefreshToken(user);
-                    SaveToken(user, refreshToken);
-                    return new AuthSucceededResponseDto
-                    {
-                        Token = await GetAccessTokenAsync(user),
-                        RefreshToken = refreshToken,
-                        Success = true,
-                        UserFirstName = user.FirstName,
-                        UserLastName = user.LastName
-                    };
-                }
-                return new AuthFailedResponseDto
-                {
-                    ErrorCode = StatusCodes.Status400BadRequest,
-                    Errors = signupUserResult.Errors.Select(x => x.Description)
-                };
-            }
-            catch (SqlException sqlExc)
-            {
-                return GetErrors(sqlExc);
-            }
-            catch (Exception ex)
-            {
-                return GetErrors(ex);
-            }
-        }
-
-        public async Task<AuthenticationResultDto> ExternalLoginAsync(ExternalLoginInfo info, CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                User user = await _userManager.FindByEmailAsync(info.Principal.FindFirstValue(ClaimTypes.Email));
-                if (user == null)
-                {
-                    return new AuthFailedResponseDto
-                    {
-                        ErrorCode = StatusCodes.Status400BadRequest,
-                        Errors = new[] { ErrorMessages.UserDoesntExist }
-                    };
-                }
-                string refreshToken = GetRefreshToken(user);
-                SaveToken(user, refreshToken);
-                return new AuthSucceededResponseDto
-                {
-                    Token = await GetAccessTokenAsync(user),
-                    RefreshToken = refreshToken,
-                    Success = true
-                };
-            }
-            catch (SqlException sqlExc)
-            {
-                return GetErrors(sqlExc);
-            }
-            catch (Exception exc)
-            {
-                return GetErrors(exc);
-            }
-        }
+        //        if (signupUserResult.Succeeded)
+        //        {
+        //            IdentityResult addToRoleUserResult = await _userManager.AddToRoleAsync(user, Roles.user);
+        //            string refreshToken = GetRefreshToken(user);
+        //            SaveToken(user, refreshToken);
+        //            return new AuthSucceededResponseDto
+        //            {
+        //                Token = await GetAccessTokenAsync(user),
+        //                RefreshToken = refreshToken,
+        //                Success = true,
+        //                UserFirstName = user.FirstName,
+        //                UserLastName = user.LastName
+        //            };
+        //        }
+        //        return new AuthFailedResponseDto
+        //        {
+        //            ErrorCode = StatusCodes.Status400BadRequest,
+        //            Errors = signupUserResult.Errors.Select(x => x.Description)
+        //        };
+        //    }
+        //    catch (SqlException sqlExc)
+        //    {
+        //        return GetErrors(sqlExc);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return GetErrors(ex);
+        //    }
+        //}
 
         public async Task<AuthenticationResultDto> LoginAsync(LoginDto loginViewModel, CancellationToken cancellationToken = default)
         {
