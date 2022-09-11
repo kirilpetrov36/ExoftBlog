@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Blog.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class PostController : ControllerBase
     {
@@ -17,8 +17,9 @@ namespace Blog.API.Controllers
             _postService = postService;
         }
 
-        // GET: api/Post
+        // GET: api/Posts
         [HttpGet]
+        [Route("Posts")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<ReadPostDto>>> GetPosts()
         {
@@ -27,9 +28,9 @@ namespace Blog.API.Controllers
             return Ok(posts);
         }
 
-        // GET: api/Post/MostCommentable
+        // GET: api/Posts/MostCommentable
         [HttpGet]
-        [Route("MostCommentable")]
+        [Route("Posts/MostCommentable")]
         public async Task<ActionResult<IEnumerable<ReadPostDto>>> GetMostCommentablePosts()
         {
 
@@ -39,7 +40,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Post/MostLikeable
         [HttpGet]
-        [Route("MostLikeable")]
+        [Route("Posts/MostLikeable")]
         public async Task<ActionResult<IEnumerable<ReadPostDto>>> GetMostLikeablePosts()
         {
 
@@ -48,7 +49,8 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Post/5
-        [HttpGet("{id:long}")]
+        [HttpGet]
+        [Route("Post/{id:long}")]
         public async Task<ActionResult<ReadPostDto>> GetPost([FromRoute] long id)
         {
             ReadPostDto post = await _postService.GetPostAsync(id);
@@ -63,7 +65,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Post/5/Comments
         [HttpGet]
-        [Route("{id:long}/Comments")]
+        [Route("Post/{id:long}/Comments")]
         public async Task<ActionResult<ReadPostCommentsDto>> GetPostComments([FromRoute] long id)
         {
             ReadPostCommentsDto post = await _postService.GetPostCommentsAsync(id);
@@ -76,9 +78,9 @@ namespace Blog.API.Controllers
             return Ok(post);
         }
 
-        // GET: api/Post/5/Comments
+        // GET: api/Post/5/Likes
         [HttpGet]
-        [Route("{id:long}/PostLikes")]
+        [Route("Post/{id:long}/Likes")]
         public async Task<ActionResult<ReadPostLikesDto>> GetPostlikes([FromRoute] long id)
         {
             ReadPostLikesDto post = await _postService.GetPostLikesAsync(id);
@@ -92,8 +94,8 @@ namespace Blog.API.Controllers
         }
 
         // PUT: api/Post/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id:long}")]
+        [HttpPut]
+        [Route("Post/{id:long}")]
         public async Task<IActionResult> PutPost([FromRoute]long id, [FromBody] CreatePostDto post)
         {
             ReadPostDto postToModify = await _postService.GetPostAsync(id);
@@ -106,47 +108,33 @@ namespace Blog.API.Controllers
                 CreatePostDto newPost = await _postService.UpdatePostAsync(id, post);
                 return Ok(newPost);
             }
-         
-            /*
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PostExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }*/
         }
 
-        // POST: api/Posts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/Post
         [HttpPost]
+        [Route("Post")]
         [Authorize(Roles = "User")]
         public async Task<ActionResult<ReadPostDto>> PostPost([FromBody]CreatePostDto post)
         {
             ReadPostDto newPost = await _postService.CreatePostAsync(post);
-            return Ok(newPost);
+            if (newPost == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, null);
+            }
+            else
+            {
+                return Ok(newPost);
+            }
         }
 
         // DELETE: api/Post/5
         [HttpDelete("{id:long}")]
         public async Task<IActionResult> DeletePost([FromRoute]long id)
         {
-            //if (_context.Posts == null)
-            //{
-            //    return NotFound();
-            //}
             ReadPostDto postToDelete = await _postService.GetPostAsync(id);
             if (postToDelete == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             else
             {
@@ -156,14 +144,14 @@ namespace Blog.API.Controllers
             return NoContent();
         }
 
-        //UPDATE :api/ChangePostState/1
-        [HttpPut("ChangeState/{id:long}")]
+        //UPDATE :api/Post/ChangeState/1
+        [HttpPut("Post/ChangeState/{id:long}")]
         public async Task<IActionResult> ChangePostState([FromRoute] long id, ChangeStateDto state)
         {
             ReadPostDto postToModify = await _postService.GetPostAsync(id);
             if (postToModify == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             else
             {

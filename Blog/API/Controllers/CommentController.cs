@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.CommentDto;
+using Blog.BLL.DTO;
 
 namespace Blog.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class CommentController : ControllerBase
     {
@@ -15,9 +16,10 @@ namespace Blog.API.Controllers
             _commentService = commentService;
         }
 
-        // GET: api/Comment
+        // GET: api/Comments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ReadCommentDto>>> GetCommentss()
+        [Route("Coments")]
+        public async Task<ActionResult<IEnumerable<ReadCommentDto>>> GetComments()
         {
 
             IEnumerable<ReadCommentDto> comments = await _commentService.GetCommentsAsync();
@@ -25,7 +27,8 @@ namespace Blog.API.Controllers
         }
 
         // GET: api/Comment/5
-        [HttpGet("{id:long}")]
+        [HttpGet]
+        [Route("Comment/{id:long}")]
         public async Task<ActionResult<ReadCommentDto>> GetComment([FromRoute] long id)
         {
             ReadCommentDto comment = await _commentService.GetCommentAsync(id);
@@ -40,7 +43,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Comment/5/Likes
         [HttpGet]
-        [Route("{id:long}/Likes")]
+        [Route("Comment/{id:long}/Likes")]
         public async Task<ActionResult<ReadCommentLikesDto>> GetCommentLikes([FromRoute] long id)
         {
             ReadCommentLikesDto comment = await _commentService.GetLikesAsync(id);
@@ -55,7 +58,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Comment/5/Childs
         [HttpGet]
-        [Route("{id:long}/Childs")]
+        [Route("Comment/{id:long}/Childs")]
         public async Task<ActionResult<ReadCommentChildsDto>> GetCommentChilds([FromRoute] long id)
         {
             ReadCommentChildsDto comment = await _commentService.GetCommentChildsAsync(id);
@@ -69,8 +72,8 @@ namespace Blog.API.Controllers
         }
 
         // PUT: api/Comment/5
-        // To protect from overcommenting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id:long}")]
+        [HttpPut]
+        [Route("Comment/{id:long}")]
         public async Task<IActionResult> PutComment([FromRoute] long id, [FromBody] CreateCommentDto comment)
         {
             ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
@@ -83,46 +86,38 @@ namespace Blog.API.Controllers
                 CreateCommentDto newComment = await _commentService.UpdateCommentAsync(id, comment);
                 return Ok(newComment);
             }
-
-            /*
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CommentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }*/
         }
 
         // POST: api/Comment
-        // To protect from overcommenting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Route("Comment")]
         public async Task<ActionResult<ReadCommentDto>> PostComment([FromBody] CreateCommentDto comment)
         {
             ReadCommentDto newComment = await _commentService.CreateCommentAsync(comment);
-            return Ok(newComment);
+            if (newComment == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, null);
+            }
+            else
+            {
+                return Ok(newComment);
+            }
         }
 
         // DELETE: api/Comment/5
-        [HttpDelete("{id:long}")]
+        [HttpDelete]
+        [Route("Comment/{id:long}")]
         public async Task<IActionResult> DeleteComment([FromRoute] long id)
         {
-            //if (_context.Comments == null)
-            //{
-            //    return NotFound();
-            //}
+            ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
+            if (commentToModify == null)
+            {
+                return BadRequest();
+            }
             ReadCommentDto commentToDelete = await _commentService.GetCommentAsync(id);
             if (commentToDelete == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             else
             {
@@ -132,20 +127,21 @@ namespace Blog.API.Controllers
             return NoContent();
         }
 
-        // UPDATE :api/ChangeCommentState/1
-        //[HttpPut("{id:long}")]
-        //public async Task<IActionResult> ChangeCommentState([FromRoute] long id, ChangeStateDto state)
-        //{
-        //    ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
-        //    if (commentToModify == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    else
-        //    {
-        //        CreateCommentDto modifiedComment = await _commentService.ChangeCommentStateAsync(id, state);
-        //        return Ok(modifiedComment);
-        //    }
-        //}
+        //UPDATE :api/ChangeCommentState/1
+        [HttpPut]
+        [Route("ChangeCommentState/{id:long}")]
+        public async Task<IActionResult> ChangeCommentState([FromRoute] long id, ChangeStateDto state)
+        {
+            ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
+            if (commentToModify == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                CreateCommentDto modifiedComment = await _commentService.ChangeCommentStateAsync(id, state);
+                return Ok(modifiedComment);
+            }
+        }
     }
 }

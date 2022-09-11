@@ -7,6 +7,8 @@ using AutoMapper;
 
 namespace Blog.BLL.Services
 {
+    //Hasn't implemeted yet
+    //Need to use Azure service for mediafiles
     public class FileService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -30,7 +32,7 @@ namespace Blog.BLL.Services
 
             MediaFile mediaFile = new MediaFile();
             mediaFile.FilePath = url;
-            mediaFile.AltName = null; //need to implement
+            mediaFile.AltName = null;
 
             ContentType content;
             if (Consts.SupportedFileFormats.TryGetValue(formFile.ContentType, out content))

@@ -9,9 +9,5 @@ namespace Blog.DAL.Repositories.Interfaces
         void UpdateUserByRefreshToken(User user, string refreshToken, TimeSpan refreshTokenLifeTime);
         Task<IEnumerable<User>> GetListAsync(CancellationToken token = default);
         Task<User> GetAsync(string id, CancellationToken token = default);
-        Task CreateAsync(User item, CancellationToken token = default);
-        Task<User> UpdateAsync(User item, CancellationToken token = default);
-        Task DeleteAsync(string id, CancellationToken token = default);
-
     }
 }

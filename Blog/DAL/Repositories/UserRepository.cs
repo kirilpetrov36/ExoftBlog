@@ -22,7 +22,6 @@ namespace Blog.DAL.Repositories
         public virtual async Task<User> GetUserByRefreshToken(string refreshToken, CancellationToken cancellationToken = default)
         {
             return _context.Users
-                //.Include(p => p.Logo)
                 .SingleOrDefault(user => user.RefreshTokens.Any(rtokens => rtokens.Token == refreshToken));
         }
 
@@ -58,27 +57,6 @@ namespace Blog.DAL.Repositories
             user.RefreshTokens.Add(new RefreshToken { Token = refreshToken, Expires = DateTime.UtcNow.Add(refreshTokenLifeTime) });
             _context.Update(user);
             _context.SaveChanges();
-        }
-
-        public async Task CreateAsync(User item, CancellationToken token = default)
-        {
-            _context.Set<User>().Add(item);
-        }
-
-        public async Task<User> UpdateAsync(User item, CancellationToken token = default)
-        {
-            _context.Set<User>().Update(item);
-            return item;
-        }
-
-        public async Task DeleteAsync(string id, CancellationToken token = default)
-        {
-            User entity = await _context.Set<User>().FindAsync(id);
-
-            if (entity != null)
-            {
-                _context.Set<User>().Remove(entity);
-            }
         }
     }
 }

@@ -4,10 +4,7 @@ using Blog.BLL.DTO.AccountDto;
 using Blog.BLL.Constants;
 using Blog.API.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
@@ -34,12 +31,11 @@ namespace Blog
             };
 
             services.AddSingleton(jwtSettings);
-
+           
             services.AddControllers();
+            string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>
-               (o => o.UseSqlServer("Server=localhost;Database=Blog;Trusted_Connection=True;"));
-
-            //string connection = Configuration.GetConnectionString("DefaultConnection");
+               (o => o.UseSqlServer(connection)); 
 
             services.RegisterReposAndServices();
             services.RegisterMap();
@@ -71,17 +67,17 @@ namespace Blog
                 });
             });
 
-                services.AddIdentity<User, IdentityRole>
-                (options =>
-                {
-                    options.SignIn.RequireConfirmedAccount = true;
-                    options.Password.RequireDigit = false;
-                    options.Password.RequiredLength = 6;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireUppercase = false;
-                    options.Password.RequireLowercase = false;
-                }).AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders(); ;
+            services.AddIdentity<User, IdentityRole>
+            (options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            }).AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders(); 
 
             TokenValidationParameters tokenValidationParametres = new TokenValidationParameters
             {
@@ -105,24 +101,11 @@ namespace Blog
                 x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-                            //    .AddGoogle(options =>
-                            //    {
-                            //        IConfigurationSection googleAuthNSection =
-                            //Configuration.GetSection("Authentication:Google");
-
-                            //        options.ClientId = googleAuthNSection["ClientId"];
-                            //        options.ClientSecret = googleAuthNSection["ClientSecret"];
-                            //    })
-                            //    .AddFacebook(facebookOptions =>
-                            //    {
-                            //        facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                            //        facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                            //    })
-                            .AddJwtBearer(x =>
-                            {
-                                x.SaveToken = true;
-                                x.TokenValidationParameters = tokenValidationParametres;
-                            });
+            .AddJwtBearer(x =>
+            {
+                x.SaveToken = true;
+                 x.TokenValidationParameters = tokenValidationParametres;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
@@ -140,17 +123,11 @@ namespace Blog
                 app.UseHsts();
             }
 
-            //app.ConfigureCustomExceptionMiddleware();
-
             app.UseStatusCodePages();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            //app.MapControllerRoute(
-            //   name: "ConfirmEmail",
-            //       pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.UseAuthentication();
             app.UseAuthorization();

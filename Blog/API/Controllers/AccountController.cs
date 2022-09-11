@@ -11,7 +11,7 @@ using Blog.BLL.Services.ExternalServices;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.Constants;
 
-namespace Blog.API.Controllers
+namespace  Blog.API.Controllers
 {
     [Route("api/[controller]")]
     public class AccountController : Controller
@@ -78,10 +78,20 @@ namespace Blog.API.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, code);
             if (result.Succeeded)
             {
-                return Ok("Everything is fine");
+                string refreshToken = _accountService.GetRefreshToken(user);
+                _accountService.SaveToken(user, refreshToken);
+                AuthSucceededResponseDto response =  new AuthSucceededResponseDto()
+                {
+                    Token = await _accountService.GetAccessTokenAsync(user),
+                    RefreshToken = refreshToken,
+                    Success = true,
+                    UserFirstName = user.FirstName,
+                    UserLastName = user.LastName
+                };
+                return Ok(response);
             }
             else
-                return Ok("Error");
+                return Ok("Account wasn't confirmed");
         }
 
         [HttpPost]
@@ -103,19 +113,6 @@ namespace Blog.API.Controllers
         {
             AuthenticationResultDto logoutResponse = _accountService.LogoutAsync(refreshTokenDto);
             return GetRegisterAuthResponse(logoutResponse);
-        }
-
-        [HttpPost]
-        [Route("refresh")]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshToken)
-        {
-            AuthenticationResultDto refreshTokenResponse = await _accountService.RefreshTokenAsync(refreshToken.RefreshToken);
-
-            if (!refreshTokenResponse.Success)
-            {
-                return Unauthorized(refreshTokenResponse as AuthFailedResponseDto);
-            }
-            return Ok(refreshTokenResponse as TokenResponseDto);
         }
 
         private IActionResult GetRegisterAuthResponse(AuthenticationResultDto response)
