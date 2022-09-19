@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using Blog.DAL.Entities;
 
 namespace Blog
 {
@@ -9,6 +8,13 @@ namespace Blog
         {
             CreateHostBuilder(args).Build().Run();
         }
+
+        //public static void Migrate(IServiceProvider serviceProvider)
+        //{
+        //    using var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
+        //    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        //    dbContext.Database.Migrate();
+        //}
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)

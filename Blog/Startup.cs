@@ -111,16 +111,16 @@ namespace Blog
         {
             loggerFactory.AddFile(Configuration["LogPath"]);
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-            else
-            {
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //    app.UseSwagger();
+            //    app.UseSwaggerUI();
+            //}
+            //else
+            //{
+            //    app.UseHsts();
+            //}
 
             app.UseStatusCodePages();
 

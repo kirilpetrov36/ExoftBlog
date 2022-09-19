@@ -244,3 +244,35 @@ LEFT JOIN (
 ) AS [t1] ON [t].[Id] = [t1].[ArticleId]
 LEFT JOIN [MediaFiles] AS [m] ON [t].[Id] = [m].[ArticleId]
 ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1], [t1].[Id], [t1].[Id0], [t1].[UserId0], [t1].[Id1]" (0723d8ff)
+2022-09-19T12:04:10.3635347+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-19T12:04:11.1283238+03:00  [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-19T12:04:11.1716056+03:00  [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-19T12:04:11.6023692+03:00  [INF] Executed DbCommand ("46"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-19T12:04:11.6748471+03:00  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-19T12:04:11.9308245+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-09-19T12:04:11.9321997+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-09-19T12:04:11.9390532+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-19T12:04:11.9405873+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-19T12:04:11.9419526+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
