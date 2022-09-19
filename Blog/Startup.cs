@@ -122,6 +122,9 @@ namespace Blog
             //    app.UseHsts();
             //}
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
             app.UseStatusCodePages();
 
             app.UseHttpsRedirection();
