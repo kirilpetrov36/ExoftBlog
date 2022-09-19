@@ -2,6 +2,6 @@
 {
     public class GetFileDto
     {
-        public string Id;
+        public Guid Id;
     }
 }

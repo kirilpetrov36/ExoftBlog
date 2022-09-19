@@ -3,8 +3,8 @@
     public class CreateCommentDto
     {
         public string Text { get; set; }
-        public long UserId { get; set; }
-        public long PostId { get; set; }
-        public long? ParentCommentId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid ArticleId { get; set; }
+        public Guid? ParentCommentId { get; set; }
     }
 }

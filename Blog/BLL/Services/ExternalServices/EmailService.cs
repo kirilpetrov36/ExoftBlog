@@ -31,7 +31,6 @@ namespace Blog.BLL.Services.ExternalServices
                 await client.AuthenticateAsync(FromAddress, FromPassword);
                 await client.SendAsync(emailMessage);
 
-                //After sending the email, disconnect from the email server
                 await client.DisconnectAsync(true);
             }
         }

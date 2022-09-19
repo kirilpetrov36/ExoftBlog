@@ -1,83 +1,80 @@
 ﻿using Blog.BLL.Services.Interfaces;
 using Blog.DAL.UnitOfWork;
 using Blog.BLL.DTO.LikeDto;
-using Blog.BLL.DTO;
 using Blog.DAL.Entities;
 using AutoMapper;
+using Blog.BLL.DTO.ArticleDto;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Blog.BLL.Services
 {
-    public class PostLikeService : IPostLikeService
+    public class ArticleLikeService : IArticleLikeService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private readonly IAccountService _accountService;
 
-        public PostLikeService(ILogger<PostLikeService> logger, IUnitOfWork unitOfWork, IMapper mapper)
+        public ArticleLikeService(ILogger<ArticleLikeService> logger, IUnitOfWork unitOfWork, IMapper mapper, IAccountService accountService)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
+            _accountService = accountService;
         }
 
-        public async Task<ReadPostLikeDto> CreatePostLikeAsync(CreatePostLikeDto item, CancellationToken token = default)
+        public async Task<ReadArticleLikeDto> CreateArticleLikeAsync(CreateArticleLikeDto item, CancellationToken token = default)
         {
-            _logger.LogInformation("PostLike creation with userId - {userId} and {postId}", item.UserId, item.PostId);
-            DateTime timeNow = DateTime.UtcNow;
-            PostLike postLike = _mapper.Map<PostLike>(item);
-            postLike.CreatedAt = timeNow;
-            postLike.UpdatedAt = timeNow;
-            await _unitOfWork.PostLikeRepository.CreateAsync(postLike);
-            await _unitOfWork.SaveChanges();
-            return _mapper.Map<ReadPostLikeDto>(postLike);
+            _logger.LogInformation("ArticleLike creation with userId - {userId} and {articleId}", item.UserId, item.ArticleId);           
+            ArticleLike articleLike = _mapper.Map<ArticleLike>(item);
+            _unitOfWork.ArticleLikeRepository.CreateAsync(articleLike);
+            await _unitOfWork.SaveChanges(_accountService.GetUserId());
+            return _mapper.Map<ReadArticleLikeDto>(articleLike);
         }
 
-        public async Task DeletePostLikeAsync(long id, CancellationToken token = default)
+        public async Task DeleteArticleLikeAsync(Guid id, CancellationToken token = default)
         {
-            _logger.LogInformation("Delete postLike with id - {id}", id);
-            await _unitOfWork.PostLikeRepository.DeleteAsync(id);
+            _logger.LogInformation("Delete articleLike with id - {id}", id);
+            await _unitOfWork.ArticleLikeRepository.DeleteAsync(id);
             await _unitOfWork.SaveChanges();
         }
 
-        public async Task<CreatePostLikeDto> ChangePostLikeStateAsync(long id, ChangeStateDto item, CancellationToken token = default)
+        public async Task<ReadArticleLikeDto> GetArticleLikeAsync(Guid id, CancellationToken token = default)
         {
-            _logger.LogInformation("Disable postLike with id - {id}", id);
-            PostLike postLikeToDisable = await _unitOfWork.PostLikeRepository.GetAsync(id);
-            postLikeToDisable.IsDeleted = item.IsDeleted;
-            postLikeToDisable.UpdatedAt = DateTime.UtcNow;
-            CreatePostLikeDto postLike = _mapper.Map<CreatePostLikeDto>(postLikeToDisable);
-            await _unitOfWork.PostLikeRepository.UpdateAsync(postLikeToDisable);
-            await _unitOfWork.SaveChanges();
-            return postLike;
+            _logger.LogInformation("Get articleLike with id - {id}", id);
+            ArticleLike articleLike = await _unitOfWork.ArticleLikeRepository.GetAsync(id);
+            return _mapper.Map<ReadArticleLikeDto>(articleLike);
         }
 
-        public async Task<ReadPostLikeDto> GetPostLikeAsync(long id, CancellationToken token = default)
+        public async Task<IEnumerable<ReadArticleLikeDto>> GetArticleLikesAsync(CancellationToken token = default)
         {
-            _logger.LogInformation("Get postLike with id - {id}", id);
-            PostLike postLike = await _unitOfWork.PostLikeRepository.GetAsync(id);
-            return _mapper.Map<ReadPostLikeDto>(postLike);
+            _logger.LogInformation("Get all articleLikes");
+
+            IEnumerable<ArticleLike> articleLikes = await _unitOfWork.ArticleLikeRepository.GetListAsync();
+            return _mapper.Map<IEnumerable<ReadArticleLikeDto>>(articleLikes);
         }
 
-        public async Task<IEnumerable<ReadPostLikeDto>> GetPostLikesAsync(CancellationToken token = default)
+        public async Task<ReadArticleLikeDto> UpdateArticleLikeAsync(Guid id, CreateArticleLikeDto item, CancellationToken token = default)
         {
-            _logger.LogInformation("Get all postLikes");
+            _logger.LogInformation("Update articleLike with id - {id}.", id);
 
-            IEnumerable<PostLike> postLikes = await _unitOfWork.PostLikeRepository.GetListAsync();
-            return _mapper.Map<IEnumerable<ReadPostLikeDto>>(postLikes);
+            ArticleLike articleLikeToModify = await _unitOfWork.ArticleLikeRepository.GetAsync(id);
+
+            ArticleLike articleLike = _mapper.Map(item, articleLikeToModify);
+
+            _unitOfWork.ArticleLikeRepository.UpdateAsync(articleLike);
+            await _unitOfWork.SaveChanges(_accountService.GetUserId());
+            return _mapper.Map<ReadArticleLikeDto>(articleLike);
         }
 
-        public async Task<CreatePostLikeDto> UpdatePostLikeAsync(long id, CreatePostLikeDto item, CancellationToken token = default)
+        public async Task<ReadArticleLikeDto> PatchArticleLikeAsync(Guid id, JsonPatchDocument<ArticleLike> articleLikeUpdates, CancellationToken token = default)
         {
-            _logger.LogInformation("Update postLike with id - {id}.", id);
+            _logger.LogInformation("Patch articleLike with id - {id}.", id);
 
-            PostLike postLikeToModify = await _unitOfWork.PostLikeRepository.GetAsync(id);
-
-            PostLike postLike = _mapper.Map(item, postLikeToModify);
-            postLike.UpdatedAt = DateTime.UtcNow;
-
-            await _unitOfWork.PostLikeRepository.UpdateAsync(postLike);
-            await _unitOfWork.SaveChanges();
-            return item;
+            ArticleLike articleLikeToModify = await _unitOfWork.ArticleLikeRepository.GetAsync(id);
+            articleLikeUpdates.ApplyTo(articleLikeToModify);
+            _unitOfWork.ArticleLikeRepository.UpdateAsync(articleLikeToModify);
+            return _mapper.Map<ReadArticleLikeDto>(articleLikeToModify);
         }
     }
 
@@ -86,46 +83,33 @@ namespace Blog.BLL.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private readonly IAccountService _accountService;
 
-        public CommentLikeService(ILogger<CommentLikeService> logger, IUnitOfWork unitOfWork, IMapper mapper)
+        public CommentLikeService(ILogger<CommentLikeService> logger, IUnitOfWork unitOfWork, IMapper mapper, IAccountService accountService)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
+            _accountService = accountService;
         }
 
         public async Task<ReadCommentLikeDto> CreateCommentLikeAsync(CreateCommentLikeDto item, CancellationToken token = default)
         {
             _logger.LogInformation("CommentLike creation with userId - {userId} and {commentId}", item.UserId, item.CommentId);
-            DateTime timeNow = DateTime.UtcNow;
             CommentLike commentLike = _mapper.Map<CommentLike>(item);
-            commentLike.CreatedAt = timeNow;
-            commentLike.UpdatedAt = timeNow;
-            await _unitOfWork.CommentLikeRepository.CreateAsync(commentLike);
-            await _unitOfWork.SaveChanges();
+            _unitOfWork.CommentLikeRepository.CreateAsync(commentLike);
+            await _unitOfWork.SaveChanges(_accountService.GetUserId());
             return _mapper.Map<ReadCommentLikeDto>(commentLike);
         }
 
-        public async Task DeleteCommentLikeAsync(long id, CancellationToken token = default)
+        public async Task DeleteCommentLikeAsync(Guid id, CancellationToken token = default)
         {
             _logger.LogInformation("Delete commentLike with id - {id}", id);
             await _unitOfWork.CommentLikeRepository.DeleteAsync(id);
             await _unitOfWork.SaveChanges();
         }
 
-        public async Task<CreateCommentLikeDto> ChangeCommentLikeStateAsync(long id, ChangeStateDto item, CancellationToken token = default)
-        {
-            _logger.LogInformation("Disable commentLike with id - {id}", id);
-            CommentLike commentLikeToDisable = await _unitOfWork.CommentLikeRepository.GetAsync(id);
-            commentLikeToDisable.IsDeleted = item.IsDeleted;
-            commentLikeToDisable.UpdatedAt = DateTime.UtcNow;
-            CreateCommentLikeDto commentLike = _mapper.Map<CreateCommentLikeDto>(commentLikeToDisable);
-            await _unitOfWork.CommentLikeRepository.UpdateAsync(commentLikeToDisable);
-            await _unitOfWork.SaveChanges();
-            return commentLike;
-        }
-
-        public async Task<ReadCommentLikeDto> GetCommentLikeAsync(long id, CancellationToken token = default)
+        public async Task<ReadCommentLikeDto> GetCommentLikeAsync(Guid id, CancellationToken token = default)
         {
             _logger.LogInformation("Get commentLike with id - {id}", id);
             CommentLike commentLike = await _unitOfWork.CommentLikeRepository.GetAsync(id);
@@ -140,18 +124,26 @@ namespace Blog.BLL.Services
             return _mapper.Map<IEnumerable<ReadCommentLikeDto>>(commentLikes);
         }
 
-        public async Task<CreateCommentLikeDto> UpdateCommentLikeAsync(long id, CreateCommentLikeDto item, CancellationToken token = default)
+        public async Task<ReadLikeDto> UpdateCommentLikeAsync(Guid id, CreateCommentLikeDto item, CancellationToken token = default)
         {
             _logger.LogInformation("Update commentLike with id - {id}.", id);
 
             CommentLike commentLikeToModify = await _unitOfWork.CommentLikeRepository.GetAsync(id);
-
             CommentLike commentLike = _mapper.Map(item, commentLikeToModify);
-            commentLike.UpdatedAt = DateTime.UtcNow;
 
-            await _unitOfWork.CommentLikeRepository.UpdateAsync(commentLike);
-            await _unitOfWork.SaveChanges();
-            return item;
+            _unitOfWork.CommentLikeRepository.UpdateAsync(commentLike);
+            await _unitOfWork.SaveChanges(_accountService.GetUserId());
+            return _mapper.Map<ReadCommentLikeDto>(commentLike);
+        }
+
+        public async Task<ReadCommentLikeDto> PatchCommentLikeAsync(Guid id, JsonPatchDocument<CommentLike> commentLikeUpdates, CancellationToken token = default)
+        {
+            _logger.LogInformation("Patch commentLike with id - {id}.", id);
+
+            CommentLike commentLikeToModify = await _unitOfWork.CommentLikeRepository.GetAsync(id);
+            commentLikeUpdates.ApplyTo(commentLikeToModify);
+            _unitOfWork.CommentLikeRepository.UpdateAsync(commentLikeToModify);
+            return _mapper.Map<ReadCommentLikeDto>(commentLikeToModify);
         }
     }
 }

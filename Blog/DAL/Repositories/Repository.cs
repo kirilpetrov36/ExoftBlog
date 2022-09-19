@@ -2,7 +2,6 @@
 using Blog.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Blog.DAL.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
@@ -15,38 +14,27 @@ namespace Blog.DAL.Repositories
 
         public virtual async Task<IEnumerable<T>> GetListAsync(CancellationToken token = default)
         {
-            if (_context.Posts == null)
-            {
-                return null;
-            }
-
             return await _context.Set<T>().ToListAsync();
 
         }
 
-        public virtual async Task<T> GetAsync(long id, CancellationToken token = default)
+        public virtual async Task<T> GetAsync(Guid id, CancellationToken token = default)
         {
-            if (id == null)
-            {
-                return null;
-            }
-
             return await _context.Set<T>().FindAsync(id);
-
         }
 
-        public virtual async Task CreateAsync(T item, CancellationToken token = default)
+        public virtual void CreateAsync(T item, CancellationToken token = default)
         {
             _context.Set<T>().Add(item);
         }
 
-        public virtual async Task<T> UpdateAsync(T item, CancellationToken token = default)
+        public virtual T UpdateAsync(T item, CancellationToken token = default)
         {
             _context.Set<T>().Update(item);
             return item;
         }
 
-        public virtual async Task DeleteAsync(long id, CancellationToken token = default)
+        public virtual async Task DeleteAsync(Guid id, CancellationToken token = default)
         {
             T entity = await _context.Set<T>().FindAsync(id);
 

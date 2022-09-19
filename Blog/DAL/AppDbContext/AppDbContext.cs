@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Blog.DAL.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blog.DAL.Entities
 {
-    public class AppDbContext : IdentityDbContext<User>
+    public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -12,8 +13,8 @@ namespace Blog.DAL.Entities
             Database.EnsureCreated();
         }
 
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleLike> ArticleLikes { get; set; }
         public DbSet<CommentLike> CommentLikes { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
@@ -21,8 +22,8 @@ namespace Blog.DAL.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.BuildPostModel();
-            modelBuilder.BuildPostLikeModel();
+            modelBuilder.BuildArticleModel();
+            modelBuilder.BuildArticleLikeModel();
             modelBuilder.BuildCommentLikeModel();
             modelBuilder.BuildCommentModel();
             modelBuilder.BuildUserModel();

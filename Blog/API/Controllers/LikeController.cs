@@ -1,78 +1,81 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.LikeDto;
-using Blog.BLL.DTO;
+using Microsoft.AspNetCore.Authorization;
+using Blog.DAL.Entities;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Blog.API.Controllers
 {
     [Route("api")]
     [ApiController]
-    public class PostLikeController : ControllerBase
+    public class ArticleLikeController : ControllerBase
     {
-        private readonly IPostLikeService _postLikeService;
+        private readonly IArticleLikeService _articleLikeService;
 
-        public PostLikeController(IPostLikeService postLikeService)
+        public ArticleLikeController(IArticleLikeService articleLikeService)
         {
-            _postLikeService = postLikeService;
+            _articleLikeService = articleLikeService;
         }
 
-        // GET: api/PostLikes
+        // GET: api/ArticleLikes
         [HttpGet]
-        [Route("PostLikes")]
-        public async Task<ActionResult<IEnumerable<ReadPostLikeDto>>> GetPostLikes()
+        [Route("ArticleLikes")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<ReadArticleLikeDto>>> GetArticleLikes()
         {
 
-            IEnumerable<ReadPostLikeDto> postLikes = await _postLikeService.GetPostLikesAsync();
-            return Ok(postLikes);
+            IEnumerable<ReadArticleLikeDto> articleLikes = await _articleLikeService.GetArticleLikesAsync();
+            return Ok(articleLikes);
         }
 
-        // GET: api/PostLike/5
+        // GET: api/ArticleLike/5
         [HttpGet]
-        [Route("PostLike/{id:long}")]
-        public async Task<ActionResult<ReadPostLikeDto>> GetPostLike([FromRoute] long id)
+        [Route("ArticleLike/{id:long}")]
+        [Authorize]
+        public async Task<ActionResult<ReadArticleLikeDto>> GetArticleLike([FromRoute] Guid id)
         {
-            ReadPostLikeDto postLike = await _postLikeService.GetPostLikeAsync(id);
+            ReadArticleLikeDto articleLike = await _articleLikeService.GetArticleLikeAsync(id);
 
-            if (postLike == null)
+            if (articleLike == null)
             {
                 return BadRequest();
             }
 
-            return Ok(postLike);
+            return Ok(articleLike);
         }
 
-        // POST: api/PostLike
+        // POST: api/ArticleLike
         [HttpPost]
-        [Route("PostLike")]
-        public async Task<ActionResult<ReadPostLikeDto>> PostPostLike([FromBody] CreatePostLikeDto postLike)
+        [Route("ArticleLike")]
+        [Authorize]
+        public async Task<ActionResult<ReadArticleLikeDto>> PostArticleLike([FromBody] CreateArticleLikeDto articleLike)
         {
-            ReadPostLikeDto newPostLike = await _postLikeService.CreatePostLikeAsync(postLike);
-            if (newPostLike == null)
+            ReadArticleLikeDto newArticleLike = await _articleLikeService.CreateArticleLikeAsync(articleLike);
+            if (newArticleLike == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, null);
             }
             else
             {
-                return Ok(newPostLike);
+                return Ok(newArticleLike);
             }      
         }
 
-        // UPDATE :api/PostLike/ChangeState/1
-        [HttpPut("PostLike/ChangeState/{id:long}")]
-        public async Task<IActionResult> ChangePostLikeState([FromRoute] long id, ChangeStateDto state)
+        // PATCH: api/ArticleLike/5
+        [HttpPatch]
+        [Route("ArticleLike/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<ReadArticleLikeDto>> PatchArticleLike([FromRoute] Guid id, JsonPatchDocument<ArticleLike> articleLikeUpdates)
         {
-            ReadPostLikeDto postLikeToModify = await _postLikeService.GetPostLikeAsync(id);
-            if (postLikeToModify == null)
+            ReadArticleLikeDto articleLike = await _articleLikeService.GetArticleLikeAsync(id);
+            if (articleLike == null)
             {
                 return BadRequest();
             }
-            else
-            {
-                CreatePostLikeDto modifiedPostLike = await _postLikeService.ChangePostLikeStateAsync(id, state);
-                return Ok(modifiedPostLike);
-            }
+            ReadArticleLikeDto modifiedArticleLike = await _articleLikeService.PatchArticleLikeAsync(id, articleLikeUpdates);
+            return Ok(modifiedArticleLike);
         }
-
     }
 
     [Route("api")]
@@ -89,6 +92,7 @@ namespace Blog.API.Controllers
         // GET: api/CommentLikes
         [HttpGet]
         [Route("CommentLikes")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ReadCommentLikeDto>>> GetCommentLikes()
         {
 
@@ -99,7 +103,8 @@ namespace Blog.API.Controllers
         // GET: api/CommentLike/5
         [HttpGet]
         [Route("CommentLike/{id:long}")]
-        public async Task<ActionResult<ReadCommentLikeDto>> GetCommentLike([FromRoute] long id)
+        [Authorize]
+        public async Task<ActionResult<ReadCommentLikeDto>> GetCommentLike([FromRoute] Guid id)
         {
             ReadCommentLikeDto commentLike = await _commentLikeService.GetCommentLikeAsync(id);
 
@@ -114,7 +119,8 @@ namespace Blog.API.Controllers
         // POST: api/CommentLike
         [HttpPost]
         [Route("CommentLike")]
-        public async Task<ActionResult<ReadCommentLikeDto>> CommentCommentLike([FromBody] CreateCommentLikeDto commentLike)
+        [Authorize]
+        public async Task<ActionResult<ReadCommentLikeDto>> PostCommentLike([FromBody] CreateCommentLikeDto commentLike)
         {
             ReadCommentLikeDto newCommentLike = await _commentLikeService.CreateCommentLikeAsync(commentLike);
             if (newCommentLike == null)
@@ -127,20 +133,19 @@ namespace Blog.API.Controllers
             }
         }
 
-        // UPDATE :api/CommentLike/ChangeState/1
-        [HttpPut("CommentLike/ChangeState/{id:long}")]
-        public async Task<IActionResult> ChangeCommentLikeState([FromRoute] long id, ChangeStateDto state)
+        // PATCH: api/CommentLike/5
+        [HttpPatch]
+        [Route("CommentLike/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<ReadCommentLikeDto>> PatchCommentLike([FromRoute] Guid id, JsonPatchDocument<CommentLike> commentLikeUpdates)
         {
-            ReadCommentLikeDto commentLikeToModify = await _commentLikeService.GetCommentLikeAsync(id);
-            if (commentLikeToModify == null)
+            ReadCommentLikeDto commentLike = await _commentLikeService.GetCommentLikeAsync(id);
+            if (commentLike == null)
             {
-                return NotFound();
+                return BadRequest();
             }
-            else
-            {
-                CreateCommentLikeDto modifiedCommentLike = await _commentLikeService.ChangeCommentLikeStateAsync(id, state);
-                return Ok(modifiedCommentLike);
-            }
+            ReadCommentLikeDto modifiedCommentLike = await _commentLikeService.PatchCommentLikeAsync(id, commentLikeUpdates);
+            return Ok(modifiedCommentLike);
         }
     }
 }

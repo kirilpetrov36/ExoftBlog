@@ -7,8 +7,7 @@ using AutoMapper;
 
 namespace Blog.BLL.Services
 {
-    //Hasn't implemeted yet
-    //Need to use Azure service for mediafiles
+    // IS NOT IMPLEMENTED YET
     public class FileService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -44,9 +43,8 @@ namespace Blog.BLL.Services
                 throw new ArgumentException(ErrorMessages.InvalidFileFormat);
             }
 
-            await _unitOfWork.MediaFileRepository.CreateAsync(mediaFile);
+            _unitOfWork.MediaFileRepository.CreateAsync(mediaFile);
             return _mapper.Map<ReadFileDto>(mediaFile);
-
         }
     }
 }

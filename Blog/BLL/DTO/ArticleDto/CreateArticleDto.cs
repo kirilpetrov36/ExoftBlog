@@ -1,6 +1,6 @@
-﻿namespace Blog.BLL.DTO.PostDto
+﻿namespace Blog.BLL.DTO.ArticleDto
 {
-    public class CreatePostDto
+    public class CreateArticleDto
     {
         public string Title { get; set; }
         public string Content { get; set; }

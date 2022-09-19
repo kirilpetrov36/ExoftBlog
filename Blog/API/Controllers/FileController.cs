@@ -4,6 +4,7 @@ using Blog.BLL.Services.Interfaces;
 
 namespace Blog.API.Controllers
 {
+    // IS NOT IMPLEMENTED YET
     public class FileController : ControllerBase
     {
         private readonly IFileService _fileService;
@@ -34,19 +35,19 @@ namespace Blog.API.Controllers
         //    }
         //}
 
-        [HttpPost]
+        //[HttpPost]
         //[Authorize]
-        public async Task<IActionResult> InsertFile([FromForm] IFormFile formFile)
-        {
-            if (ModelState.IsValid)
-            {
-                ReadFileDto fileData = await _fileService.InsertFileAsync(formFile);
-                return Ok(fileData);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+        //public async Task<IActionResult> InsertFile([FromForm] IFormFile formFile)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ReadFileDto fileData = await _fileService.InsertFileAsync(formFile);
+        //        return Ok(fileData);
+        //    }
+        //    else
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
     }
 }

@@ -3,51 +3,42 @@ using Blog.DAL.Entities;
 
 namespace Blog.DAL.Extensions
 {
-    public static class PostLikeExtension
+    public static class ArticleLikeExtension
     {
-        public static void BuildPostLikeModel(this ModelBuilder modelBuilder)
+        public static void BuildArticleLikeModel(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PostLike>()
+            modelBuilder.Entity<ArticleLike>()
                 .HasKey(p => p.Id);
 
-            modelBuilder.Entity<PostLike>()
+            modelBuilder.Entity<ArticleLike>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<PostLike>()
+            modelBuilder.Entity<ArticleLike>()
                 .HasOne(p => p.User)
-                .WithMany(b => b.PostLikes)
+                .WithMany(b => b.ArticleLikes)
                 .HasForeignKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
-            modelBuilder.Entity<PostLike>()
+            modelBuilder.Entity<ArticleLike>()
                 .Property(p => p.UserId)
                 .IsRequired();
 
-            modelBuilder.Entity<PostLike>()
-                .HasOne(p => p.Post)
+            modelBuilder.Entity<ArticleLike>()
+                .HasOne(p => p.Article)
                 .WithMany(b => b.Likes)
-                .HasForeignKey(p => p.PostId)
+                .HasForeignKey(p => p.ArticleId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
-            modelBuilder.Entity<PostLike>()
-                .Property(p => p.PostId)
+            modelBuilder.Entity<ArticleLike>()
+                .Property(p => p.ArticleId)
                 .IsRequired();
 
-            modelBuilder.Entity<PostLike>()
-                .Property(p => p.CreatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<PostLike>()
-                .Property(p => p.UpdatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<PostLike>()
+            modelBuilder.Entity<ArticleLike>()
                 .Property(p => p.IsDeleted)
                 .HasDefaultValue(false);
-
         }
     }
 
@@ -82,14 +73,6 @@ namespace Blog.DAL.Extensions
 
             modelBuilder.Entity<CommentLike>()
                 .Property(p => p.CommentId)
-                .IsRequired();
-
-            modelBuilder.Entity<CommentLike>()
-                .Property(p => p.CreatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<CommentLike>()
-                .Property(p => p.UpdatedAt)
                 .IsRequired();
 
             modelBuilder.Entity<CommentLike>()

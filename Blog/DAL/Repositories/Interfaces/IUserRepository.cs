@@ -8,6 +8,6 @@ namespace Blog.DAL.Repositories.Interfaces
         Task<User> GetUserByRefreshToken(string refreshToken, CancellationToken cancellationToken = default);
         void UpdateUserByRefreshToken(User user, string refreshToken, TimeSpan refreshTokenLifeTime);
         Task<IEnumerable<User>> GetListAsync(CancellationToken token = default);
-        Task<User> GetAsync(string id, CancellationToken token = default);
+        Task<User> GetAsync(Guid id, CancellationToken token = default);
     }
 }

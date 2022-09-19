@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -24,19 +22,33 @@ namespace Blog.BLL.Services
         private readonly JwtSettingsDto _jwtSettings;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         //private readonly IFileProvider _fileProvider;
 
-        public AccountService(JwtSettingsDto jwtSettings, IUnitOfWork unitOfWork, IMapper mapper)
+        public AccountService(JwtSettingsDto jwtSettings, IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _jwtSettings = jwtSettings;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
             //_fileProvider = fileProvider;
         }
 
         public void SetUserManager(UserManager<User> userManager)
         {
             _userManager = userManager;
+        }
+
+        public async Task<Tuple<IdentityResult, User>> RegisterAsync(RegisterDto model, CancellationToken cancellationToken = default)
+        {
+            User user = _mapper.Map<User>(model);
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                IdentityResult addToRoleUserResult = await _userManager.AddToRoleAsync(user, Roles.user);
+                return Tuple.Create(addToRoleUserResult, user);
+            }
+            return Tuple.Create(result, user);
         }
 
         public async Task<AuthenticationResultDto> LoginAsync(LoginDto loginViewModel, CancellationToken cancellationToken = default)
@@ -110,11 +122,19 @@ namespace Blog.BLL.Services
             }
         }
 
-        public async Task<ReadUserDto> GetUserInfo(string id, CancellationToken token = default)
+        public Guid GetUserId()
         {
-            User user = await _userManager.FindByIdAsync(id);
-            ReadUserDto readUserDto = _mapper.Map<ReadUserDto>(user);
-            return readUserDto;
+            if (_httpContextAccessor != null)
+            {
+                ClaimsIdentity identity = (ClaimsIdentity)_httpContextAccessor.HttpContext.User.Identity;
+                string userId = identity.Claims.SingleOrDefault(claim => claim.Type == Consts.Id).Value;
+                return new Guid(userId);
+            }
+            else
+            {
+                return Guid.Empty;
+            }
+            
         }
 
         public async Task<string> GetAccessTokenAsync(User user)
@@ -127,7 +147,7 @@ namespace Blog.BLL.Services
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(Claims.Id,user.Id),
+                    new Claim(Claims.Id,user.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
                     new Claim(Claims.UserFirstName, user.FirstName),
                     new Claim(Claims.UserLastName, user.LastName),
@@ -206,10 +226,9 @@ namespace Blog.BLL.Services
             return result.Succeeded;
         }
 
-        public async Task<ReadUserDto> GetById(string userId)
+        public async Task<ReadUserDto> GetById(Guid userId)
         {
-            User user =
-                await _unitOfWork.UserRepository.GetAsync(userId);
+            User user = await _unitOfWork.UserRepository.GetAsync(userId);
 
             return _mapper.Map<ReadUserDto>(user);
         }

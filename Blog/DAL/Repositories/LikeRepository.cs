@@ -4,23 +4,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DAL.Repositories
 {
-    public class PostLikeRepository : Repository<PostLike>, IRepository<PostLike>
+    public class ArticleLikeRepository : Repository<ArticleLike>, IRepository<ArticleLike>
     {
         private readonly AppDbContext _context;
-        public PostLikeRepository(AppDbContext context) : base(context) {
+        public ArticleLikeRepository(AppDbContext context) : base(context) {
             _context = context;
         }
 
-        public override async Task<PostLike> GetAsync(long id, CancellationToken token = default)
+        public override async Task<ArticleLike> GetAsync(Guid id, CancellationToken token = default)
         {
             try
             {
-
-                return await _context.PostLikes
+                return await _context.ArticleLikes
                     .Include(p => p.User)                       
-                    .Include(p => p.Post)
+                    .Include(p => p.Article)
                     .SingleOrDefaultAsync(x => x.Id == id);
-
             }
             catch
             {
@@ -28,11 +26,11 @@ namespace Blog.DAL.Repositories
             }
         }
 
-        public override async Task<IEnumerable<PostLike>> GetListAsync(CancellationToken token = default)
+        public override async Task<IEnumerable<ArticleLike>> GetListAsync(CancellationToken token = default)
         {
-            return await _context.PostLikes
+            return await _context.ArticleLikes
                     .Include(p => p.User)
-                    .Include(p => p.Post)
+                    .Include(p => p.Article)
                     .ToListAsync();
         }
     }
@@ -44,16 +42,14 @@ namespace Blog.DAL.Repositories
             _context = context;
         }
 
-        public override async Task<CommentLike> GetAsync(long id, CancellationToken token = default)
+        public override async Task<CommentLike> GetAsync(Guid id, CancellationToken token = default)
         {
             try
             {
-
                 return await _context.CommentLikes
                     .Include(p => p.User)
                     .Include(p => p.Comment)
                     .SingleOrDefaultAsync(x => x.Id == id);
-
             }
             catch
             {

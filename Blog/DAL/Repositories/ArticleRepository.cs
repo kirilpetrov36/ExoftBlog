@@ -4,33 +4,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DAL.Repositories
 {
-    public class PostRepository : Repository<Post>, IPostRepository
+    public class ArticleRepository : Repository<Article>, IArticleRepository
     {
         private readonly AppDbContext _context;
 
-        public PostRepository (AppDbContext context) : base(context)
+        public ArticleRepository (AppDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public override async Task<Post> GetAsync(long id, CancellationToken token = default)
+        public override async Task<Article> GetAsync(Guid id, CancellationToken token = default)
         {
-            if (id == null)
-            {
-                return null;
-            }
-
             try
             {
-
-                return await _context.Posts
+                return await _context.Articles
                     .Include(p => p.Likes)
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
                         .ThenInclude(p => p.User)
                     .Include(p => p.MediaFiles)
                     .SingleOrDefaultAsync(x => x.Id == id);
-
             }
             catch
             {
@@ -38,9 +31,9 @@ namespace Blog.DAL.Repositories
             }
         }
 
-        public override async Task<IEnumerable<Post>> GetListAsync(CancellationToken token = default)
+        public override async Task<IEnumerable<Article>> GetListAsync(CancellationToken token = default)
         {
-            return await _context.Posts
+            return await _context.Articles
                     .Include(p => p.Likes)
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
@@ -49,9 +42,9 @@ namespace Blog.DAL.Repositories
                     .ToListAsync();
         }
 
-        public async Task<IEnumerable<Post>> GetMostComentableAsync(CancellationToken token = default)
+        public async Task<IEnumerable<Article>> GetMostComentableAsync(CancellationToken token = default)
         {
-            return await _context.Posts
+            return await _context.Articles
                     .Include(p => p.Likes)
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
@@ -62,9 +55,9 @@ namespace Blog.DAL.Repositories
                     
         }
 
-        public async Task<IEnumerable<Post>> GetMostLikeableAsync(CancellationToken token = default)
+        public async Task<IEnumerable<Article>> GetMostLikeableAsync(CancellationToken token = default)
         {
-            return await _context.Posts
+            return await _context.Articles
                     .Include(p => p.Likes)
                         .ThenInclude(p => p.User)
                     .Include(p => p.Comments)

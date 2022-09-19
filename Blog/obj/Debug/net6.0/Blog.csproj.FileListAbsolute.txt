@@ -281,3 +281,4 @@ D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Serilog.Sinks.RollingFile.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MailKit.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MimeKit.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll

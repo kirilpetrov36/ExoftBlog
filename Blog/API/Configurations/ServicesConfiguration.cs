@@ -11,10 +11,10 @@ namespace Blog.API.Configurations
         public static void RegisterReposAndServices(this IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ICommentService, CommentService>();
-            services.AddTransient<IPostLikeService, PostLikeService>();
+            services.AddTransient<IArticleLikeService, ArticleLikeService>();
             services.AddTransient<ICommentLikeService, CommentLikeService>();
         }
 

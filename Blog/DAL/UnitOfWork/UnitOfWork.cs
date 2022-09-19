@@ -1,6 +1,8 @@
 ﻿using Blog.DAL.Repositories;
 using Blog.DAL.Repositories.Interfaces;
 using Blog.DAL.Entities;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DAL.UnitOfWork
 {
@@ -11,10 +13,10 @@ namespace Blog.DAL.UnitOfWork
         {
             _context = context;
         }
-        public IPostRepository PostRepository => new PostRepository(_context);
+        public IArticleRepository ArticleRepository => new ArticleRepository(_context);
         public IRepository<Comment> CommentRepository => new CommentRepository(_context);
         public IRepository<CommentLike> CommentLikeRepository => new CommentLikeRepository(_context);
-        public IRepository<PostLike> PostLikeRepository => new PostLikeRepository(_context);
+        public IRepository<ArticleLike> ArticleLikeRepository => new ArticleLikeRepository(_context);
         public IUserRepository UserRepository => new UserRepository(_context);
         public IRepository<MediaFile> MediaFileRepository => new Repository<MediaFile>(_context);
 
@@ -36,10 +38,33 @@ namespace Blog.DAL.UnitOfWork
             GC.SuppressFinalize(this);
         }
 
+        public async Task SaveChanges(Guid userId)
+        {
+            IEnumerable<EntityEntry> entries = _context.ChangeTracker.Entries();
+            if (!entries.Any())
+                await _context.SaveChangesAsync();
+
+            foreach (EntityEntry entity in entries)
+            {
+                BaseEntity baseEntity = (BaseEntity)entity.Entity;
+
+                if (entity.State == EntityState.Added)
+                {
+                    baseEntity.CreatedAt = DateTime.Now;
+                    baseEntity.CreatedBy = userId;
+                }
+                else if (entity.State == EntityState.Modified)
+                {
+                    baseEntity.UpdatedAt = DateTime.Now;
+                    baseEntity.UpdatedBy = userId;
+                }
+            }
+            await _context.SaveChangesAsync();
+        }
+
         public async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
         }
-
     }
 }

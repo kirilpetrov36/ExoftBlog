@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
@@ -10,6 +9,7 @@ using Blog.DAL.Entities;
 using Blog.BLL.Services.ExternalServices;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.Constants;
+using System.Web;
 
 namespace  Blog.API.Controllers
 {
@@ -28,18 +28,13 @@ namespace  Blog.API.Controllers
 
         [HttpPost]
         [Route("register-by-email")]
-        public async Task RegisterByEmail([FromBody]RegisterDto model)
+        public async Task<IActionResult> RegisterByEmail([FromBody]RegisterDto model)
         {
             if (ModelState.IsValid)
             {
-                MapperConfiguration config = new MapperConfiguration(config => config.CreateMap<RegisterDto, User>()
-                .ForMember(x => x.UserName, x => x.MapFrom(m => m.Email)));
-                Mapper mapper = new Mapper(config);
-                User user = mapper.Map<User>(model);
-                IdentityResult result = await _userManager.CreateAsync(user, model.Password);               
+                (IdentityResult result, User user) = await _accountService.RegisterAsync(model);
                 if (result.Succeeded)
                 {
-                    IdentityResult addToRoleUserResult = await _userManager.AddToRoleAsync(user, Roles.user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action(
                         "ConfirmEmail",
@@ -57,8 +52,10 @@ namespace  Blog.API.Controllers
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
+                    return BadRequest("Someting went wrong");
                 }
             }
+            return Ok("The email with the password reset link has been sent.");
         }
 
         [HttpGet]
@@ -91,7 +88,7 @@ namespace  Blog.API.Controllers
                 return Ok(response);
             }
             else
-                return Ok("Account wasn't confirmed");
+                return BadRequest("Account wasn't confirmed");
         }
 
         [HttpPost]
@@ -115,6 +112,55 @@ namespace  Blog.API.Controllers
             return GetRegisterAuthResponse(logoutResponse);
         }
 
+        [HttpPost]
+        [Route("Forgot")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto model, CancellationToken cancellationToken = default)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = null;
+                user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    string code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    string callbackUrl = Url.Action("ResetPassword", "Account", new { email = user.Email, code = code }, protocol: HttpContext.Request.Scheme);
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(model.Email, "Reset Password",
+                        $"Link to reset password: <a href='{callbackUrl}'>link</a>");
+                }
+                return Ok("The email with the password reset link has been sent.");
+            }
+            return BadRequest(ModelState);
+        }
+
+        // Resetting user's password after clicking the email link
+        [HttpPost]
+        [Route("Reset")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model, CancellationToken cancellationToken = default)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            User user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest("This email doesn't exist in the database.");
+            }
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, HttpUtility.UrlDecode(model.Code), model.Password);
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            foreach (IdentityError error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return BadRequest(ModelState);
+        }
+
         private IActionResult GetRegisterAuthResponse(AuthenticationResultDto response)
         {
             if (!response.Success)
@@ -132,14 +178,14 @@ namespace  Blog.API.Controllers
         [HttpGet]
         [Route("Me")]
         [Authorize]
-        public async Task<ReadUserDto> GetUserInfo()
+        public async Task<string> GetUserInfo()
         {
             ClaimsIdentity identity = (ClaimsIdentity)User.Identity;
             string id = identity.Claims.SingleOrDefault(claim => claim.Type == Consts.Id).Value;
             ReadUserDto user =
-                await _accountService.GetById(id);
+                await _accountService.GetById(new Guid(id));
 
-            return user;
+            return id;
         }
 
         [HttpPut]
@@ -149,12 +195,8 @@ namespace  Blog.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                ClaimsIdentity identity = (ClaimsIdentity)User.Identity;
-
-                string id = identity.Claims.SingleOrDefault(claim => claim.Type == Consts.Id).Value;
-
                 User user =
-                    await _userManager.FindByIdAsync(id);
+                    await _userManager.FindByIdAsync(_accountService.GetUserId().ToString());
 
                 if (user == null)
                 {
@@ -181,7 +223,7 @@ namespace  Blog.API.Controllers
 
         [HttpPut]
         [Route("update")]
-        [Authorize]
+        [Authorize(Roles = Roles.admin)]
         public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserDto value)
         {
             if (ModelState.IsValid)

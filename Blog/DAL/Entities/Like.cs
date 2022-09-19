@@ -1,22 +1,20 @@
-﻿using Blog.DAL.Entities.Interfaces;
-
-namespace Blog.DAL.Entities
+﻿namespace Blog.DAL.Entities
 {
-    public class PostLike : BaseEntity
+    public class ArticleLike : BaseEntity
     {
-        public long Id { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public User User { get; set; }
-        public long PostId { get; set; }
-        public Post Post { get; set; }
+        public Guid ArticleId { get; set; }
+        public Article Article { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
     public class CommentLike : BaseEntity
     {
-        public long Id { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public User User { get; set; }
-        public long CommentId { get; set; }
+        public Guid CommentId { get; set; }
         public Comment Comment { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

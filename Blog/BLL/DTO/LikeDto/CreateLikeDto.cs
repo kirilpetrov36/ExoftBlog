@@ -1,14 +1,14 @@
 ﻿namespace Blog.BLL.DTO.LikeDto
 {
-    public class CreatePostLikeDto
+    public class CreateArticleLikeDto
     {
-        public long UserId { get; set; }
-        public long PostId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid ArticleId { get; set; }
     }
 
     public class CreateCommentLikeDto
     {
-        public long UserId { get; set; }
-        public long CommentId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid CommentId { get; set; }
     }
 }

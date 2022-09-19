@@ -11,19 +11,17 @@ namespace Blog.DAL.Repositories
             _context = context;
         }
         
-        public override async Task<Comment> GetAsync(long id, CancellationToken token = default)
+        public override async Task<Comment> GetAsync(Guid id, CancellationToken token = default)
         {
             try
             {
-
                 return await _context.Comments
                     .Include(p => p.User)
-                    .Include(p => p.Post)
+                    .Include(p => p.Article)
                     .Include(p => p.ParentComment)
                     .Include(p => p.ChildComments)
                     .Include(p => p.Likes)
                     .SingleOrDefaultAsync(x => x.Id == id);
-
             }
             catch
             {
@@ -33,13 +31,20 @@ namespace Blog.DAL.Repositories
 
         public override async Task<IEnumerable<Comment>> GetListAsync(CancellationToken token = default)
         {
-            return await _context.Comments
+            try
+            {
+                return await _context.Comments
                     .Include(p => p.User)
-                    .Include(p => p.Post)
+                    .Include(p => p.Article)
                     .Include(p => p.ParentComment)
                     .Include(p => p.ChildComments)
                     .Include(p => p.Likes)
                     .ToListAsync();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
     }

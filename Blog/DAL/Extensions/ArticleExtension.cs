@@ -3,39 +3,30 @@ using Blog.DAL.Entities;
 
 namespace Blog.DAL.Extensions
 {
-    public static class PostExtension
+    public static class ArticleExtension
     {
-        public static void BuildPostModel(this ModelBuilder modelBuilder)
+        public static void BuildArticleModel(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Article>()
                 .HasKey(p => p.Id);
 
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Article>()
                .Property(p => p.Id)
                .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Article>()
                 .Property(p => p.Title)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Article>()
                 .Property(p => p.Content)
                 .IsRequired()
                 .HasMaxLength(10000);
 
-            modelBuilder.Entity<Post>()
-                .Property(p => p.CreatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<Post>()
-               .Property(p => p.UpdatedAt)
-               .IsRequired();
-
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Article>()
                 .Property(p => p.IsDeleted)
                 .HasDefaultValue(false);
-
         }
 
     }

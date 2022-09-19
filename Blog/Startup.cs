@@ -33,6 +33,8 @@ namespace Blog
             services.AddSingleton(jwtSettings);
            
             services.AddControllers();
+            services.AddHttpContextAccessor();
+
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>
                (o => o.UseSqlServer(connection)); 
@@ -40,11 +42,8 @@ namespace Blog
             services.RegisterReposAndServices();
             services.RegisterMap();
 
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
-
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            services.AddControllers().AddNewtonsoftJson();
+           
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(options =>
             {
@@ -65,9 +64,9 @@ namespace Blog
                     },new List<string>()
                 }
                 });
-            });
+            }).AddSwaggerGenNewtonsoftSupport();
 
-            services.AddIdentity<User, IdentityRole>
+            services.AddIdentity<User, IdentityRole<Guid>>
             (options =>
             {
                 options.SignIn.RequireConfirmedAccount = true;
@@ -104,7 +103,7 @@ namespace Blog
             .AddJwtBearer(x =>
             {
                 x.SaveToken = true;
-                 x.TokenValidationParameters = tokenValidationParametres;
+                x.TokenValidationParameters = tokenValidationParametres;
             });
         }
 
@@ -138,26 +137,23 @@ namespace Blog
                 endpoints.MapControllers();
             });
 
-           
-
-
             CreateUserRoles(serviceProvider).Wait();
         }
 
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
-            RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            RoleManager<IdentityRole<Guid>> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
 
             bool roleAdminCheck = await roleManager.RoleExistsAsync(Roles.admin);
             bool roleUserCheck = await roleManager.RoleExistsAsync(Roles.user);
 
             if (!roleAdminCheck)
             {
-                await roleManager.CreateAsync(new IdentityRole(Roles.admin));
+                await roleManager.CreateAsync(new IdentityRole<Guid>(Roles.admin));
             }
             if (!roleUserCheck)
             {
-                await roleManager.CreateAsync(new IdentityRole(Roles.user));
+                await roleManager.CreateAsync(new IdentityRole<Guid>(Roles.user));
             }
         }
 

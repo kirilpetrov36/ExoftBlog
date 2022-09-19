@@ -19,13 +19,11 @@ namespace Blog.DAL.Extensions
                 .IsRequired();
 
             modelBuilder.Entity<MediaFile>()
-                .HasOne(p => p.Post)
+                .HasOne(p => p.Article)
                 .WithMany(p => p.MediaFiles)
-                .HasForeignKey(p => p.PostId)
+                .HasForeignKey(p => p.ArticleId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
-
-
         }
     }
 }

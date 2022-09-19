@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.CommentDto;
-using Blog.BLL.DTO;
+using Microsoft.AspNetCore.Authorization;
+using Blog.BLL.DTO.ArticleDto;
+using Blog.BLL.Services;
+using Blog.DAL.Entities;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Blog.API.Controllers
 {
@@ -19,6 +23,7 @@ namespace Blog.API.Controllers
         // GET: api/Comments
         [HttpGet]
         [Route("Coments")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ReadCommentDto>>> GetComments()
         {
 
@@ -29,7 +34,8 @@ namespace Blog.API.Controllers
         // GET: api/Comment/5
         [HttpGet]
         [Route("Comment/{id:long}")]
-        public async Task<ActionResult<ReadCommentDto>> GetComment([FromRoute] long id)
+        [Authorize]
+        public async Task<ActionResult<ReadCommentDto>> GetComment([FromRoute] Guid id)
         {
             ReadCommentDto comment = await _commentService.GetCommentAsync(id);
 
@@ -44,7 +50,8 @@ namespace Blog.API.Controllers
         // GET: api/Comment/5/Likes
         [HttpGet]
         [Route("Comment/{id:long}/Likes")]
-        public async Task<ActionResult<ReadCommentLikesDto>> GetCommentLikes([FromRoute] long id)
+        [Authorize]
+        public async Task<ActionResult<ReadCommentLikesDto>> GetCommentLikes([FromRoute] Guid id)
         {
             ReadCommentLikesDto comment = await _commentService.GetLikesAsync(id);
 
@@ -59,7 +66,8 @@ namespace Blog.API.Controllers
         // GET: api/Comment/5/Childs
         [HttpGet]
         [Route("Comment/{id:long}/Childs")]
-        public async Task<ActionResult<ReadCommentChildsDto>> GetCommentChilds([FromRoute] long id)
+        [Authorize]
+        public async Task<ActionResult<ReadCommentChildsDto>> GetCommentChilds([FromRoute] Guid id)
         {
             ReadCommentChildsDto comment = await _commentService.GetCommentChildsAsync(id);
 
@@ -71,10 +79,26 @@ namespace Blog.API.Controllers
             return Ok(comment);
         }
 
+        // PATCH: api/Comment/5
+        [HttpPatch]
+        [Route("Comment/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<ReadCommentDto>> PatchComment([FromRoute] Guid id, JsonPatchDocument<Comment> commentUpdates)
+        {
+            ReadCommentDto comment = await _commentService.GetCommentAsync(id);
+            if (comment == null)
+            {
+                return BadRequest();
+            }
+            ReadCommentDto modifiedComment = await _commentService.PatchCommentAsync(id, commentUpdates);
+            return Ok(modifiedComment);
+        }
+
         // PUT: api/Comment/5
         [HttpPut]
         [Route("Comment/{id:long}")]
-        public async Task<IActionResult> PutComment([FromRoute] long id, [FromBody] CreateCommentDto comment)
+        [Authorize]
+        public async Task<IActionResult> PutComment([FromRoute] Guid id, [FromBody] CreateCommentDto comment)
         {
             ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
             if (commentToModify == null)
@@ -91,6 +115,7 @@ namespace Blog.API.Controllers
         // POST: api/Comment
         [HttpPost]
         [Route("Comment")]
+        [Authorize]
         public async Task<ActionResult<ReadCommentDto>> PostComment([FromBody] CreateCommentDto comment)
         {
             ReadCommentDto newComment = await _commentService.CreateCommentAsync(comment);
@@ -107,7 +132,8 @@ namespace Blog.API.Controllers
         // DELETE: api/Comment/5
         [HttpDelete]
         [Route("Comment/{id:long}")]
-        public async Task<IActionResult> DeleteComment([FromRoute] long id)
+        [Authorize]
+        public async Task<IActionResult> DeleteComment([FromRoute] Guid id)
         {
             ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
             if (commentToModify == null)
@@ -125,23 +151,6 @@ namespace Blog.API.Controllers
             }
 
             return NoContent();
-        }
-
-        //UPDATE :api/ChangeCommentState/1
-        [HttpPut]
-        [Route("ChangeCommentState/{id:long}")]
-        public async Task<IActionResult> ChangeCommentState([FromRoute] long id, ChangeStateDto state)
-        {
-            ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
-            if (commentToModify == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                CreateCommentDto modifiedComment = await _commentService.ChangeCommentStateAsync(id, state);
-                return Ok(modifiedComment);
-            }
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Blog.BLL.DTO.File
 {
-    public class ReadFileDto
+    public class ReadFileDto : BaseDto
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string FileUrl { get; set; }
         public string AltUrl { get; set; }
         public string ContentType { get; set; }

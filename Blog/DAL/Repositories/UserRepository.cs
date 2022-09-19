@@ -21,21 +21,20 @@ namespace Blog.DAL.Repositories
 
         public virtual async Task<User> GetUserByRefreshToken(string refreshToken, CancellationToken cancellationToken = default)
         {
-            return _context.Users
-                .SingleOrDefault(user => user.RefreshTokens.Any(rtokens => rtokens.Token == refreshToken));
+            return await _context.Users
+                .SingleOrDefaultAsync(user => user.RefreshTokens.Any(rtokens => rtokens.Token == refreshToken));
         }
 
-        public async Task<User> GetAsync(string id, CancellationToken token = default)
+        public async Task<User> GetAsync(Guid id, CancellationToken token = default)
         {
             try
             {
                 return await _context.Users
                     .Include(p => p.Comments)
-                        .ThenInclude(p => p.Post)
-                    .Include(p => p.PostLikes)
+                        .ThenInclude(p => p.Article)
+                    .Include(p => p.ArticleLikes)
                     .Include(p => p.CommentLikes)
                     .SingleOrDefaultAsync(x => x.Id == id);
-
             }
             catch
             {
@@ -47,7 +46,7 @@ namespace Blog.DAL.Repositories
         {
             return await _context.Users
                     .Include(p => p.Comments)
-                    .Include(p => p.PostLikes)
+                    .Include(p => p.ArticleLikes)
                     .Include(p => p.CommentLikes)
                     .ToListAsync();
         }
@@ -56,7 +55,6 @@ namespace Blog.DAL.Repositories
         {
             user.RefreshTokens.Add(new RefreshToken { Token = refreshToken, Expires = DateTime.UtcNow.Add(refreshTokenLifeTime) });
             _context.Update(user);
-            _context.SaveChanges();
         }
     }
 }

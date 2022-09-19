@@ -20,9 +20,9 @@ namespace Blog.DAL.Extensions
                 .IsRequired();
 
             modelBuilder.Entity<Comment>()
-                .HasOne(p => p.Post)
+                .HasOne(p => p.Article)
                 .WithMany(p => p.Comments)
-                .HasForeignKey(p => p.PostId)
+                .HasForeignKey(p => p.ArticleId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
@@ -42,15 +42,6 @@ namespace Blog.DAL.Extensions
                 .WithMany(p => p.ChildComments)
                 .HasForeignKey(p => p.ParentCommentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Comment>()
-                .Property(p => p.CreatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<Comment>()
-                .Property(p => p.UpdatedAt)
-                .IsRequired();
-
         }
     }
 }

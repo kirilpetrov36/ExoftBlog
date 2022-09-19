@@ -23,14 +23,6 @@ namespace Blog.DAL.Extensions
                 .Property(p => p.LastName)
                 .HasMaxLength(32)
                 .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(p => p.CreatedAt)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(p => p.UpdatedAt)
-                .IsRequired();
         }
     }
 }
