@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Blog.BLL.DTO.File;
 using Blog.BLL.Services.Interfaces;
+using Blog.DAL.Entities;
 
 namespace Blog.API.Controllers
 {
-    // IS NOT IMPLEMENTED YET
+    [Route("api")]
+    [ApiController]
     public class FileController : ControllerBase
     {
         private readonly IFileService _fileService;
@@ -14,40 +15,47 @@ namespace Blog.API.Controllers
             _fileService = fileService;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetFile([FromQuery] GetFileDto getFile)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        ReadFileDto fileData = await _fileService.GetFileAsync(getFile);
-        //        if (fileData != null)
-        //        {
-        //            return Ok(fileData);
-        //        }
-        //        else
-        //        {
-        //            return NotFound();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+        [Route("PostFiles")]
+        [HttpGet]
+        public async Task<ActionResult<List<DataFile>>> GetPostImages(Guid postId)
+        {
+            List <DataFile> result = await _fileService.GetPostImages(postId);
+            if(result == null)
+            {
+                return NotFound();
+            }
+            return result;
+        }
 
-        //[HttpPost]
-        //[Authorize]
-        //public async Task<IActionResult> InsertFile([FromForm] IFormFile formFile)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        ReadFileDto fileData = await _fileService.InsertFileAsync(formFile);
-        //        return Ok(fileData);
-        //    }
-        //    else
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+        [Route("File")]
+        [HttpGet]
+        public async Task<ActionResult<DataFile>> GetFileById(Guid FileId)
+        {
+            DataFile result = await _fileService.GetFileById(FileId);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return result;
+        }
+
+        [Route("File")]
+        [HttpPost]
+        public async Task<ActionResult<List<DataFile>>> UploadFile(ICollection<IFormFile> files, Guid postId)
+        { 
+            List<DataFile> dataFiles = await _fileService.UploadFilesAsync(files, postId);
+            if (dataFiles == null)
+            {
+                return BadRequest();
+            }
+            return Ok(dataFiles);
+        }
+
+        [Route("File")]
+        [HttpDelete]
+        public async Task DeleteFile(Guid FileId)
+        {
+            await _fileService.RemoveFileAsync(FileId);
+        }
     }
 }

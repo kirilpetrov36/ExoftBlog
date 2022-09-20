@@ -53,7 +53,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Article/5
         [HttpGet]
-        [Route("Article/{id:long}")]
+        [Route("Article/{id:Guid}")]
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> GetArticle([FromRoute] Guid id)
         {
@@ -69,7 +69,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Article/5/Comments
         [HttpGet]
-        [Route("Article/{id:long}/Comments")]
+        [Route("Article/{id:Guid}/Comments")]
         [Authorize]
         public async Task<ActionResult<ReadArticleCommentsDto>> GetArticleComments([FromRoute] Guid id)
         {
@@ -85,7 +85,7 @@ namespace Blog.API.Controllers
 
         // GET: api/Article/5/Likes
         [HttpGet]
-        [Route("Article/{id:long}/Likes")]
+        [Route("Article/{id:Guid}/Likes")]
         [Authorize]
         public async Task<ActionResult<ReadArticleLikesDto>> GetArticlelikes([FromRoute] Guid id)
         {
@@ -116,7 +116,7 @@ namespace Blog.API.Controllers
 
         // PUT: api/Article/5
         [HttpPut]
-        [Route("Article/{id:long}")]
+        [Route("Article/{id:Guid}")]
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article)
         {
@@ -147,7 +147,7 @@ namespace Blog.API.Controllers
 
         // DELETE: api/Article/5
         [HttpDelete]
-        [Route("Article/{id:long}")]
+        [Route("Article/{id:Guid}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteArticle([FromRoute] Guid id)
         {

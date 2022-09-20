@@ -3,24 +3,24 @@ using Blog.DAL.Entities;
 
 namespace Blog.DAL.Extensions
 {
-    public static class MediaFileExtension
+    public static class DataFileExtension
     {
-        public static void BuildMediaFileModel(this ModelBuilder modelBuilder)
+        public static void BuildDataFileModel(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MediaFile>()
+            modelBuilder.Entity<DataFile>()
                 .HasKey(p => p.Id);
 
-            modelBuilder.Entity<MediaFile>()
+            modelBuilder.Entity<DataFile>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<MediaFile>()
-                .Property(p => p.FilePath)
+            modelBuilder.Entity<DataFile>()
+                .Property(p => p.Url)
                 .IsRequired();
 
-            modelBuilder.Entity<MediaFile>()
+            modelBuilder.Entity<DataFile>()
                 .HasOne(p => p.Article)
-                .WithMany(p => p.MediaFiles)
+                .WithMany(p => p.DataFiles)
                 .HasForeignKey(p => p.ArticleId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();

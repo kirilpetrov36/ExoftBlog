@@ -4,6 +4,7 @@ using Blog.BLL.DTO.LikeDto;
 using Microsoft.AspNetCore.Authorization;
 using Blog.DAL.Entities;
 using Microsoft.AspNetCore.JsonPatch;
+using Blog.BLL.Services;
 
 namespace Blog.API.Controllers
 {
@@ -31,7 +32,7 @@ namespace Blog.API.Controllers
 
         // GET: api/ArticleLike/5
         [HttpGet]
-        [Route("ArticleLike/{id:long}")]
+        [Route("ArticleLike/{id:Guid}")]
         [Authorize]
         public async Task<ActionResult<ReadArticleLikeDto>> GetArticleLike([FromRoute] Guid id)
         {
@@ -76,6 +77,24 @@ namespace Blog.API.Controllers
             ReadArticleLikeDto modifiedArticleLike = await _articleLikeService.PatchArticleLikeAsync(id, articleLikeUpdates);
             return Ok(modifiedArticleLike);
         }
+
+        // GET: api/LikesAmount/Article/5
+        [HttpGet]
+        [Route("LikesAmount/Article/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid ArticleId)
+        {
+            int? result = await _articleLikeService.GetArticleLikesAmountAsync(ArticleId);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 
     [Route("api")]
@@ -102,7 +121,7 @@ namespace Blog.API.Controllers
 
         // GET: api/CommentLike/5
         [HttpGet]
-        [Route("CommentLike/{id:long}")]
+        [Route("CommentLike/{id:Guid}")]
         [Authorize]
         public async Task<ActionResult<ReadCommentLikeDto>> GetCommentLike([FromRoute] Guid id)
         {
@@ -146,6 +165,24 @@ namespace Blog.API.Controllers
             }
             ReadCommentLikeDto modifiedCommentLike = await _commentLikeService.PatchCommentLikeAsync(id, commentLikeUpdates);
             return Ok(modifiedCommentLike);
+        }
+
+        // GET: api/LikesAmount/Comment/5
+        [HttpGet]
+        [Route("LikesAmount/Comment/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid CommentId)
+        {
+            int? result = await _commentLikeService.GetCommentLikesAmountAsync(CommentId);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

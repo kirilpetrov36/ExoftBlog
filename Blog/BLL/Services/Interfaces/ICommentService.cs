@@ -17,5 +17,6 @@ namespace Blog.BLL.Services.Interfaces
         Task<IEnumerable<ReadCommentDto>> GetCommentsAsync(CancellationToken token = default);
         Task<CreateCommentDto> UpdateCommentAsync(Guid id, CreateCommentDto item, CancellationToken token = default);
         Task<ReadCommentDto> PatchCommentAsync(Guid id, JsonPatchDocument<Comment> articleUpdates, CancellationToken token = default);
+        Task<int?> GetArticleCommentsAmount(Guid ArticleId);
     }
 }

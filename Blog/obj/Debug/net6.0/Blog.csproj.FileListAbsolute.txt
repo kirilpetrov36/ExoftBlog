@@ -282,3 +282,9 @@ D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MailKit.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\MimeKit.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Azure.Core.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Azure.Storage.Common.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.IO.Hashing.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.Memory.Data.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.WindowsAzure.Storage.dll
