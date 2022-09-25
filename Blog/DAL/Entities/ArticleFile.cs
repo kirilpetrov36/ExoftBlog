@@ -1,6 +1,6 @@
 ﻿namespace Blog.DAL.Entities
 {
-    public class DataFile : BaseEntity
+    public class ArticleFile : BaseEntity
     {
         public string Url { get; set; }
         public string BlobName { get; set; }

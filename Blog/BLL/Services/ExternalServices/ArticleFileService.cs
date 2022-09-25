@@ -6,14 +6,14 @@ using Blog.DAL.UnitOfWork;
 
 namespace Blog.BLL.Services.ExternalServices
 {
-    public class FileService : IFileService
+    public class ArticleFileService : IArticleFileService
     {
         public IConfiguration Configuration { get; }
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAccountService _accountService;
         private readonly ILogger _logger;
 
-        public FileService(IConfiguration configuration, IUnitOfWork unitOfWork, IAccountService accountService, ILogger logger)
+        public ArticleFileService(IConfiguration configuration, IUnitOfWork unitOfWork, IAccountService accountService, ILogger logger)
         {
             Configuration = configuration;
             _unitOfWork = unitOfWork;
@@ -21,7 +21,7 @@ namespace Blog.BLL.Services.ExternalServices
             _logger = logger;
         }
 
-        public async Task<List<DataFile>> UploadFilesAsync(ICollection<IFormFile> files, Guid postId)
+        public async Task<List<ArticleFile>> UploadFilesAsync(ICollection<IFormFile> files, Guid postId)
         {   
             try
             {
@@ -29,11 +29,11 @@ namespace Blog.BLL.Services.ExternalServices
                     return null;
 
                 var container = new BlobContainerClient(
-                    Configuration.GetConnectionString("blobStorageConnectionString") ,
+                    Configuration.GetConnectionString("blobStorageConnectionString"),
                     Configuration.GetConnectionString("blobStorageContainerName")
                 );
 
-                List<DataFile> dataFiles = new List<DataFile>();
+                List<ArticleFile> dataFiles = new List<ArticleFile>();
 
 
                 foreach (var formFile in files)
@@ -50,14 +50,14 @@ namespace Blog.BLL.Services.ExternalServices
                             var data = new BinaryData(fileBytes);
                             await client.UploadAsync(data);
                         }
-                        DataFile file = new DataFile()
+                        ArticleFile file = new ArticleFile()
                         {
                             Url = container.Uri + $"/Posts/{PostId}/{fileName}",
                             BlobName = $"/Posts/{PostId}/{fileName}",
                             ArticleId = postId
                         };
                         dataFiles.Add(file);
-                        _unitOfWork.DataFileRepository.CreateAsync(file);
+                        _unitOfWork.ArticleFileRepository.CreateAsync(file);
                         await _unitOfWork.SaveChanges(_accountService.GetUserId());
                         
                     }
@@ -87,7 +87,7 @@ namespace Blog.BLL.Services.ExternalServices
                     Configuration.GetConnectionString("blobStorageConnectionString"),
                     Configuration.GetConnectionString("blobStorageContainerName")
             );
-            DataFile file = await _unitOfWork.DataFileRepository.GetAsync(FileId);
+            ArticleFile file = await _unitOfWork.ArticleFileRepository.GetAsync(FileId);
             if (file == null)
             {
                 _logger.LogInformation($"File with id {FileId} wasn't found");
@@ -95,15 +95,15 @@ namespace Blog.BLL.Services.ExternalServices
             }
 
             await container.DeleteBlobAsync(file.BlobName, DeleteSnapshotsOption.None);               
-            _unitOfWork.DataFileRepository.DeleteAsync(file);
+            _unitOfWork.ArticleFileRepository.DeleteAsync(file);
             await _unitOfWork.SaveChanges();
 
             return await Task.FromResult(true);
         }
 
-        public async Task<List<DataFile>> GetPostImages(Guid postId)
+        public async Task<List<ArticleFile>> GetPostImages(Guid postId)
         {
-            List<DataFile> images = new List<DataFile>();
+            List<ArticleFile> images = new List<ArticleFile>();
             var container = new BlobContainerClient(
                     Configuration.GetConnectionString("blobStorageConnectionString"),
                     Configuration.GetConnectionString("blobStorageContainerName")
@@ -114,7 +114,7 @@ namespace Blog.BLL.Services.ExternalServices
             await foreach (var blobHierarchyItem in blobHierarchyItems)
             {                
                 string blobName = blobHierarchyItem.Blob.Name;
-                images.Add(new DataFile() { 
+                images.Add(new ArticleFile() { 
                     BlobName = blobName, 
                     Url = container.Uri + "/" + blobName 
                 });
@@ -123,9 +123,9 @@ namespace Blog.BLL.Services.ExternalServices
             return await Task.FromResult(images);
         }
 
-        public async Task<DataFile> GetFileById(Guid FileId)
+        public async Task<ArticleFile> GetFileById(Guid FileId)
         {
-            DataFile file = await _unitOfWork.DataFileRepository.GetAsync(FileId);
+            ArticleFile file = await _unitOfWork.ArticleFileRepository.GetAsync(FileId);
             return file;
         }
     }

@@ -18,7 +18,7 @@ namespace Blog.DAL.Entities
         public DbSet<CommentLike> CommentLikes { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<DataFile> DataFiles { get; set; }
+        public DbSet<ArticleFile> ArticleFiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace Blog.DAL.Entities
             modelBuilder.BuildCommentLikeModel();
             modelBuilder.BuildCommentModel();
             modelBuilder.BuildUserModel();
-            modelBuilder.BuildDataFileModel();
+            modelBuilder.BuildArticleFileModel();
             modelBuilder.BuildRefreshTokenModel();
             base.OnModelCreating(modelBuilder);
         }

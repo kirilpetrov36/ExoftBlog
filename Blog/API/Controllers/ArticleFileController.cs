@@ -6,20 +6,20 @@ namespace Blog.API.Controllers
 {
     [Route("api")]
     [ApiController]
-    public class FileController : ControllerBase
+    public class ArticleFileController : ControllerBase
     {
-        private readonly IFileService _fileService;
+        private readonly IArticleFileService _fileService;
 
-        public FileController (IFileService fileService)
+        public ArticleFileController (IArticleFileService fileService)
         {
             _fileService = fileService;
         }
 
         [Route("PostFiles")]
         [HttpGet]
-        public async Task<ActionResult<List<DataFile>>> GetPostImages(Guid postId)
+        public async Task<ActionResult<List<ArticleFile>>> GetPostImages(Guid postId)
         {
-            List <DataFile> result = await _fileService.GetPostImages(postId);
+            List <ArticleFile> result = await _fileService.GetPostImages(postId);
             if(result == null)
             {
                 return NotFound();
@@ -29,9 +29,9 @@ namespace Blog.API.Controllers
 
         [Route("File")]
         [HttpGet]
-        public async Task<ActionResult<DataFile>> GetFileById(Guid FileId)
+        public async Task<ActionResult<ArticleFile>> GetFileById(Guid FileId)
         {
-            DataFile result = await _fileService.GetFileById(FileId);
+            ArticleFile result = await _fileService.GetFileById(FileId);
             if (result == null)
             {
                 return NotFound();
@@ -41,9 +41,9 @@ namespace Blog.API.Controllers
 
         [Route("File")]
         [HttpPost]
-        public async Task<ActionResult<List<DataFile>>> UploadFile(ICollection<IFormFile> files, Guid postId)
+        public async Task<ActionResult<List<ArticleFile>>> UploadFile(ICollection<IFormFile> files, Guid postId)
         { 
-            List<DataFile> dataFiles = await _fileService.UploadFilesAsync(files, postId);
+            List<ArticleFile> dataFiles = await _fileService.UploadFilesAsync(files, postId);
             if (dataFiles == null)
             {
                 return BadRequest();

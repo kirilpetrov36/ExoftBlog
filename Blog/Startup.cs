@@ -8,7 +8,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
-using Azure.Storage.Blobs;
 
 namespace Blog
 {
@@ -111,17 +110,6 @@ namespace Blog
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
         {
             loggerFactory.AddFile(Configuration["LogPath"]);
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
-            //else
-            //{
-            //    app.UseHsts();
-            //}
 
             app.UseSwagger();
             app.UseSwaggerUI();
