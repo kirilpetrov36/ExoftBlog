@@ -136,7 +136,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PostArticle([FromBody]CreateArticleDto article)
         {
-            Article newArticle = await _articleService.CreateArticleAsync(article);
+            ReadArticleDto newArticle = await _articleService.CreateArticleAsync(article);
             if (newArticle == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, null);
@@ -151,7 +151,7 @@ namespace Blog.API.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteArticle([FromRoute] Guid id)
         {
-            ReadArticleDto articleToDelete = await _articleService.GetArticleAsync(id);
+            Article articleToDelete = await _articleService.GetArticleAsync(id);
             if (articleToDelete == null)
             {
                 return BadRequest();
