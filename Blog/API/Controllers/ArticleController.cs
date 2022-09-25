@@ -105,7 +105,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PatchArticle([FromRoute] Guid id, JsonPatchDocument<Article> articleUpdates)
         {
-            ReadArticleDto article = await _articleService.GetArticleAsync(id);
+            Article article = await _articleService.GetArticleAsync(id);
             if (article == null)
             {
                 return BadRequest();
@@ -120,7 +120,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article)
         {
-            ReadArticleDto articleToModify = await _articleService.GetArticleAsync(id);
+            Article articleToModify = await _articleService.GetArticleAsync(id);
             if (articleToModify == null)
             {
                 return BadRequest();
@@ -136,7 +136,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PostArticle([FromBody]CreateArticleDto article)
         {
-            ReadArticleDto newArticle = await _articleService.CreateArticleAsync(article);
+            Article newArticle = await _articleService.CreateArticleAsync(article);
             if (newArticle == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, null);
