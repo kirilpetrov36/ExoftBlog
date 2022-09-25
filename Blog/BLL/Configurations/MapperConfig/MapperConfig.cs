@@ -16,6 +16,7 @@ namespace Blog.BLL.Configurations.MapperConfig
             CreateMap<Article, ReadArticleDto>().ReverseMap();
             CreateMap<Article, ReadArticleCommentsDto>().ReverseMap();
             CreateMap<Article, ReadArticleLikesDto>().ReverseMap();
+            CreateMap<Article, ReadFullArticleDto>().ReverseMap();
 
             CreateMap<User, CreateUserDto>().ReverseMap();
             CreateMap<User, ReadUserDto>().ReverseMap();

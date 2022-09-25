@@ -40,11 +40,11 @@ namespace Blog.BLL.Services
             await _unitOfWork.SaveChanges();
         }
 
-        public async Task<Article> GetArticleAsync(Guid id, CancellationToken token = default)
+        public async Task<ReadFullArticleDto> GetArticleAsync(Guid id, CancellationToken token = default)
         {
             _logger.LogInformation("Get article with id - {id}", id);
             Article article = await _unitOfWork.ArticleRepository.GetAsync(id);
-            return article;
+            return _mapper.Map<ReadFullArticleDto>(article);
         }
 
         public async Task<ReadArticleCommentsDto> GetArticleCommentsAsync(Guid id, CancellationToken token = default)
