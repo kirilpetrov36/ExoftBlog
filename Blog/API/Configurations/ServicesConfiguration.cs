@@ -17,7 +17,7 @@ namespace Blog.API.Configurations
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IArticleLikeService, ArticleLikeService>();
             services.AddTransient<ICommentLikeService, CommentLikeService>();
-            services.AddTransient<IFileService, FileService>();
+            services.AddTransient<IArticleFileService, ArticleFileService>();
         }
 
         public static void RegisterMap(this IServiceCollection services)

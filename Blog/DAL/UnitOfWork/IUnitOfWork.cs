@@ -10,7 +10,7 @@ namespace Blog.DAL.UnitOfWork
         ICommentLikeRepository CommentLikeRepository { get; }
         IArticleLikeRepository ArticleLikeRepository { get; }
         IUserRepository UserRepository { get; }
-        IDataFileRepository DataFileRepository { get; }
+        IArticleFileRepository ArticleFileRepository { get; }
         Task SaveChanges(Guid userId);
         Task SaveChanges();
     }

@@ -8,7 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
-using Azure.Storage.Blobs;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 
 namespace Blog
 {
@@ -21,7 +22,6 @@ namespace Blog
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             JwtSettingsDto jwtSettings = new JwtSettingsDto()
@@ -32,7 +32,10 @@ namespace Blog
             };
 
             services.AddSingleton(jwtSettings);
-           
+
+            services.AddLogging();
+            services.AddSingleton(typeof(ILogger), typeof(Logger<Startup>));
+
             services.AddControllers();
             services.AddHttpContextAccessor();
 
@@ -111,17 +114,6 @@ namespace Blog
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
         {
             loggerFactory.AddFile(Configuration["LogPath"]);
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
-            //else
-            //{
-            //    app.UseHsts();
-            //}
 
             app.UseSwagger();
             app.UseSwaggerUI();

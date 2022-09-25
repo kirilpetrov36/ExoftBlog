@@ -63,6 +63,41 @@ namespace Blog.Migrations
                     b.ToTable("Articles");
                 });
 
+            modelBuilder.Entity("Blog.DAL.Entities.ArticleFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ArticleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BlobName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("ArticleFiles");
+                });
+
             modelBuilder.Entity("Blog.DAL.Entities.ArticleLike", b =>
                 {
                     b.Property<Guid>("Id")
@@ -180,41 +215,6 @@ namespace Blog.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("CommentLikes");
-                });
-
-            modelBuilder.Entity("Blog.DAL.Entities.DataFile", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ArticleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("BlobName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArticleId");
-
-                    b.ToTable("DataFiles");
                 });
 
             modelBuilder.Entity("Blog.DAL.Entities.User", b =>
@@ -433,6 +433,17 @@ namespace Blog.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Blog.DAL.Entities.ArticleFile", b =>
+                {
+                    b.HasOne("Blog.DAL.Entities.Article", "Article")
+                        .WithMany("ArticleFiles")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+                });
+
             modelBuilder.Entity("Blog.DAL.Entities.ArticleLike", b =>
                 {
                     b.HasOne("Blog.DAL.Entities.Article", "Article")
@@ -495,17 +506,6 @@ namespace Blog.Migrations
                     b.Navigation("Comment");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Blog.DAL.Entities.DataFile", b =>
-                {
-                    b.HasOne("Blog.DAL.Entities.Article", "Article")
-                        .WithMany("DataFiles")
-                        .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Article");
                 });
 
             modelBuilder.Entity("Blog.DAL.Entities.User", b =>
@@ -589,9 +589,9 @@ namespace Blog.Migrations
 
             modelBuilder.Entity("Blog.DAL.Entities.Article", b =>
                 {
-                    b.Navigation("Comments");
+                    b.Navigation("ArticleFiles");
 
-                    b.Navigation("DataFiles");
+                    b.Navigation("Comments");
 
                     b.Navigation("Likes");
                 });
