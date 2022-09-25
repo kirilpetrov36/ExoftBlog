@@ -8,6 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 
 namespace Blog
 {
