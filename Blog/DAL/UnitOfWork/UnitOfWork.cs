@@ -14,11 +14,11 @@ namespace Blog.DAL.UnitOfWork
             _context = context;
         }
         public IArticleRepository ArticleRepository => new ArticleRepository(_context);
-        public IRepository<Comment> CommentRepository => new CommentRepository(_context);
-        public IRepository<CommentLike> CommentLikeRepository => new CommentLikeRepository(_context);
-        public IRepository<ArticleLike> ArticleLikeRepository => new ArticleLikeRepository(_context);
+        public ICommentRepository CommentRepository => new CommentRepository(_context);
+        public ICommentLikeRepository CommentLikeRepository => new CommentLikeRepository(_context);
+        public IArticleLikeRepository ArticleLikeRepository => new ArticleLikeRepository(_context);
         public IUserRepository UserRepository => new UserRepository(_context);
-        public IRepository<MediaFile> MediaFileRepository => new Repository<MediaFile>(_context);
+        public IDataFileRepository DataFileRepository => new DataFileRepository(_context);
 
         private bool _disposed;
         public void Dispose(bool disposing)

@@ -3,7 +3,6 @@ using Blog.DAL.UnitOfWork;
 using Blog.BLL.DTO.LikeDto;
 using Blog.DAL.Entities;
 using AutoMapper;
-using Blog.BLL.DTO.ArticleDto;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace Blog.BLL.Services
@@ -54,19 +53,6 @@ namespace Blog.BLL.Services
             return _mapper.Map<IEnumerable<ReadArticleLikeDto>>(articleLikes);
         }
 
-        public async Task<ReadArticleLikeDto> UpdateArticleLikeAsync(Guid id, CreateArticleLikeDto item, CancellationToken token = default)
-        {
-            _logger.LogInformation("Update articleLike with id - {id}.", id);
-
-            ArticleLike articleLikeToModify = await _unitOfWork.ArticleLikeRepository.GetAsync(id);
-
-            ArticleLike articleLike = _mapper.Map(item, articleLikeToModify);
-
-            _unitOfWork.ArticleLikeRepository.UpdateAsync(articleLike);
-            await _unitOfWork.SaveChanges(_accountService.GetUserId());
-            return _mapper.Map<ReadArticleLikeDto>(articleLike);
-        }
-
         public async Task<ReadArticleLikeDto> PatchArticleLikeAsync(Guid id, JsonPatchDocument<ArticleLike> articleLikeUpdates, CancellationToken token = default)
         {
             _logger.LogInformation("Patch articleLike with id - {id}.", id);
@@ -75,6 +61,12 @@ namespace Blog.BLL.Services
             articleLikeUpdates.ApplyTo(articleLikeToModify);
             _unitOfWork.ArticleLikeRepository.UpdateAsync(articleLikeToModify);
             return _mapper.Map<ReadArticleLikeDto>(articleLikeToModify);
+        }
+
+        public async Task<int?> GetArticleLikesAmountAsync(Guid ArticleId)
+        {
+            _logger.LogInformation("Get Article Likes Amount with ArticleId - {id}.", ArticleId);
+            return await _unitOfWork.ArticleLikeRepository.GetArticleLikesAmountAsync(ArticleId);
         }
     }
 
@@ -124,18 +116,6 @@ namespace Blog.BLL.Services
             return _mapper.Map<IEnumerable<ReadCommentLikeDto>>(commentLikes);
         }
 
-        public async Task<ReadLikeDto> UpdateCommentLikeAsync(Guid id, CreateCommentLikeDto item, CancellationToken token = default)
-        {
-            _logger.LogInformation("Update commentLike with id - {id}.", id);
-
-            CommentLike commentLikeToModify = await _unitOfWork.CommentLikeRepository.GetAsync(id);
-            CommentLike commentLike = _mapper.Map(item, commentLikeToModify);
-
-            _unitOfWork.CommentLikeRepository.UpdateAsync(commentLike);
-            await _unitOfWork.SaveChanges(_accountService.GetUserId());
-            return _mapper.Map<ReadCommentLikeDto>(commentLike);
-        }
-
         public async Task<ReadCommentLikeDto> PatchCommentLikeAsync(Guid id, JsonPatchDocument<CommentLike> commentLikeUpdates, CancellationToken token = default)
         {
             _logger.LogInformation("Patch commentLike with id - {id}.", id);
@@ -144,6 +124,12 @@ namespace Blog.BLL.Services
             commentLikeUpdates.ApplyTo(commentLikeToModify);
             _unitOfWork.CommentLikeRepository.UpdateAsync(commentLikeToModify);
             return _mapper.Map<ReadCommentLikeDto>(commentLikeToModify);
+        }
+
+        public async Task<int?> GetCommentLikesAmountAsync(Guid CommentId)
+        {
+            _logger.LogInformation("Get Comment Likes Amount with CommentId - {id}.", CommentId);
+            return await _unitOfWork.CommentLikeRepository.GetCommentLikesAmountAsync(CommentId);
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Blog.BLL.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        //private readonly IFileProvider _fileProvider;
 
         public AccountService(JwtSettingsDto jwtSettings, IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
@@ -31,7 +30,6 @@ namespace Blog.BLL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
-            //_fileProvider = fileProvider;
         }
 
         public void SetUserManager(UserManager<User> userManager)

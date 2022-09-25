@@ -6,11 +6,11 @@ namespace Blog.DAL.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         IArticleRepository ArticleRepository { get; }
-        IRepository<Comment> CommentRepository { get; }
-        IRepository<CommentLike> CommentLikeRepository { get; }
-        IRepository<ArticleLike> ArticleLikeRepository { get; }
+        ICommentRepository CommentRepository { get; }
+        ICommentLikeRepository CommentLikeRepository { get; }
+        IArticleLikeRepository ArticleLikeRepository { get; }
         IUserRepository UserRepository { get; }
-        IRepository<MediaFile> MediaFileRepository { get; }
+        IDataFileRepository DataFileRepository { get; }
         Task SaveChanges(Guid userId);
         Task SaveChanges();
     }

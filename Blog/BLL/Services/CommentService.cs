@@ -89,5 +89,10 @@ namespace Blog.BLL.Services
             _unitOfWork.CommentRepository.UpdateAsync(commentToModify);
             return _mapper.Map<ReadCommentDto>(commentToModify);
         }
+
+        public async Task<int?> GetArticleCommentsAmount(Guid ArticleId)
+        {
+            return await _unitOfWork.CommentRepository.GetArticleCommentsAmount(ArticleId);
+        }
     }
 }

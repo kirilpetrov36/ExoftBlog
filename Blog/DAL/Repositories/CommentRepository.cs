@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DAL.Repositories
 {
-    public class CommentRepository: Repository<Comment>, IRepository<Comment>
+    public class CommentRepository: Repository<Comment>, ICommentRepository
     {
         private readonly AppDbContext _context;
         public CommentRepository(AppDbContext context) : base(context) { 
@@ -40,6 +40,21 @@ namespace Blog.DAL.Repositories
                     .Include(p => p.ChildComments)
                     .Include(p => p.Likes)
                     .ToListAsync();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<int?> GetArticleCommentsAmount(Guid ArticleId)
+        {
+            try
+            {
+                return await _context.Comments
+                    .Where(p => p.Id == ArticleId)
+                    .Include(p => p.ChildComments)                    
+                    .CountAsync();
             }
             catch
             {

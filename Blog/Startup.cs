@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using Azure.Storage.Blobs;
 
 namespace Blog
 {
@@ -37,7 +38,7 @@ namespace Blog
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>
-               (o => o.UseSqlServer(connection)); 
+               (o => o.UseSqlServer(connection));
 
             services.RegisterReposAndServices();
             services.RegisterMap();

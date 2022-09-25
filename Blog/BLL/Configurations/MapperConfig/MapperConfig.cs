@@ -36,8 +36,6 @@ namespace Blog.BLL.Configurations.MapperConfig
             CreateMap<CommentLike, CreateCommentLikeDto>().ReverseMap();
             CreateMap<CommentLike, ReadCommentLikeDto>().ReverseMap();
 
-            CreateMap<MediaFile, ReadFileDto>().ReverseMap();
-
             CreateMap<RegisterDto, User>()
                 .ForMember(x => x.UserName, x => x.MapFrom(m => m.Email));
 

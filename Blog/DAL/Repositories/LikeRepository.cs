@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DAL.Repositories
 {
-    public class ArticleLikeRepository : Repository<ArticleLike>, IRepository<ArticleLike>
+    public class ArticleLikeRepository : Repository<ArticleLike>, IArticleLikeRepository
     {
         private readonly AppDbContext _context;
         public ArticleLikeRepository(AppDbContext context) : base(context) {
@@ -33,9 +33,23 @@ namespace Blog.DAL.Repositories
                     .Include(p => p.Article)
                     .ToListAsync();
         }
+
+        public async Task<int?> GetArticleLikesAmountAsync(Guid ArticleId)
+        {
+            try
+            {
+                return await _context.ArticleLikes
+                    .Where(p => p.ArticleId == ArticleId)
+                    .CountAsync();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 
-    public class CommentLikeRepository : Repository<CommentLike>, IRepository<CommentLike>
+    public class CommentLikeRepository : Repository<CommentLike>, ICommentLikeRepository
     {
         private readonly AppDbContext _context;
         public CommentLikeRepository(AppDbContext context) : base(context) { 
@@ -59,10 +73,32 @@ namespace Blog.DAL.Repositories
 
         public override async Task<IEnumerable<CommentLike>> GetListAsync(CancellationToken token = default)
         {
-            return await _context.CommentLikes
-                    .Include(p => p.User)
-                    .Include(p => p.Comment)
-                    .ToListAsync();
+            try
+            {
+                return await _context.CommentLikes
+                                    .Include(p => p.User)
+                                    .Include(p => p.Comment)
+                                    .ToListAsync();
+            }
+            catch
+            {
+                return null;
+            }
+            
+        }
+ 
+        public async Task<int?> GetCommentLikesAmountAsync(Guid CommentId)
+        {
+            try
+            {
+                return await _context.CommentLikes
+                    .Where(p => p.CommentId == CommentId)
+                    .CountAsync();
+            }
+            catch
+            {
+                return null;
+            }   
         }
 
     }
