@@ -55,9 +55,9 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleDto>> GetArticle([FromRoute] Guid id)
+        public async Task<ActionResult<Article>> GetArticle([FromRoute] Guid id)
         {
-            ReadArticleDto article = await _articleService.GetArticleAsync(id);
+            Article article = await _articleService.GetArticleAsync(id);
 
             if (article == null)
             {
