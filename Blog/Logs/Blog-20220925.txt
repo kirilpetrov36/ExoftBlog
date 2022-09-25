@@ -172,3 +172,109 @@ IF EXISTS
     )
 )
 SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-25T23:16:12.6901151+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-25T23:16:14.1635809+03:00  [INF] Executed DbCommand ("137"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-25T23:16:14.3153433+03:00  [INF] Executed DbCommand ("133"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-25T23:16:14.8428486+03:00  [INF] Executed DbCommand ("158"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-25T23:16:15.0269100+03:00  [INF] Executed DbCommand ("115"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-25T23:16:15.1306088+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-09-25T23:16:15.1317010+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-09-25T23:16:15.1384139+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-25T23:16:15.1396170+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-25T23:16:15.1409132+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-09-25T23:16:38.1804844+03:00 0HMKV6B68T79J:00000009 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-25T23:16:38.3023319+03:00 0HMKV6B68T79J:00000009 [INF] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-25T23:16:38.4218543+03:00 0HMKV6B68T79J:00000009 [INF] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-25T23:16:38.4447743+03:00 0HMKV6B68T79J:00000009 [INF] Get article with id - b6145bd6-2fce-4c7a-a3dc-08da9a2394a1 (b2cb3543)
+2022-09-25T23:16:38.6277056+03:00 0HMKV6B68T79J:00000009 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-09-25T23:16:38.7552206+03:00 0HMKV6B68T79J:00000009 [INF] Executed DbCommand ("118"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[IsDeleted], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted0], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [t1].[Id], [t1].[ArticleId], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[ParentCommentId], [t1].[Text], [t1].[UpdatedAt], [t1].[UpdatedBy], [t1].[UserId], [t1].[Id0], [t1].[AccessFailedCount], [t1].[ConcurrencyStamp], [t1].[CreatedAt0], [t1].[Email], [t1].[EmailConfirmed], [t1].[FirstName], [t1].[IsDeleted], [t1].[LastName], [t1].[LockoutEnabled], [t1].[LockoutEnd], [t1].[NormalizedEmail], [t1].[NormalizedUserName], [t1].[PasswordHash], [t1].[PhoneNumber], [t1].[PhoneNumberConfirmed], [t1].[SecurityStamp], [t1].[TwoFactorEnabled], [t1].[UpdatedAt0], [t1].[UserName], [t1].[UserId0], [t1].[Id1], [t1].[Expires], [t1].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t0] ON [t].[Id] = [t0].[ArticleId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t1] ON [t].[Id] = [t1].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [t].[Id] = [a3].[ArticleId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1], [t1].[Id], [t1].[Id0], [t1].[UserId0], [t1].[Id1]" (0723d8ff)
+2022-09-25T23:16:39.0428163+03:00 0HMKV6B68T79J:00000009 [ERR] Connection id ""0HMKV6B68T79J"", Request id ""0HMKV6B68T79J:00000009"": An unhandled exception was thrown by the application. (560e7d32)
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'article' with type 'Blog.DAL.Entities.Article'. Path 'articleFiles[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
