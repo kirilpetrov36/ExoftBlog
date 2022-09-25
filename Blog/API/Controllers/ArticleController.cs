@@ -55,9 +55,9 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<Article>> GetArticle([FromRoute] Guid id)
+        public async Task<ActionResult<ReadFullArticleDto>> GetArticle([FromRoute] Guid id)
         {
-            Article article = await _articleService.GetArticleAsync(id);
+            ReadFullArticleDto article = await _articleService.GetArticleAsync(id);
 
             if (article == null)
             {
@@ -105,7 +105,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PatchArticle([FromRoute] Guid id, JsonPatchDocument<Article> articleUpdates)
         {
-            Article article = await _articleService.GetArticleAsync(id);
+            ReadFullArticleDto article = await _articleService.GetArticleAsync(id);
             if (article == null)
             {
                 return BadRequest();
@@ -120,7 +120,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article)
         {
-            Article articleToModify = await _articleService.GetArticleAsync(id);
+            ReadFullArticleDto articleToModify = await _articleService.GetArticleAsync(id);
             if (articleToModify == null)
             {
                 return BadRequest();
@@ -151,7 +151,7 @@ namespace Blog.API.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteArticle([FromRoute] Guid id)
         {
-            Article articleToDelete = await _articleService.GetArticleAsync(id);
+            ReadFullArticleDto articleToDelete = await _articleService.GetArticleAsync(id);
             if (articleToDelete == null)
             {
                 return BadRequest();
