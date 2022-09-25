@@ -4,7 +4,6 @@ using Blog.BLL.DTO.LikeDto;
 using Microsoft.AspNetCore.Authorization;
 using Blog.DAL.Entities;
 using Microsoft.AspNetCore.JsonPatch;
-using Blog.BLL.Services;
 
 namespace Blog.API.Controllers
 {
