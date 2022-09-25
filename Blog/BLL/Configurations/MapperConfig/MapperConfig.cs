@@ -4,7 +4,6 @@ using Blog.BLL.DTO.UserDto;
 using Blog.BLL.DTO.LikeDto;
 using Blog.BLL.DTO.CommentDto;
 using Blog.DAL.Entities;
-using Blog.BLL.DTO.File;
 using Blog.BLL.DTO.LoginRegisterDto;
 
 namespace Blog.BLL.Configurations.MapperConfig

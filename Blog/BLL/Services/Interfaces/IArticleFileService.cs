@@ -1,6 +1,4 @@
-﻿using Blog.BLL.DTO.File;
-using Blog.BLL.Services.ExternalServices;
-using Blog.DAL.Entities;
+﻿using Blog.DAL.Entities;
 
 namespace Blog.BLL.Services.Interfaces
 {

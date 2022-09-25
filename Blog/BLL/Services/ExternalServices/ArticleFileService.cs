@@ -40,7 +40,8 @@ namespace Blog.BLL.Services.ExternalServices
                 {
                     var PostId = postId.ToString();
                     var fileName = formFile.FileName;
-                    var client = container.GetBlobClient($"/Posts/{PostId}/{fileName}");
+                    string guid = Guid.NewGuid().ToString();
+                    var client = container.GetBlobClient($"/Posts/{PostId}/{guid}_{fileName}");
 
                     if (formFile.Length > 0)
                     {
@@ -52,8 +53,8 @@ namespace Blog.BLL.Services.ExternalServices
                         }
                         ArticleFile file = new ArticleFile()
                         {
-                            Url = container.Uri + $"/Posts/{PostId}/{fileName}",
-                            BlobName = $"/Posts/{PostId}/{fileName}",
+                            Url = container.Uri + $"/Posts/{PostId}/{guid}_{fileName}",
+                            BlobName = $"/Posts/{PostId}/{guid}_{fileName}",
                             ArticleId = postId
                         };
                         dataFiles.Add(file);

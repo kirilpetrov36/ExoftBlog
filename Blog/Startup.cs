@@ -20,7 +20,6 @@ namespace Blog
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             JwtSettingsDto jwtSettings = new JwtSettingsDto()
@@ -31,7 +30,10 @@ namespace Blog
             };
 
             services.AddSingleton(jwtSettings);
-           
+
+            services.AddLogging();
+            services.AddSingleton(typeof(ILogger), typeof(Logger<Startup>));
+
             services.AddControllers();
             services.AddHttpContextAccessor();
 
