@@ -121,3 +121,54 @@ IF EXISTS
     )
 )
 SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-25T22:35:17.1350484+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-25T22:35:18.3400524+03:00  [INF] Executed DbCommand ("134"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-25T22:35:18.4891909+03:00  [INF] Executed DbCommand ("133"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-25T22:35:19.0356429+03:00  [INF] Executed DbCommand ("158"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-25T22:35:19.2261956+03:00  [INF] Executed DbCommand ("113"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-25T22:35:19.3356011+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-09-25T22:35:19.3367798+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-09-25T22:35:19.3440662+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-25T22:35:19.3453291+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-25T22:35:19.3463699+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-09-25T22:35:32.1930997+03:00 0HMKV5KAAGHDB:00000009 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-25T22:35:32.3145981+03:00 0HMKV5KAAGHDB:00000009 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-25T22:35:32.4305926+03:00 0HMKV5KAAGHDB:00000009 [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
