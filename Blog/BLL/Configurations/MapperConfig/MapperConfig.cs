@@ -5,6 +5,7 @@ using Blog.BLL.DTO.LikeDto;
 using Blog.BLL.DTO.CommentDto;
 using Blog.DAL.Entities;
 using Blog.BLL.DTO.LoginRegisterDto;
+using Blog.BLL.DTO.ArticleFileDto;
 
 namespace Blog.BLL.Configurations.MapperConfig
 {
@@ -39,6 +40,7 @@ namespace Blog.BLL.Configurations.MapperConfig
             CreateMap<RegisterDto, User>()
                 .ForMember(x => x.UserName, x => x.MapFrom(m => m.Email));
 
+            CreateMap<ArticleFile, ReadArticleFileDto>().ReverseMap();
         }
     }
 }

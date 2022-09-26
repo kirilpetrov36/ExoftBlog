@@ -1,0 +1,340 @@
+2022-09-26T13:41:21.8297798+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:41:23.5564165+03:00  [INF] Executed DbCommand ("140"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:41:23.7068322+03:00  [INF] Executed DbCommand ("133"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:41:24.2957475+03:00  [INF] Executed DbCommand ("160"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-26T13:41:24.4901856+03:00  [INF] Executed DbCommand ("116"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-26T13:41:24.7625921+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-09-26T13:41:24.7641078+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-09-26T13:41:24.7712668+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-26T13:41:24.7726544+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-26T13:41:24.7738662+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-09-26T13:41:53.5394277+03:00 0HMKVLEKG4VUR:0000000B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:41:53.6587028+03:00 0HMKVLEKG4VUR:0000000B [INF] Executed DbCommand ("114"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:41:53.7758123+03:00 0HMKVLEKG4VUR:0000000B [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:41:54.1198548+03:00 0HMKVLEKG4VUR:0000000B [INF] Executed DbCommand ("115"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-09-26T13:41:54.5664020+03:00 0HMKVLEKG4VUR:0000000B [INF] Executed DbCommand ("116"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-09-26T13:42:42.1539173+03:00 0HMKVLEKG4VUR:0000000D [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:42:42.2769209+03:00 0HMKVLEKG4VUR:0000000D [INF] Executed DbCommand ("114"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:42:42.3958402+03:00 0HMKVLEKG4VUR:0000000D [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:42:42.4022958+03:00 0HMKVLEKG4VUR:0000000D [INF] Get all articles (3fabed84)
+2022-09-26T13:42:42.4794606+03:00 0HMKVLEKG4VUR:0000000D [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-09-26T13:42:42.6022651+03:00 0HMKVLEKG4VUR:0000000D [INF] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [t].[Id], [t].[ArticleId], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[UpdatedAt], [t].[UpdatedBy], [t].[UserId], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt0], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted0], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt0], [t].[UserName], [t].[UserId0], [t].[Id1], [t].[Expires], [t].[Token], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[ParentCommentId], [t0].[Text], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t] ON [a].[Id] = [t].[ArticleId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t0] ON [a].[Id] = [t0].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [a].[Id] = [a3].[ArticleId]
+ORDER BY [a].[Id], [t].[Id], [t].[Id0], [t].[UserId0], [t].[Id1], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1]" (0723d8ff)
+2022-09-26T13:42:51.3915036+03:00 0HMKVLEKG4VUR:0000000F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:42:51.5090161+03:00 0HMKVLEKG4VUR:0000000F [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:42:51.6255450+03:00 0HMKVLEKG4VUR:0000000F [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:42:51.6314531+03:00 0HMKVLEKG4VUR:0000000F [INF] Get article with id - b6145bd6-2fce-4c7a-a3dc-08da9a2394a1 (b2cb3543)
+2022-09-26T13:42:51.6624113+03:00 0HMKVLEKG4VUR:0000000F [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-09-26T13:42:51.7893603+03:00 0HMKVLEKG4VUR:0000000F [INF] Executed DbCommand ("117"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[IsDeleted], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted0], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [t1].[Id], [t1].[ArticleId], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[ParentCommentId], [t1].[Text], [t1].[UpdatedAt], [t1].[UpdatedBy], [t1].[UserId], [t1].[Id0], [t1].[AccessFailedCount], [t1].[ConcurrencyStamp], [t1].[CreatedAt0], [t1].[Email], [t1].[EmailConfirmed], [t1].[FirstName], [t1].[IsDeleted], [t1].[LastName], [t1].[LockoutEnabled], [t1].[LockoutEnd], [t1].[NormalizedEmail], [t1].[NormalizedUserName], [t1].[PasswordHash], [t1].[PhoneNumber], [t1].[PhoneNumberConfirmed], [t1].[SecurityStamp], [t1].[TwoFactorEnabled], [t1].[UpdatedAt0], [t1].[UserName], [t1].[UserId0], [t1].[Id1], [t1].[Expires], [t1].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t0] ON [t].[Id] = [t0].[ArticleId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t1] ON [t].[Id] = [t1].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [t].[Id] = [a3].[ArticleId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1], [t1].[Id], [t1].[Id0], [t1].[UserId0], [t1].[Id1]" (0723d8ff)
+2022-09-26T13:42:58.2051842+03:00 0HMKVLEKG4VUR:00000011 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:42:58.3226327+03:00 0HMKVLEKG4VUR:00000011 [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:42:58.4392277+03:00 0HMKVLEKG4VUR:00000011 [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:42:58.4438861+03:00 0HMKVLEKG4VUR:00000011 [INF] Get full article with id - b6145bd6-2fce-4c7a-a3dc-08da9a2394a1 (cd779051)
+2022-09-26T13:42:58.5641137+03:00 0HMKVLEKG4VUR:00000011 [INF] Executed DbCommand ("117"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[IsDeleted], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted0], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [t1].[Id], [t1].[ArticleId], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[ParentCommentId], [t1].[Text], [t1].[UpdatedAt], [t1].[UpdatedBy], [t1].[UserId], [t1].[Id0], [t1].[AccessFailedCount], [t1].[ConcurrencyStamp], [t1].[CreatedAt0], [t1].[Email], [t1].[EmailConfirmed], [t1].[FirstName], [t1].[IsDeleted], [t1].[LastName], [t1].[LockoutEnabled], [t1].[LockoutEnd], [t1].[NormalizedEmail], [t1].[NormalizedUserName], [t1].[PasswordHash], [t1].[PhoneNumber], [t1].[PhoneNumberConfirmed], [t1].[SecurityStamp], [t1].[TwoFactorEnabled], [t1].[UpdatedAt0], [t1].[UserName], [t1].[UserId0], [t1].[Id1], [t1].[Expires], [t1].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t0] ON [t].[Id] = [t0].[ArticleId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t1] ON [t].[Id] = [t1].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [t].[Id] = [a3].[ArticleId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1], [t1].[Id], [t1].[Id0], [t1].[UserId0], [t1].[Id1]" (0723d8ff)
+2022-09-26T13:42:58.8493997+03:00 0HMKVLEKG4VUR:00000011 [ERR] Connection id ""0HMKVLEKG4VUR"", Request id ""0HMKVLEKG4VUR:00000011"": An unhandled exception was thrown by the application. (560e7d32)
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[Blog.DAL.Entities.ArticleFile, Blog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[Blog.BLL.DTO.ArticleFileDto.ReadArticleFileDto, Blog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ArticleFile -> ReadArticleFileDto
+Blog.DAL.Entities.ArticleFile -> Blog.BLL.DTO.ArticleFileDto.ReadArticleFileDto
+   at lambda_method519(Closure , ArticleFile , ReadArticleFileDto , ResolutionContext )
+   at lambda_method518(Closure , Object , List`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method518(Closure , Object , List`1 , ResolutionContext )
+   at Blog.BLL.Services.ArticleService.GetFullArticleAsync(Guid id, CancellationToken token) in D:\Everything\camp\Blog\Blog\Blog\BLL\Services\ArticleService.cs:line 57
+   at Blog.API.Controllers.ArticleController.GetFullArticle(Guid id) in D:\Everything\camp\Blog\Blog\Blog\API\Controllers\ArticleController.cs:line 76
+   at lambda_method511(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-09-26T13:44:29.5829495+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:44:30.6815601+03:00  [INF] Executed DbCommand ("131"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:44:30.8261664+03:00  [INF] Executed DbCommand ("128"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:44:31.3882511+03:00  [INF] Executed DbCommand ("153"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-26T13:44:31.5831034+03:00  [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-09-26T13:44:31.6913958+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-09-26T13:44:31.6926291+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-09-26T13:44:31.6994915+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-26T13:44:31.7008245+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-26T13:44:31.7018814+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-09-26T13:44:49.4490916+03:00 0HMKVLGC85SP8:00000009 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:44:49.5711002+03:00 0HMKVLGC85SP8:00000009 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:44:49.6815988+03:00 0HMKVLGC85SP8:00000009 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:44:49.7022253+03:00 0HMKVLGC85SP8:00000009 [INF] Get full article with id - b6145bd6-2fce-4c7a-a3dc-08da9a2394a1 (cd779051)
+2022-09-26T13:44:49.8896311+03:00 0HMKVLGC85SP8:00000009 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-09-26T13:44:50.0443008+03:00 0HMKVLGC85SP8:00000009 [INF] Executed DbCommand ("145"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[IsDeleted], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted0], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [t1].[Id], [t1].[ArticleId], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[ParentCommentId], [t1].[Text], [t1].[UpdatedAt], [t1].[UpdatedBy], [t1].[UserId], [t1].[Id0], [t1].[AccessFailedCount], [t1].[ConcurrencyStamp], [t1].[CreatedAt0], [t1].[Email], [t1].[EmailConfirmed], [t1].[FirstName], [t1].[IsDeleted], [t1].[LastName], [t1].[LockoutEnabled], [t1].[LockoutEnd], [t1].[NormalizedEmail], [t1].[NormalizedUserName], [t1].[PasswordHash], [t1].[PhoneNumber], [t1].[PhoneNumberConfirmed], [t1].[SecurityStamp], [t1].[TwoFactorEnabled], [t1].[UpdatedAt0], [t1].[UserName], [t1].[UserId0], [t1].[Id1], [t1].[Expires], [t1].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t0] ON [t].[Id] = [t0].[ArticleId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t1] ON [t].[Id] = [t1].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [t].[Id] = [a3].[ArticleId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1], [t1].[Id], [t1].[Id0], [t1].[UserId0], [t1].[Id1]" (0723d8ff)
+2022-09-26T13:46:01.7496467+03:00 0HMKVLGC85SP8:0000000B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-09-26T13:46:01.8655077+03:00 0HMKVLGC85SP8:0000000B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-09-26T13:46:01.9752184+03:00 0HMKVLGC85SP8:0000000B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-09-26T13:46:01.9779970+03:00 0HMKVLGC85SP8:0000000B [INF] Get all sorted by comments amount articles (b980e35c)
+2022-09-26T13:46:02.0358860+03:00 0HMKVLGC85SP8:0000000B [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-09-26T13:46:02.1981792+03:00 0HMKVLGC85SP8:0000000B [INF] Executed DbCommand ("151"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [t].[Id], [t].[ArticleId], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[UpdatedAt], [t].[UpdatedBy], [t].[UserId], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt0], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted0], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt0], [t].[UserName], [t].[UserId0], [t].[Id1], [t].[Expires], [t].[Token], [t0].[Id], [t0].[ArticleId], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[ParentCommentId], [t0].[Text], [t0].[UpdatedAt], [t0].[UpdatedBy], [t0].[UserId], [t0].[Id0], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[CreatedAt0], [t0].[Email], [t0].[EmailConfirmed], [t0].[FirstName], [t0].[IsDeleted], [t0].[LastName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UpdatedAt0], [t0].[UserName], [t0].[UserId0], [t0].[Id1], [t0].[Expires], [t0].[Token], [a3].[Id], [a3].[ArticleId], [a3].[BlobName], [a3].[CreatedAt], [a3].[CreatedBy], [a3].[UpdatedAt], [a3].[UpdatedBy], [a3].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [a1].[Id] AS [Id0], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt] AS [CreatedAt0], [a1].[Email], [a1].[EmailConfirmed], [a1].[FirstName], [a1].[IsDeleted] AS [IsDeleted0], [a1].[LastName], [a1].[LockoutEnabled], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[TwoFactorEnabled], [a1].[UpdatedAt] AS [UpdatedAt0], [a1].[UserName], [r].[UserId] AS [UserId0], [r].[Id] AS [Id1], [r].[Expires], [r].[Token]
+    FROM [ArticleLikes] AS [a0]
+    INNER JOIN [AspNetUsers] AS [a1] ON [a0].[UserId] = [a1].[Id]
+    LEFT JOIN [RefreshToken] AS [r] ON [a1].[Id] = [r].[UserId]
+) AS [t] ON [a].[Id] = [t].[ArticleId]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[ArticleId], [c0].[CreatedAt], [c0].[CreatedBy], [c0].[ParentCommentId], [c0].[Text], [c0].[UpdatedAt], [c0].[UpdatedBy], [c0].[UserId], [a2].[Id] AS [Id0], [a2].[AccessFailedCount], [a2].[ConcurrencyStamp], [a2].[CreatedAt] AS [CreatedAt0], [a2].[Email], [a2].[EmailConfirmed], [a2].[FirstName], [a2].[IsDeleted], [a2].[LastName], [a2].[LockoutEnabled], [a2].[LockoutEnd], [a2].[NormalizedEmail], [a2].[NormalizedUserName], [a2].[PasswordHash], [a2].[PhoneNumber], [a2].[PhoneNumberConfirmed], [a2].[SecurityStamp], [a2].[TwoFactorEnabled], [a2].[UpdatedAt] AS [UpdatedAt0], [a2].[UserName], [r0].[UserId] AS [UserId0], [r0].[Id] AS [Id1], [r0].[Expires], [r0].[Token]
+    FROM [Comments] AS [c0]
+    INNER JOIN [AspNetUsers] AS [a2] ON [c0].[UserId] = [a2].[Id]
+    LEFT JOIN [RefreshToken] AS [r0] ON [a2].[Id] = [r0].[UserId]
+) AS [t0] ON [a].[Id] = [t0].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a3] ON [a].[Id] = [a3].[ArticleId]
+ORDER BY (
+    SELECT COUNT(*)
+    FROM [Comments] AS [c]
+    WHERE [a].[Id] = [c].[ArticleId]) DESC, [a].[Id], [t].[Id], [t].[Id0], [t].[UserId0], [t].[Id1], [t0].[Id], [t0].[Id0], [t0].[UserId0], [t0].[Id1]" (0723d8ff)
