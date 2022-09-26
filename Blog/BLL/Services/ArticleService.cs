@@ -4,6 +4,9 @@ using Blog.DAL.Entities;
 using AutoMapper;
 using Blog.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
+using Blog.BLL.DTO.ArticleFileDto;
+using Blog.BLL.DTO.CommentDto;
+using Blog.BLL.DTO.LikeDto;
 
 namespace Blog.BLL.Services
 {
@@ -40,11 +43,29 @@ namespace Blog.BLL.Services
             await _unitOfWork.SaveChanges();
         }
 
-        public async Task<ReadFullArticleDto> GetArticleAsync(Guid id, CancellationToken token = default)
+        public async Task<ReadArticleDto> GetArticleAsync(Guid id, CancellationToken token = default)
         {
             _logger.LogInformation("Get article with id - {id}", id);
             Article article = await _unitOfWork.ArticleRepository.GetAsync(id);
-            return _mapper.Map<ReadFullArticleDto>(article);
+            return _mapper.Map<ReadArticleDto>(article);
+        }
+
+        public async Task<ReadFullArticleDto> GetFullArticleAsync(Guid id, CancellationToken token = default)
+        {
+            _logger.LogInformation("Get full article with id - {id}", id);
+            Article article = await _unitOfWork.ArticleRepository.GetAsync(id);
+            ReadFullArticleDto fullArticleDto = new ReadFullArticleDto()
+            {
+                Title = article.Title,
+                Content = article.Content,
+                Likes = _mapper.Map<List<ReadArticleLikeDto>>(article.Likes),       // we need ReadArticleLikeDto not ArticleLike to prevent loop
+                Comments = _mapper.Map<List<ReadCommentDto>>(article.Comments),     // Article => ArticleLikes => ArticleLike => Article
+                ArticleFiles = _mapper.Map<List<ReadArticleFileDto>>(article.ArticleFiles),
+                IsDeleted = article.IsDeleted,
+                IsVerified = article.IsVerified
+            };
+
+            return fullArticleDto;
         }
 
         public async Task<ReadArticleCommentsDto> GetArticleCommentsAsync(Guid id, CancellationToken token = default)

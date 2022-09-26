@@ -57,7 +57,23 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadFullArticleDto>> GetArticle([FromRoute] Guid id)
         {
-            ReadFullArticleDto article = await _articleService.GetArticleAsync(id);
+            ReadArticleDto article = await _articleService.GetArticleAsync(id);
+
+            if (article == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(article);
+        }
+
+        // GET: api/FullArticle/5
+        [HttpGet]
+        [Route("FullArticle/{id:Guid}")]
+        [Authorize]
+        public async Task<ActionResult<ReadFullArticleDto>> GetFullArticle([FromRoute] Guid id)
+        {
+            ReadFullArticleDto article = await _articleService.GetFullArticleAsync(id);
 
             if (article == null)
             {
@@ -105,7 +121,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PatchArticle([FromRoute] Guid id, JsonPatchDocument<Article> articleUpdates)
         {
-            ReadFullArticleDto article = await _articleService.GetArticleAsync(id);
+            ReadArticleDto article = await _articleService.GetArticleAsync(id);
             if (article == null)
             {
                 return BadRequest();
@@ -120,7 +136,7 @@ namespace Blog.API.Controllers
         [Authorize]
         public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article)
         {
-            ReadFullArticleDto articleToModify = await _articleService.GetArticleAsync(id);
+            ReadArticleDto articleToModify = await _articleService.GetArticleAsync(id);
             if (articleToModify == null)
             {
                 return BadRequest();
@@ -151,7 +167,7 @@ namespace Blog.API.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteArticle([FromRoute] Guid id)
         {
-            ReadFullArticleDto articleToDelete = await _articleService.GetArticleAsync(id);
+            ReadArticleDto articleToDelete = await _articleService.GetArticleAsync(id);
             if (articleToDelete == null)
             {
                 return BadRequest();
