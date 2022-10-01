@@ -39,16 +39,6 @@ namespace Blog
             services.AddControllers();
             services.AddHttpContextAccessor();
 
-            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  policy =>
-                                  {
-                                      policy.WithOrigins("http://localhost:4200/");
-                                  });
-            });
-
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>
                (o => o.UseSqlServer(connection));
@@ -129,11 +119,15 @@ namespace Blog
             app.UseSwaggerUI();
 
             app.UseStatusCodePages();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors(MyAllowSpecificOrigins);
+            
 
             app.UseAuthentication();
             app.UseAuthorization();
