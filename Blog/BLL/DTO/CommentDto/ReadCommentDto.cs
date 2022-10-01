@@ -6,7 +6,6 @@ namespace Blog.BLL.DTO.CommentDto
 {
     public class ReadCommentDto : BaseDto
     {
-        public Guid Id { get; set; }
         public string Text { get; set; }
         public ReadUserDto User { get; set; }
         public ReadArticleDto Article { get; set; }
