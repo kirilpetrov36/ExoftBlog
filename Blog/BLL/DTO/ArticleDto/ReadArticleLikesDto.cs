@@ -2,7 +2,7 @@
 
 namespace Blog.BLL.DTO.ArticleDto
 {
-    public class ReadArticleLikesDto : BaseDto
+    public class ReadArticleLikesDto
     {
         public List<ReadLikeDto>? CommentLikes { get; set; }
     }

@@ -102,7 +102,7 @@ namespace Blog.BLL.Services.ExternalServices
             return await Task.FromResult(true);
         }
 
-        public async Task<List<ArticleFile>> GetPostImages(Guid postId)
+        public async Task<List<ArticleFile>> GetArticleFiles(Guid postId)
         {
             List<ArticleFile> images = new List<ArticleFile>();
             var container = new BlobContainerClient(

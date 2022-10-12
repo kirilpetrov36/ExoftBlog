@@ -18,33 +18,46 @@ namespace  Blog.API.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly IAccountService _accountService;
+        private readonly IConfiguration _config;
+        private readonly SignInManager<User> _signInManager;
+        private readonly IUserSubscriptionService _userSubscriptionService;
 
-        public AccountController(UserManager<User> userManager, IAccountService accountService)
+        public AccountController(UserManager<User> userManager, 
+                                 IAccountService accountService, 
+                                 IConfiguration config, 
+                                 SignInManager<User> signInManager,
+                                 IUserSubscriptionService userSubscriptionService)
         {
             _userManager = userManager;
             _accountService = accountService;
             _accountService.SetUserManager(_userManager);
+            _config = config;
+            _signInManager = signInManager;
+            _userSubscriptionService = userSubscriptionService;
         }
 
         [HttpPost]
-        [Route("register-by-email")]
-        public async Task<IActionResult> RegisterByEmail([FromBody]RegisterDto model)
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDto model, CancellationToken token = default)
         {
             if (ModelState.IsValid)
             {
                 (IdentityResult result, User user) = await _accountService.RegisterAsync(model);
                 if (result.Succeeded)
                 {
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action(
-                        "ConfirmEmail",
-                        "Account",
-                        new { userId = user.Id, code = code },
-                        protocol: HttpContext.Request.Scheme
-                    );
+                    var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    var uriBuilder = new UriBuilder(_config["ReturnPaths:ConfirmEmail"]);
+                    var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+                    query["token"] = emailToken;
+                    query["userId"] = user.Id.ToString();
+                    Console.WriteLine(user.Id.ToString());
+                    uriBuilder.Query = query.ToString();
+                    var urlString = uriBuilder.ToString();
+
                     EmailService emailService = new EmailService();
                     await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Підтвердьте реєcтрацію за посиланням: <a href='{callbackUrl}'>link</a>");
+                        $"Підтвердьте реєcтрацію за посиланням: <a href='{urlString}'>link</a>");
                 }
                 else
                 {
@@ -52,27 +65,27 @@ namespace  Blog.API.Controllers
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
-                    return BadRequest("Someting went wrong");
+                    return BadRequest(false);
                 }
             }
-            return Ok("The email with the password reset link has been sent.");
+            return Ok(true);
         }
 
-        [HttpGet]
-        [Route("ConfirmEmail")]
+        [HttpPost]
+        [Route("confirm-email")]
         [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailDto model, CancellationToken token = default)
         {
-            if (userId == null || code == null)
+            if (model.UserId == null || model.Token == null)
             {
-                return null;
+                return BadRequest("Invalid userId or token");
             }
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(model.UserId);
             if (user == null)
             {
-                return null;
+                return BadRequest("User doesn't exist");
             }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
+            var result = await _userManager.ConfirmEmailAsync(user, model.Token);
             if (result.Succeeded)
             {
                 string refreshToken = _accountService.GetRefreshToken(user);
@@ -93,23 +106,68 @@ namespace  Blog.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDto loginViewModel)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginViewModel, CancellationToken token = default)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.Values.Select(x => x.Errors));
             }
-            AuthenticationResultDto loginResponse = await _accountService.LoginAsync(loginViewModel);
 
-            return GetRegisterAuthResponse(loginResponse);
+            User user = await _userManager.FindByEmailAsync(loginViewModel.Email);
+            if (user == null)
+            {
+                return BadRequest("Invalid email or user doesn't exist");
+            }
+       
+            var isEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+            if (isEmailConfirmed)
+            {
+                AuthenticationResultDto loginResponse = await _accountService.LoginAsync(loginViewModel);
+                return GetRegisterAuthResponse(loginResponse);
+            }
+            else
+            {
+                return BadRequest("Email is not confirmed");
+            }           
         }
 
         [HttpPost]
         [Route("logout")]
-        public async Task<IActionResult> Logout(RefreshTokenDto refreshTokenDto)
+        public async Task<IActionResult> Logout(RefreshTokenDto refreshTokenDto, CancellationToken token = default)
         {
             AuthenticationResultDto logoutResponse = _accountService.LogoutAsync(refreshTokenDto);
             return GetRegisterAuthResponse(logoutResponse);
+        }
+
+        [HttpPost]
+        [Route("refreshJwt")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshToken, CancellationToken token = default)
+        {
+            AuthenticationResultDto refreshTokenResponse = await _accountService.RefreshTokenAsync(refreshToken.RefreshToken);
+
+            if (!refreshTokenResponse.Success)
+            {
+                return Unauthorized(refreshTokenResponse as AuthFailedResponseDto);
+            }
+            return Ok(refreshTokenResponse as TokenResponseDto);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("SubscribeToUser")]
+        public async Task<IActionResult> Subscribe(Guid UserToSubscribeId, CancellationToken token = default)
+        {
+            UserSubscriptionDto userSubscription = await _userSubscriptionService.CreateUserSubscriptionAsync(UserToSubscribeId);
+            return Ok(userSubscription);
+        }
+
+        [HttpDelete]
+        [Authorize]
+        [Route("UnsubscribeFromUser")]
+        public async Task<IActionResult> Unsubscribe(Guid UserToUnsubscribeId, CancellationToken token = default)
+        {
+            await _userSubscriptionService.DeleteUserSubscriptionAsync(UserToUnsubscribeId);
+            return Ok();
         }
 
         [HttpPost]
@@ -161,7 +219,7 @@ namespace  Blog.API.Controllers
             return BadRequest(ModelState);
         }
 
-        private IActionResult GetRegisterAuthResponse(AuthenticationResultDto response)
+        private IActionResult GetRegisterAuthResponse(AuthenticationResultDto response, CancellationToken token = default)
         {
             if (!response.Success)
             {
@@ -178,7 +236,7 @@ namespace  Blog.API.Controllers
         [HttpGet]
         [Route("Me")]
         [Authorize]
-        public async Task<string> GetUserInfo()
+        public async Task<string> GetUserInfo(CancellationToken token = default)
         {
             ClaimsIdentity identity = (ClaimsIdentity)User.Identity;
             string id = identity.Claims.SingleOrDefault(claim => claim.Type == Consts.Id).Value;
@@ -191,7 +249,7 @@ namespace  Blog.API.Controllers
         [HttpPut]
         [Route("resetByOldPassword")]
         [Authorize]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordByOldPasswordDto passwords)
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordByOldPasswordDto passwords, CancellationToken token = default)
         {
             if (ModelState.IsValid)
             {
@@ -224,7 +282,7 @@ namespace  Blog.API.Controllers
         [HttpPut]
         [Route("update")]
         [Authorize(Roles = Roles.admin)]
-        public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserDto value)
+        public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserDto value, CancellationToken token = default)
         {
             if (ModelState.IsValid)
             {

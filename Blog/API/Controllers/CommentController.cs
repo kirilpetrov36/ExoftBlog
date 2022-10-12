@@ -22,7 +22,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Coments")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<ReadCommentDto>>> GetComments()
+        public async Task<ActionResult<IEnumerable<ReadCommentDto>>> GetComments(CancellationToken token = default)
         {
 
             IEnumerable<ReadCommentDto> comments = await _commentService.GetCommentsAsync();
@@ -33,7 +33,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Comment/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentDto>> GetComment([FromRoute] Guid id)
+        public async Task<ActionResult<ReadCommentDto>> GetComment([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadCommentDto comment = await _commentService.GetCommentAsync(id);
 
@@ -49,7 +49,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Comment/{id:Guid}/Likes")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentLikesDto>> GetCommentLikes([FromRoute] Guid id)
+        public async Task<ActionResult<ReadCommentLikesDto>> GetCommentLikes([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadCommentLikesDto comment = await _commentService.GetLikesAsync(id);
 
@@ -65,7 +65,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Comment/{id:Guid}/Childs")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentChildsDto>> GetCommentChilds([FromRoute] Guid id)
+        public async Task<ActionResult<ReadCommentChildsDto>> GetCommentChilds([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadCommentChildsDto comment = await _commentService.GetCommentChildsAsync(id);
 
@@ -81,7 +81,7 @@ namespace Blog.API.Controllers
         [HttpPatch]
         [Route("Comment/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentDto>> PatchComment([FromRoute] Guid id, JsonPatchDocument<Comment> commentUpdates)
+        public async Task<ActionResult<ReadCommentDto>> PatchComment([FromRoute] Guid id, JsonPatchDocument<Comment> commentUpdates, CancellationToken token = default)
         {
             ReadCommentDto comment = await _commentService.GetCommentAsync(id);
             if (comment == null)
@@ -96,7 +96,7 @@ namespace Blog.API.Controllers
         [HttpPut]
         [Route("Comment/{id:Guid}")]
         [Authorize]
-        public async Task<IActionResult> PutComment([FromRoute] Guid id, [FromBody] CreateCommentDto comment)
+        public async Task<IActionResult> PutComment([FromRoute] Guid id, [FromBody] CreateCommentDto comment, CancellationToken token = default)
         {
             ReadCommentDto commentToModify = await _commentService.GetCommentAsync(id);
             if (commentToModify == null)
@@ -114,7 +114,7 @@ namespace Blog.API.Controllers
         [HttpPost]
         [Route("Comment")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentDto>> PostComment([FromBody] CreateCommentDto comment)
+        public async Task<ActionResult<ReadCommentDto>> PostComment([FromBody] CreateCommentDto comment, CancellationToken token = default)
         {
             ReadCommentDto newComment = await _commentService.CreateCommentAsync(comment);
             if (newComment == null)
@@ -131,7 +131,7 @@ namespace Blog.API.Controllers
         [HttpDelete]
         [Route("Comment/{id:Guid}")]
         [Authorize]
-        public async Task<IActionResult> DeleteComment([FromRoute] Guid Id)
+        public async Task<IActionResult> DeleteComment([FromRoute] Guid Id, CancellationToken token = default)
         {
             ReadCommentDto commentToModify = await _commentService.GetCommentAsync(Id);
             if (commentToModify == null)
@@ -155,7 +155,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("CommentAmount/Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<int?>> GetArticleCommentsAmount([FromRoute] Guid Id)
+        public async Task<ActionResult<int?>> GetArticleCommentsAmount([FromRoute] Guid Id, CancellationToken token = default)
         {   
             int? result = await _commentService.GetArticleCommentsAmount(Id);
             if (result != null)

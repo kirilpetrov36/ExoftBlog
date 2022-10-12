@@ -6,7 +6,6 @@ namespace Blog.BLL.DTO.LikeDto
 {
     public class ReadLikeDto : BaseDto
     {
-        public Guid Id { get; set; }
         public bool IsDeleted { get; set; }
     }
 

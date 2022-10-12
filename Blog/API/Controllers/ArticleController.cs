@@ -22,7 +22,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Articles")]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetArticles()
+        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetArticles(CancellationToken token = default)
         {
 
             IEnumerable<ReadArticleDto> articles = await _articleService.GetArticlesAsync();
@@ -33,7 +33,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Articles/MostCommentable")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetMostCommentableArticles()
+        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetMostCommentableArticles(CancellationToken token = default)
         {
 
             IEnumerable<ReadArticleDto> articles = await _articleService.GetMostCommentableArticlesAsync();
@@ -44,10 +44,21 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Articles/MostLikeable")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetMostLikeableArticles()
+        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetMostLikeableArticles(CancellationToken token = default)
         {
 
             IEnumerable<ReadArticleDto> articles = await _articleService.GetMostLikeableArticlesAsync();
+            return Ok(articles);
+        }
+
+        // GET: api/Article/BySubscription
+        [HttpGet]
+        [Route("Articles/BySubscription")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<ReadArticleDto>>> GetArticlesBySubscription(CancellationToken token = default)
+        {
+
+            IEnumerable<ReadArticleDto> articles = await _articleService.GetArticlesBySubscriptionAsync();
             return Ok(articles);
         }
 
@@ -55,7 +66,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadFullArticleDto>> GetArticle([FromRoute] Guid id)
+        public async Task<ActionResult<ReadFullArticleDto>> GetArticle([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadArticleDto article = await _articleService.GetArticleAsync(id);
 
@@ -71,7 +82,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("FullArticle/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadFullArticleDto>> GetFullArticle([FromRoute] Guid id)
+        public async Task<ActionResult<ReadFullArticleDto>> GetFullArticle([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadFullArticleDto article = await _articleService.GetFullArticleAsync(id);
 
@@ -87,7 +98,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Article/{id:Guid}/Comments")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleCommentsDto>> GetArticleComments([FromRoute] Guid id)
+        public async Task<ActionResult<ReadArticleCommentsDto>> GetArticleComments([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadArticleCommentsDto article = await _articleService.GetArticleCommentsAsync(id);
 
@@ -103,7 +114,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("Article/{id:Guid}/Likes")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleLikesDto>> GetArticlelikes([FromRoute] Guid id)
+        public async Task<ActionResult<ReadArticleLikesDto>> GetArticlelikes([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadArticleLikesDto article = await _articleService.GetArticleLikesAsync(id);
 
@@ -119,7 +130,7 @@ namespace Blog.API.Controllers
         [HttpPatch]
         [Route("Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleDto>> PatchArticle([FromRoute] Guid id, JsonPatchDocument<Article> articleUpdates)
+        public async Task<ActionResult<ReadArticleDto>> PatchArticle([FromRoute] Guid id, JsonPatchDocument<Article> articleUpdates, CancellationToken token = default)
         {
             ReadArticleDto article = await _articleService.GetArticleAsync(id);
             if (article == null)
@@ -134,7 +145,7 @@ namespace Blog.API.Controllers
         [HttpPut]
         [Route("Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article)
+        public async Task<ActionResult<ReadArticleDto>> PutArticle([FromRoute] Guid id, [FromBody] CreateArticleDto article, CancellationToken token = default)
         {
             ReadArticleDto articleToModify = await _articleService.GetArticleAsync(id);
             if (articleToModify == null)
@@ -150,7 +161,7 @@ namespace Blog.API.Controllers
         [HttpPost]
         [Route("Article")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleDto>> PostArticle([FromBody]CreateArticleDto article)
+        public async Task<ActionResult<ReadArticleDto>> PostArticle([FromBody]CreateArticleDto article, CancellationToken token = default)
         {
             ReadArticleDto newArticle = await _articleService.CreateArticleAsync(article);
             if (newArticle == null)
@@ -165,7 +176,7 @@ namespace Blog.API.Controllers
         [HttpDelete]
         [Route("Article/{id:Guid}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteArticle([FromRoute] Guid id)
+        public async Task<IActionResult> DeleteArticle([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadArticleDto articleToDelete = await _articleService.GetArticleAsync(id);
             if (articleToDelete == null)

@@ -12,6 +12,7 @@ namespace Blog.BLL.Services.Interfaces
         Task<Tuple<IdentityResult, User>> RegisterAsync(RegisterDto model, CancellationToken cancellationToken = default);
         AuthenticationResultDto LogoutAsync(RefreshTokenDto registerViewModel, CancellationToken cancellationToken = default);
         //Task<ReadUserDto> GetUserInfo(string id, CancellationToken token = default);
+        Task<AuthenticationResultDto> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default);
         Guid GetUserId();
         Task<ReadUserDto> UpdateUserInfo(User user, UpdateUserDto newUser);
         Task<bool> ResetPassword(User user, ResetPasswordByOldPasswordDto passwords);

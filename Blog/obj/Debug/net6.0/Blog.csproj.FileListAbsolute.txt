@@ -291,3 +291,7 @@ D:\Everything\camp\Blog\Blog\Blog\obj\Debug\net6.0\ref\Blog.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Azure.Identity.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Azure.Security.KeyVault.Secrets.dll
 D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.Web.Cors.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.Web.Http.dll
+D:\Everything\camp\Blog\Blog\Blog\bin\Debug\net6.0\System.Web.Http.Cors.dll

@@ -7,7 +7,7 @@ namespace Blog.BLL.Services.Interfaces
         Task<List<ArticleFile>> UploadFilesAsync(ICollection<IFormFile> files, Guid postId);
         Task<ArticleFile> GetFileById(Guid FileId);
         byte[] ReadFully(Stream input);
-        Task<List<ArticleFile>> GetPostImages(Guid postId);
+        Task<List<ArticleFile>> GetArticleFiles(Guid postId);
         Task<bool> RemoveFileAsync(Guid FileId);
     }
 }

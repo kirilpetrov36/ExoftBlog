@@ -35,9 +35,26 @@ namespace Blog.DAL.Repositories
         {
             return await _context.Articles
                     .Include(p => p.Likes)
-                        .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
-                        .ThenInclude(p => p.User)
+                    .Include(p => p.ArticleFiles)
+                    .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Article>> GetArticlesBySubscriptionAsync(Guid currentUserId, CancellationToken token = default)
+        {
+            User user = await _context.Users
+                            .Include(u => u.UserSubscriptions)
+                            .FirstOrDefaultAsync(user => user.Id == currentUserId);
+
+            List<Guid> subscribedUsersId = new List<Guid>();
+            foreach(UserSubscription elem in user.UserSubscriptions)
+            {
+                subscribedUsersId.Add(elem.UserToSubscribeId);
+            }
+            //return await _context.Articles.Where(article => subscriptions.Any(s => s.UserToSubscribeId == article.CreatedBy))
+            return await _context.Articles.Where(article => subscribedUsersId.Contains(article.CreatedBy))
+                    .Include(p => p.Likes)
+                    .Include(p => p.Comments)
                     .Include(p => p.ArticleFiles)
                     .ToListAsync();
         }
@@ -46,9 +63,7 @@ namespace Blog.DAL.Repositories
         {
             return await _context.Articles
                     .Include(p => p.Likes)
-                        .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
-                        .ThenInclude(p => p.User)
                     .Include(p => p.ArticleFiles)
                     .OrderByDescending(p => p.Comments.Count())
                     .ToListAsync();
@@ -59,9 +74,7 @@ namespace Blog.DAL.Repositories
         {
             return await _context.Articles
                     .Include(p => p.Likes)
-                        .ThenInclude(p => p.User)
                     .Include(p => p.Comments)
-                        .ThenInclude(p => p.User)
                     .Include(p => p.ArticleFiles)
                     .OrderByDescending(p => p.Likes.Count())
                     .ToListAsync();

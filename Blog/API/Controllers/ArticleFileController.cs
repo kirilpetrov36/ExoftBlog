@@ -15,11 +15,11 @@ namespace Blog.API.Controllers
             _fileService = fileService;
         }
 
-        [Route("PostFiles")]
+        [Route("ArticleFiles")]
         [HttpGet]
-        public async Task<ActionResult<List<ArticleFile>>> GetPostImages(Guid postId)
+        public async Task<ActionResult<List<ArticleFile>>> GetPostImages(Guid articleId, CancellationToken token = default)
         {
-            List <ArticleFile> result = await _fileService.GetPostImages(postId);
+            List <ArticleFile> result = await _fileService.GetArticleFiles(articleId);
             if(result == null)
             {
                 return NotFound();
@@ -27,9 +27,9 @@ namespace Blog.API.Controllers
             return result;
         }
 
-        [Route("File")]
+        [Route("ArticleFile")]
         [HttpGet]
-        public async Task<ActionResult<ArticleFile>> GetFileById(Guid FileId)
+        public async Task<ActionResult<ArticleFile>> GetFileById(Guid FileId, CancellationToken token = default)
         {
             ArticleFile result = await _fileService.GetFileById(FileId);
             if (result == null)
@@ -39,9 +39,9 @@ namespace Blog.API.Controllers
             return result;
         }
 
-        [Route("File")]
+        [Route("ArticleFile")]
         [HttpPost]
-        public async Task<ActionResult<List<ArticleFile>>> UploadFile(ICollection<IFormFile> files, Guid postId)
+        public async Task<ActionResult<List<ArticleFile>>> UploadFile(ICollection<IFormFile> files, Guid postId, CancellationToken token = default)
         { 
             List<ArticleFile> dataFiles = await _fileService.UploadFilesAsync(files, postId);
             if (dataFiles == null)
@@ -51,9 +51,9 @@ namespace Blog.API.Controllers
             return Ok(dataFiles);
         }
 
-        [Route("File")]
+        [Route("ArticleFile")]
         [HttpDelete]
-        public async Task DeleteFile(Guid FileId)
+        public async Task DeleteFile(Guid FileId, CancellationToken token = default)
         {
             await _fileService.RemoveFileAsync(FileId);
         }
