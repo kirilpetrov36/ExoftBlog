@@ -22,7 +22,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("ArticleLikes")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<ReadArticleLikeDto>>> GetArticleLikes()
+        public async Task<ActionResult<IEnumerable<ReadArticleLikeDto>>> GetArticleLikes(CancellationToken token = default)
         {
 
             IEnumerable<ReadArticleLikeDto> articleLikes = await _articleLikeService.GetArticleLikesAsync();
@@ -33,7 +33,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("ArticleLike/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleLikeDto>> GetArticleLike([FromRoute] Guid id)
+        public async Task<ActionResult<ReadArticleLikeDto>> GetArticleLike([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadArticleLikeDto articleLike = await _articleLikeService.GetArticleLikeAsync(id);
 
@@ -49,7 +49,7 @@ namespace Blog.API.Controllers
         [HttpPost]
         [Route("ArticleLike")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleLikeDto>> PostArticleLike([FromBody] CreateArticleLikeDto articleLike)
+        public async Task<ActionResult<ReadArticleLikeDto>> PostArticleLike([FromBody] CreateArticleLikeDto articleLike, CancellationToken token = default)
         {
             ReadArticleLikeDto newArticleLike = await _articleLikeService.CreateArticleLikeAsync(articleLike);
             if (newArticleLike == null)
@@ -66,7 +66,7 @@ namespace Blog.API.Controllers
         [HttpPatch]
         [Route("ArticleLike/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadArticleLikeDto>> PatchArticleLike([FromRoute] Guid id, JsonPatchDocument<ArticleLike> articleLikeUpdates)
+        public async Task<ActionResult<ReadArticleLikeDto>> PatchArticleLike([FromRoute] Guid id, JsonPatchDocument<ArticleLike> articleLikeUpdates, CancellationToken token = default)
         {
             ReadArticleLikeDto articleLike = await _articleLikeService.GetArticleLikeAsync(id);
             if (articleLike == null)
@@ -81,7 +81,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("LikesAmount/Article/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid ArticleId)
+        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid ArticleId, CancellationToken token = default)
         {
             int? result = await _articleLikeService.GetArticleLikesAmountAsync(ArticleId);
 
@@ -111,7 +111,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("CommentLikes")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<ReadCommentLikeDto>>> GetCommentLikes()
+        public async Task<ActionResult<IEnumerable<ReadCommentLikeDto>>> GetCommentLikes(CancellationToken token = default)
         {
 
             IEnumerable<ReadCommentLikeDto> commentLikes = await _commentLikeService.GetCommentLikesAsync();
@@ -122,7 +122,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("CommentLike/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentLikeDto>> GetCommentLike([FromRoute] Guid id)
+        public async Task<ActionResult<ReadCommentLikeDto>> GetCommentLike([FromRoute] Guid id, CancellationToken token = default)
         {
             ReadCommentLikeDto commentLike = await _commentLikeService.GetCommentLikeAsync(id);
 
@@ -138,7 +138,7 @@ namespace Blog.API.Controllers
         [HttpPost]
         [Route("CommentLike")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentLikeDto>> PostCommentLike([FromBody] CreateCommentLikeDto commentLike)
+        public async Task<ActionResult<ReadCommentLikeDto>> PostCommentLike([FromBody] CreateCommentLikeDto commentLike, CancellationToken token = default)
         {
             ReadCommentLikeDto newCommentLike = await _commentLikeService.CreateCommentLikeAsync(commentLike);
             if (newCommentLike == null)
@@ -155,7 +155,7 @@ namespace Blog.API.Controllers
         [HttpPatch]
         [Route("CommentLike/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<ReadCommentLikeDto>> PatchCommentLike([FromRoute] Guid id, JsonPatchDocument<CommentLike> commentLikeUpdates)
+        public async Task<ActionResult<ReadCommentLikeDto>> PatchCommentLike([FromRoute] Guid id, JsonPatchDocument<CommentLike> commentLikeUpdates, CancellationToken token = default)
         {
             ReadCommentLikeDto commentLike = await _commentLikeService.GetCommentLikeAsync(id);
             if (commentLike == null)
@@ -170,7 +170,7 @@ namespace Blog.API.Controllers
         [HttpGet]
         [Route("LikesAmount/Comment/{id:Guid}")]
         [Authorize]
-        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid CommentId)
+        public async Task<ActionResult<int?>> GetCommentLikesAmountAsync([FromRoute] Guid CommentId, CancellationToken token = default)
         {
             int? result = await _commentLikeService.GetCommentLikesAmountAsync(CommentId);
 

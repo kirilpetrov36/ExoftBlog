@@ -46,6 +46,16 @@ namespace Blog
             services.RegisterReposAndServices();
             services.RegisterMap();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                name: "AllowOrigin",
+                builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().WithOrigins("http://localhost:4200");
+                });
+            });
+
             services.AddControllers().AddNewtonsoftJson();
            
             services.AddEndpointsApiExplorer();
@@ -73,12 +83,14 @@ namespace Blog
             services.AddIdentity<User, IdentityRole<Guid>>
             (options =>
             {
-                options.SignIn.RequireConfirmedAccount = true;
+                //options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders(); 
 
@@ -119,10 +131,7 @@ namespace Blog
             app.UseSwaggerUI();
 
             app.UseStatusCodePages();
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 

@@ -11,6 +11,8 @@ namespace Blog.DAL.UnitOfWork
         IArticleLikeRepository ArticleLikeRepository { get; }
         IUserRepository UserRepository { get; }
         IArticleFileRepository ArticleFileRepository { get; }
+        IUserSubscriptionRepository UserSubscriptionRepository { get; }
+        IUserFileRepository UserFileRepository { get; }
         Task SaveChanges(Guid userId);
         Task SaveChanges();
     }

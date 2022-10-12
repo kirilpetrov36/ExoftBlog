@@ -106,6 +106,15 @@ namespace Blog.BLL.Services
             return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 
+        public async Task<IEnumerable<ReadArticleDto>> GetArticlesBySubscriptionAsync(CancellationToken token = default)
+        {
+            Guid currentUserId = _accountService.GetUserId();
+            _logger.LogInformation("Get articles for which current user {currentUserId} subscribed", currentUserId);
+
+            IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetArticlesBySubscriptionAsync(currentUserId);
+            return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
+        }
+
         public async Task<ReadArticleDto> UpdateArticleAsync(Guid id, CreateArticleDto item, CancellationToken token = default)
         {
             _logger.LogInformation("Update article with id - {id}.", id);

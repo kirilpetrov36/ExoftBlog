@@ -120,6 +120,30 @@ namespace Blog.BLL.Services
             }
         }
 
+        public async Task<AuthenticationResultDto> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
+        {
+            User user = await _unitOfWork.UserRepository.GetUserByRefreshToken(refreshToken, cancellationToken);
+            if (user == null)
+            {
+                return new AuthFailedResponseDto
+                {
+                    Errors = new[] { ErrorMessages.IncorrectRefreshToken },
+                    ErrorCode = StatusCodes.Status401Unauthorized
+                };
+            }
+            RefreshToken approvedRefreshToken = user.RefreshTokens.Single(x => x.Token == refreshToken);
+            if (approvedRefreshToken.IsExpired)
+            {
+                return new AuthFailedResponseDto
+                {
+                    Errors = new[] { ErrorMessages.RefreshTokenExpired },
+                    ErrorCode = StatusCodes.Status401Unauthorized
+                };
+            }
+            string jwtToken = await GetAccessTokenAsync(user);
+            return new TokenResponseDto { Token = jwtToken, Success = true };
+        }
+
         public Guid GetUserId()
         {
             if (_httpContextAccessor != null)
@@ -230,5 +254,7 @@ namespace Blog.BLL.Services
 
             return _mapper.Map<ReadUserDto>(user);
         }
+
+
     }
 }
