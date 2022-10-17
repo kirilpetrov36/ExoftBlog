@@ -29,12 +29,12 @@ namespace Blog.DAL.Extensions
             modelBuilder.Entity<Comment>()
                 .HasOne(p => p.User)
                 .WithMany(p => p.Comments)
-                .HasForeignKey(p => p.UserId)
+                .HasForeignKey(p => p.CreatedBy)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
             modelBuilder.Entity<Comment>()
-                .Property(p => p.UserId)
+                .Property(p => p.CreatedBy)
                 .IsRequired();
 
             modelBuilder.Entity<Comment>()

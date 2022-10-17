@@ -17,7 +17,7 @@ namespace Blog.API.Controllers
 
         [Route("ArticleFiles")]
         [HttpGet]
-        public async Task<ActionResult<List<ArticleFile>>> GetPostImages(Guid articleId, CancellationToken token = default)
+        public async Task<ActionResult<List<ArticleFile>>> GetPostImages([FromBody]Guid articleId, CancellationToken token = default)
         {
             List <ArticleFile> result = await _fileService.GetArticleFiles(articleId);
             if(result == null)
@@ -29,7 +29,7 @@ namespace Blog.API.Controllers
 
         [Route("ArticleFile")]
         [HttpGet]
-        public async Task<ActionResult<ArticleFile>> GetFileById(Guid FileId, CancellationToken token = default)
+        public async Task<ActionResult<ArticleFile>> GetFileById([FromBody] Guid FileId, CancellationToken token = default)
         {
             ArticleFile result = await _fileService.GetFileById(FileId);
             if (result == null)
@@ -39,19 +39,19 @@ namespace Blog.API.Controllers
             return result;
         }
 
-        [Route("ArticleFile")]
+        [Route("ArticleFile/{postId}")]
         [HttpPost]
-        public async Task<ActionResult<List<ArticleFile>>> UploadFile(ICollection<IFormFile> files, Guid postId, CancellationToken token = default)
+        public async Task<ActionResult<ArticleFile>> UploadFile(IFormFile file, Guid postId, CancellationToken token = default)
         { 
-            List<ArticleFile> dataFiles = await _fileService.UploadFilesAsync(files, postId);
-            if (dataFiles == null)
+            ArticleFile dataFile = await _fileService.UploadFilesAsync(file, postId);
+            if (dataFile == null)
             {
                 return BadRequest();
             }
-            return Ok(dataFiles);
+            return Ok(dataFile);
         }
 
-        [Route("ArticleFile")]
+        [Route("ArticleFile/{FileId}")]
         [HttpDelete]
         public async Task DeleteFile(Guid FileId, CancellationToken token = default)
         {

@@ -546,3 +546,1130 @@ IF EXISTS
     )
 )
 SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:13:31.0997362+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:13:32.1934712+03:00  [INF] Executed DbCommand ("130"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:13:32.3339281+03:00  [INF] Executed DbCommand ("124"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:13:32.8560417+03:00  [INF] Executed DbCommand ("150"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-12T17:13:33.0426278+03:00  [INF] Executed DbCommand ("115"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-12T17:13:33.1518772+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-10-12T17:13:33.1532057+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-10-12T17:13:33.1618715+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-12T17:13:33.1631170+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-12T17:13:33.1646973+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-10-12T17:13:39.0528312+03:00 0HMLCBFP32EER:00000003 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:13:39.1720828+03:00 0HMLCBFP32EER:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:13:39.2852690+03:00 0HMLCBFP32EER:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:13:39.3072419+03:00 0HMLCBFP32EER:00000003 [INF] Get all articles (3fabed84)
+2022-10-12T17:13:39.4313376+03:00 0HMLCBFP32EER:00000003 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-12T17:13:39.6346892+03:00 0HMLCBFP32EER:00000003 [INF] Executed DbCommand ("194"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T17:36:07.9619091+03:00 0HMLCBFP32EER:0000001B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:36:08.7519908+03:00 0HMLCBFP32EER:0000001B [INF] Executed DbCommand ("106"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:36:08.8625353+03:00 0HMLCBFP32EER:0000001B [INF] Executed DbCommand ("107"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:36:09.0704585+03:00 0HMLCBFP32EER:0000001B [INF] Executed DbCommand ("113"ms) [Parameters=["@__refreshToken_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r0].[UserId], [r0].[Id], [r0].[Expires], [r0].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE EXISTS (
+        SELECT 1
+        FROM [RefreshToken] AS [r]
+        WHERE ([a].[Id] = [r].[UserId]) AND ([r].[Token] = @__refreshToken_0))
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r0] ON [t].[Id] = [r0].[UserId]
+ORDER BY [t].[Id], [r0].[UserId]" (0723d8ff)
+2022-10-12T17:36:53.4336413+03:00 0HMLCBFP32EER:0000001F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:36:53.5445915+03:00 0HMLCBFP32EER:0000001F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:36:53.6543649+03:00 0HMLCBFP32EER:0000001F [INF] Executed DbCommand ("107"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:36:53.7967409+03:00 0HMLCBFP32EER:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:36:53.9552270+03:00 0HMLCBFP32EER:0000001F [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:36:54.2701702+03:00 0HMLCBFP32EER:0000001F [INF] Executed DbCommand ("163"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:39:38.3858654+03:00 0HMLCBFP32EER:00000023 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:39:38.4950194+03:00 0HMLCBFP32EER:00000023 [INF] Executed DbCommand ("107"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:39:38.6062124+03:00 0HMLCBFP32EER:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:39:38.7244007+03:00 0HMLCBFP32EER:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:39:38.8428453+03:00 0HMLCBFP32EER:00000023 [INF] Executed DbCommand ("115"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:39:38.9615989+03:00 0HMLCBFP32EER:00000023 [INF] Executed DbCommand ("110"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:42:36.5596052+03:00 0HMLCBFP32EER:00000027 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:42:36.6713528+03:00 0HMLCBFP32EER:00000027 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:42:36.7820836+03:00 0HMLCBFP32EER:00000027 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:42:36.8934333+03:00 0HMLCBFP32EER:00000027 [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:42:37.0057902+03:00 0HMLCBFP32EER:00000027 [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:42:37.1166714+03:00 0HMLCBFP32EER:00000027 [INF] Executed DbCommand ("107"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:43:35.6009407+03:00 0HMLCBFP32EER:0000002B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:43:35.7197971+03:00 0HMLCBFP32EER:0000002B [INF] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:43:35.8348896+03:00 0HMLCBFP32EER:0000002B [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:43:36.4141566+03:00 0HMLCBFP32EER:0000002B [INF] Executed DbCommand ("574"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:43:36.5310437+03:00 0HMLCBFP32EER:0000002B [INF] Executed DbCommand ("110"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:43:36.6446364+03:00 0HMLCBFP32EER:0000002B [INF] Executed DbCommand ("110"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:44:35.7597612+03:00 0HMLCBFP32EER:0000002F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:44:35.8720266+03:00 0HMLCBFP32EER:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:44:35.9843112+03:00 0HMLCBFP32EER:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:44:36.0956171+03:00 0HMLCBFP32EER:0000002F [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:44:47.8486034+03:00 0HMLCBFP32EER:00000033 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:44:47.9646446+03:00 0HMLCBFP32EER:00000033 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:44:48.0792494+03:00 0HMLCBFP32EER:00000033 [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:44:48.1927014+03:00 0HMLCBFP32EER:00000033 [INF] Executed DbCommand ("110"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:44:48.3051823+03:00 0HMLCBFP32EER:00000033 [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:44:48.4201025+03:00 0HMLCBFP32EER:00000033 [INF] Executed DbCommand ("108"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:46:32.7402807+03:00 0HMLCBFP32EER:00000037 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:46:32.8510908+03:00 0HMLCBFP32EER:00000037 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:46:32.9689461+03:00 0HMLCBFP32EER:00000037 [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:46:33.0912111+03:00 0HMLCBFP32EER:00000037 [INF] Executed DbCommand ("116"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:46:33.2045381+03:00 0HMLCBFP32EER:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:46:33.3199631+03:00 0HMLCBFP32EER:00000037 [INF] Executed DbCommand ("111"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:49:08.9421461+03:00 0HMLCBFP32EER:0000003B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:49:09.0600043+03:00 0HMLCBFP32EER:0000003B [INF] Executed DbCommand ("115"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:49:09.1717924+03:00 0HMLCBFP32EER:0000003B [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:49:09.2831721+03:00 0HMLCBFP32EER:0000003B [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:49:09.3984129+03:00 0HMLCBFP32EER:0000003B [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:49:09.5113873+03:00 0HMLCBFP32EER:0000003B [INF] Executed DbCommand ("108"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T17:50:48.9964099+03:00 0HMLCBFP32EER:00000047 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T17:50:49.1066146+03:00 0HMLCBFP32EER:00000047 [INF] Executed DbCommand ("107"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T17:50:49.2174069+03:00 0HMLCBFP32EER:00000047 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T17:50:49.3331749+03:00 0HMLCBFP32EER:00000047 [INF] Executed DbCommand ("112"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:50:49.4478169+03:00 0HMLCBFP32EER:00000047 [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T17:50:49.5644335+03:00 0HMLCBFP32EER:00000047 [INF] Executed DbCommand ("108"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T18:36:41.5489503+03:00 0HMLCBFP32EER:0000007D [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:36:42.4383430+03:00 0HMLCBFP32EER:0000007D [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:36:42.5510830+03:00 0HMLCBFP32EER:0000007D [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:36:42.6658704+03:00 0HMLCBFP32EER:0000007D [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T18:36:42.7777642+03:00 0HMLCBFP32EER:0000007D [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T18:36:42.8901795+03:00 0HMLCBFP32EER:0000007D [INF] Executed DbCommand ("108"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T18:38:56.3637705+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:38:57.5929819+03:00  [INF] Executed DbCommand ("129"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:38:57.7339185+03:00  [INF] Executed DbCommand ("125"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:38:58.2391404+03:00  [INF] Executed DbCommand ("149"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-12T18:38:58.4366910+03:00  [INF] Executed DbCommand ("108"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-12T18:38:58.5348404+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-10-12T18:38:58.5361309+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-10-12T18:38:58.5427318+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-12T18:38:58.5439859+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-12T18:38:58.5450509+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-10-12T18:49:13.3099882+03:00 0HMLCCVGN2OGU:0000000F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:49:14.0937617+03:00 0HMLCCVGN2OGU:0000000F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:49:14.2061437+03:00 0HMLCCVGN2OGU:0000000F [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:49:14.4698752+03:00 0HMLCCVGN2OGU:0000000F [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T18:49:14.6338504+03:00 0HMLCCVGN2OGU:0000000F [INF] Executed DbCommand ("109"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-12T18:49:14.8110952+03:00 0HMLCCVGN2OGU:0000000F [INF] Executed DbCommand ("108"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-12T18:51:57.3969637+03:00 0HMLCCVGN2OGU:0000001B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:51:57.5121457+03:00 0HMLCCVGN2OGU:0000001B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:51:57.6228506+03:00 0HMLCCVGN2OGU:0000001B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:51:57.6300915+03:00 0HMLCCVGN2OGU:0000001B [INF] Get all articles (3fabed84)
+2022-10-12T18:51:57.6814485+03:00 0HMLCCVGN2OGU:0000001B [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-12T18:51:57.8236140+03:00 0HMLCCVGN2OGU:0000001B [INF] Executed DbCommand ("135"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T18:53:58.3489302+03:00 0HMLCCVGN2OGU:0000001F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:53:58.4608705+03:00 0HMLCCVGN2OGU:0000001F [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:53:58.5709236+03:00 0HMLCCVGN2OGU:0000001F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:53:58.5728017+03:00 0HMLCCVGN2OGU:0000001F [INF] Get all articles (3fabed84)
+2022-10-12T18:53:58.7118104+03:00 0HMLCCVGN2OGU:0000001F [INF] Executed DbCommand ("136"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T18:53:59.7455990+03:00 0HMLCCVGN2OGU:00000021 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:53:59.8572376+03:00 0HMLCCVGN2OGU:00000021 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:53:59.9702430+03:00 0HMLCCVGN2OGU:00000021 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:53:59.9717063+03:00 0HMLCCVGN2OGU:00000021 [INF] Get all articles (3fabed84)
+2022-10-12T18:54:00.1199744+03:00 0HMLCCVGN2OGU:00000021 [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T18:54:33.2319523+03:00 0HMLCCVGN2OGU:00000025 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T18:54:33.3419587+03:00 0HMLCCVGN2OGU:00000025 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T18:54:33.4528931+03:00 0HMLCCVGN2OGU:00000025 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T18:54:33.4567587+03:00 0HMLCCVGN2OGU:00000025 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T18:54:33.4733797+03:00 0HMLCCVGN2OGU:00000025 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-12T18:54:33.7272811+03:00 0HMLCCVGN2OGU:00000025 [INF] Executed DbCommand ("247"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T18:54:33.7665940+03:00 0HMLCCVGN2OGU:00000025 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-12T18:54:33.8906934+03:00 0HMLCCVGN2OGU:00000025 [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:08:37.4526748+03:00 0HMLCCVGN2OGV:00000003 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:08:38.3140847+03:00 0HMLCCVGN2OGV:00000003 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:08:38.4261060+03:00 0HMLCCVGN2OGV:00000003 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:08:38.4279035+03:00 0HMLCCVGN2OGV:00000003 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:08:38.5452258+03:00 0HMLCCVGN2OGV:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:08:38.6727809+03:00 0HMLCCVGN2OGV:00000003 [INF] Executed DbCommand ("120"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:09:18.6222957+03:00 0HMLCCVGN2OGV:00000007 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:09:18.7322859+03:00 0HMLCCVGN2OGV:00000007 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:09:18.8441776+03:00 0HMLCCVGN2OGV:00000007 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:09:18.8459526+03:00 0HMLCCVGN2OGV:00000007 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:09:18.9613550+03:00 0HMLCCVGN2OGV:00000007 [INF] Executed DbCommand ("109"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:09:19.0751392+03:00 0HMLCCVGN2OGV:00000007 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:53:53.1213325+03:00 0HMLCCVGN2OH0:00000003 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:53:53.9851643+03:00 0HMLCCVGN2OH0:00000003 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:53:54.0965086+03:00 0HMLCCVGN2OH0:00000003 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:53:54.0978014+03:00 0HMLCCVGN2OH0:00000003 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:53:54.2095889+03:00 0HMLCCVGN2OH0:00000003 [INF] Executed DbCommand ("109"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:53:54.3258657+03:00 0HMLCCVGN2OH0:00000003 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:55:34.1935932+03:00 0HMLCCVGN2OH0:00000007 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:55:34.3038728+03:00 0HMLCCVGN2OH0:00000007 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:55:34.4153967+03:00 0HMLCCVGN2OH0:00000007 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:55:34.4188662+03:00 0HMLCCVGN2OH0:00000007 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:55:34.5304461+03:00 0HMLCCVGN2OH0:00000007 [INF] Executed DbCommand ("108"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:55:34.6434336+03:00 0HMLCCVGN2OH0:00000007 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:56:47.8889046+03:00 0HMLCCVGN2OH0:0000000B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:56:47.9995143+03:00 0HMLCCVGN2OH0:0000000B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:56:48.1121497+03:00 0HMLCCVGN2OH0:0000000B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:56:48.1151287+03:00 0HMLCCVGN2OH0:0000000B [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:56:48.2257253+03:00 0HMLCCVGN2OH0:0000000B [INF] Executed DbCommand ("109"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:56:48.3413673+03:00 0HMLCCVGN2OH0:0000000B [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:56:55.8515748+03:00 0HMLCCVGN2OH0:0000000F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:56:55.9621346+03:00 0HMLCCVGN2OH0:0000000F [INF] Executed DbCommand ("107"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:56:56.0716906+03:00 0HMLCCVGN2OH0:0000000F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:56:56.0731687+03:00 0HMLCCVGN2OH0:0000000F [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:56:56.1847029+03:00 0HMLCCVGN2OH0:0000000F [INF] Executed DbCommand ("109"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:56:56.2955835+03:00 0HMLCCVGN2OH0:0000000F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:57:40.7626959+03:00 0HMLCCVGN2OH0:00000013 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:57:40.8721878+03:00 0HMLCCVGN2OH0:00000013 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:57:40.9817602+03:00 0HMLCCVGN2OH0:00000013 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:57:40.9832297+03:00 0HMLCCVGN2OH0:00000013 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:57:41.0936573+03:00 0HMLCCVGN2OH0:00000013 [INF] Executed DbCommand ("108"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:57:41.2038694+03:00 0HMLCCVGN2OH0:00000013 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:58:09.7442233+03:00 0HMLCCVGN2OH0:00000017 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:58:09.8549065+03:00 0HMLCCVGN2OH0:00000017 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:58:09.9665858+03:00 0HMLCCVGN2OH0:00000017 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:58:09.9679309+03:00 0HMLCCVGN2OH0:00000017 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:58:10.0807328+03:00 0HMLCCVGN2OH0:00000017 [INF] Executed DbCommand ("108"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:58:10.1929412+03:00 0HMLCCVGN2OH0:00000017 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:58:31.2060030+03:00 0HMLCCVGN2OH0:0000001B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:58:31.3171152+03:00 0HMLCCVGN2OH0:0000001B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:58:31.4282974+03:00 0HMLCCVGN2OH0:0000001B [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:58:31.4301084+03:00 0HMLCCVGN2OH0:0000001B [INF] Get all articles (3fabed84)
+2022-10-12T22:58:31.5422150+03:00 0HMLCCVGN2OH0:0000001B [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:58:54.6459016+03:00 0HMLCCVGN2OH0:0000001F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:58:54.7570033+03:00 0HMLCCVGN2OH0:0000001F [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:58:54.8688349+03:00 0HMLCCVGN2OH0:0000001F [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:58:54.8704276+03:00 0HMLCCVGN2OH0:0000001F [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:58:54.9975579+03:00 0HMLCCVGN2OH0:0000001F [INF] Executed DbCommand ("122"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:58:55.1106320+03:00 0HMLCCVGN2OH0:0000001F [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:59:09.0845765+03:00 0HMLCCVGN2OH0:00000023 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:59:09.1945957+03:00 0HMLCCVGN2OH0:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:59:09.3050071+03:00 0HMLCCVGN2OH0:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:59:09.3081610+03:00 0HMLCCVGN2OH0:00000023 [INF] Get articles for which current user aa70be71-2eb0-4d6d-b77f-08daab10291b subscribed (7bb2a9c6)
+2022-10-12T22:59:09.4189713+03:00 0HMLCCVGN2OH0:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-12T22:59:09.5298279+03:00 0HMLCCVGN2OH0:00000023 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = '6296d4b0-a66d-4997-e912-08daaba429fb'
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)
+2022-10-12T22:59:15.7830072+03:00 0HMLCCVGN2OH0:00000027 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-12T22:59:15.8945916+03:00 0HMLCCVGN2OH0:00000027 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-12T22:59:16.0057202+03:00 0HMLCCVGN2OH0:00000027 [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-12T22:59:16.0091215+03:00 0HMLCCVGN2OH0:00000027 [INF] Get all articles (3fabed84)
+2022-10-12T22:59:16.1218736+03:00 0HMLCCVGN2OH0:00000027 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy], [a0].[UserId], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [c].[UserId], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+LEFT JOIN [ArticleLikes] AS [a0] ON [a].[Id] = [a0].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [a].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [c].[Id]" (0723d8ff)

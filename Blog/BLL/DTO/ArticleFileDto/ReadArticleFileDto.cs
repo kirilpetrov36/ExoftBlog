@@ -1,6 +1,6 @@
 ﻿namespace Blog.BLL.DTO.ArticleFileDto
 {
-    public class ReadArticleFileDto : BaseDto
+    public class ReadArticleFileDto
     {
         public string Url { get; set; }
     }

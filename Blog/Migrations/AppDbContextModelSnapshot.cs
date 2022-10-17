@@ -60,6 +60,8 @@ namespace Blog.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedBy");
+
                     b.ToTable("Articles");
                 });
 
@@ -124,14 +126,11 @@ namespace Blog.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("ArticleLikes");
                 });
@@ -165,16 +164,13 @@ namespace Blog.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
 
-                    b.HasIndex("ParentCommentId");
+                    b.HasIndex("CreatedBy");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ParentCommentId");
 
                     b.ToTable("Comments");
                 });
@@ -205,14 +201,11 @@ namespace Blog.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CommentId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("CommentLikes");
                 });
@@ -327,12 +320,9 @@ namespace Blog.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("UserFiles");
                 });
@@ -486,6 +476,17 @@ namespace Blog.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Blog.DAL.Entities.Article", b =>
+                {
+                    b.HasOne("Blog.DAL.Entities.User", "User")
+                        .WithMany("Articles")
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Blog.DAL.Entities.ArticleFile", b =>
                 {
                     b.HasOne("Blog.DAL.Entities.Article", "Article")
@@ -507,7 +508,7 @@ namespace Blog.Migrations
 
                     b.HasOne("Blog.DAL.Entities.User", "User")
                         .WithMany("ArticleLikes")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -524,16 +525,16 @@ namespace Blog.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Blog.DAL.Entities.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Blog.DAL.Entities.Comment", "ParentComment")
                         .WithMany("ChildComments")
                         .HasForeignKey("ParentCommentId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Blog.DAL.Entities.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Article");
 
@@ -552,7 +553,7 @@ namespace Blog.Migrations
 
                     b.HasOne("Blog.DAL.Entities.User", "User")
                         .WithMany("CommentLikes")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -593,7 +594,7 @@ namespace Blog.Migrations
                 {
                     b.HasOne("Blog.DAL.Entities.User", "User")
                         .WithMany("Files")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -689,6 +690,8 @@ namespace Blog.Migrations
             modelBuilder.Entity("Blog.DAL.Entities.User", b =>
                 {
                     b.Navigation("ArticleLikes");
+
+                    b.Navigation("Articles");
 
                     b.Navigation("CommentLikes");
 

@@ -21,56 +21,48 @@ namespace Blog.BLL.Services.ExternalServices
             _logger = logger;
         }
 
-        public async Task<List<ArticleFile>> UploadFilesAsync(ICollection<IFormFile> files, Guid postId)
-        {   
-            try
-            {
-                if (files.Count == 0)
-                    return null;
-
+        public async Task<ArticleFile> UploadFilesAsync(IFormFile file, Guid postId)
+        {
+            //try
+            //{
                 var container = new BlobContainerClient(
                     Configuration.GetConnectionString("blobStorageConnectionString"),
                     Configuration.GetConnectionString("blobStorageContainerName")
                 );
+                
+                var PostId = postId.ToString();
+                var fileName = file.FileName;
+                string guid = Guid.NewGuid().ToString();
+                var client = container.GetBlobClient($"/Posts/{PostId}/{guid}_{fileName}");
+                
+                ArticleFile newFile = new ArticleFile();
 
-                List<ArticleFile> dataFiles = new List<ArticleFile>();
-
-
-                foreach (var formFile in files)
+                if (file.Length > 0)
                 {
-                    var PostId = postId.ToString();
-                    var fileName = formFile.FileName;
-                    string guid = Guid.NewGuid().ToString();
-                    var client = container.GetBlobClient($"/Posts/{PostId}/{guid}_{fileName}");
-
-                    if (formFile.Length > 0)
+                    using (Stream stream = file.OpenReadStream())
                     {
-                        using (Stream stream = formFile.OpenReadStream())
-                        {
-                            var fileBytes = ReadFully(stream);
-                            var data = new BinaryData(fileBytes);
-                            await client.UploadAsync(data);
-                        }
-                        ArticleFile file = new ArticleFile()
-                        {
-                            Url = container.Uri + $"/Posts/{PostId}/{guid}_{fileName}",
-                            BlobName = $"/Posts/{PostId}/{guid}_{fileName}",
-                            ArticleId = postId
-                        };
-                        dataFiles.Add(file);
-                        _unitOfWork.ArticleFileRepository.CreateAsync(file);
-                        await _unitOfWork.SaveChanges(_accountService.GetUserId());
-                        
+                        var fileBytes = ReadFully(stream);
+                        var data = new BinaryData(fileBytes);
+                        await client.UploadAsync(data);
                     }
-                }
-                return dataFiles;
 
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation(ex.Message);
-                return null;
-            }
+                    newFile.Url = container.Uri + $"/Posts/{PostId}/{guid}_{fileName}";
+                    newFile.BlobName = $"/Posts/{PostId}/{guid}_{fileName}";
+                    newFile.ArticleId = postId;
+                        
+                    _unitOfWork.ArticleFileRepository.CreateAsync(newFile);
+                    await _unitOfWork.SaveChanges(_accountService.GetUserId());
+                        
+                }
+                
+                return newFile;
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    _logger.LogInformation(ex.Message);
+            //    return null;
+            //}
         }
 
         public byte[] ReadFully(Stream input)

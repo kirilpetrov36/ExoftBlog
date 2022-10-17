@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.Options;
 
 namespace Blog
 {
@@ -56,7 +58,7 @@ namespace Blog
                 });
             });
 
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
            
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(options =>
@@ -92,7 +94,8 @@ namespace Blog
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders(); 
+            .AddDefaultTokenProviders()
+            .AddTokenProvider("MyApp", typeof(DataProtectorTokenProvider<User>)); 
 
             TokenValidationParameters tokenValidationParametres = new TokenValidationParameters
             {
@@ -108,6 +111,7 @@ namespace Blog
             services.AddSingleton(tokenValidationParametres);
 
             services.AddMvc(options => { options.EnableEndpointRouting = false; });
+
                //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddAuthentication(x =>
@@ -166,6 +170,5 @@ namespace Blog
                 await roleManager.CreateAsync(new IdentityRole<Guid>(Roles.user));
             }
         }
-
     }
 }

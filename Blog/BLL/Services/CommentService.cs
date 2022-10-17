@@ -5,6 +5,7 @@ using AutoMapper;
 using Blog.BLL.Services.Interfaces;
 using Blog.BLL.DTO.ArticleDto;
 using Microsoft.AspNetCore.JsonPatch;
+using Blog.BLL.DTO.UserDto;
 
 namespace Blog.BLL.Services
 {
@@ -44,7 +45,8 @@ namespace Blog.BLL.Services
         {
             _logger.LogInformation("Get comment with id - {id}", id);
             Comment comment = await _unitOfWork.CommentRepository.GetAsync(id);
-            return _mapper.Map<ReadCommentDto>(comment);
+            ReadCommentDto mappedComment = _mapper.Map<ReadCommentDto>(comment);
+            return mappedComment;
         }
 
         public async Task<ReadCommentLikesDto> GetLikesAsync(Guid id, CancellationToken token = default)

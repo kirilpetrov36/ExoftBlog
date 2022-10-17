@@ -4,7 +4,7 @@ namespace Blog.BLL.Services.Interfaces
 {
     public interface IArticleFileService
     {
-        Task<List<ArticleFile>> UploadFilesAsync(ICollection<IFormFile> files, Guid postId);
+        Task<ArticleFile> UploadFilesAsync(IFormFile file, Guid postId);
         Task<ArticleFile> GetFileById(Guid FileId);
         byte[] ReadFully(Stream input);
         Task<List<ArticleFile>> GetArticleFiles(Guid postId);

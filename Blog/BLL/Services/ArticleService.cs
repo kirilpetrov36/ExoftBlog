@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Blog.BLL.DTO.ArticleFileDto;
 using Blog.BLL.DTO.CommentDto;
 using Blog.BLL.DTO.LikeDto;
+using Blog.BLL.DTO.UserDto;
 
 namespace Blog.BLL.Services
 {
@@ -47,6 +48,14 @@ namespace Blog.BLL.Services
         {
             _logger.LogInformation("Get article with id - {id}", id);
             Article article = await _unitOfWork.ArticleRepository.GetAsync(id);
+            if (article?.Likes != null)
+            {
+                article.LikesAmount = article.Likes.Count();
+            }
+            if (article?.Comments != null)
+            {
+                article.CommentsAmount = article.Comments.Count();
+            }    
             return _mapper.Map<ReadArticleDto>(article);
         }
 
@@ -56,16 +65,33 @@ namespace Blog.BLL.Services
             Article article = await _unitOfWork.ArticleRepository.GetAsync(id);
             ReadFullArticleDto fullArticleDto = new ReadFullArticleDto()
             {
+                Id = article.Id,
                 Title = article.Title,
                 Content = article.Content,
                 Likes = _mapper.Map<List<ReadArticleLikeDto>>(article.Likes),       // we need ReadArticleLikeDto not ArticleLike to prevent loop
                 Comments = _mapper.Map<List<ReadCommentDto>>(article.Comments),     // Article => ArticleLikes => ArticleLike => Article
                 ArticleFiles = _mapper.Map<List<ReadArticleFileDto>>(article.ArticleFiles),
                 IsDeleted = article.IsDeleted,
-                IsVerified = article.IsVerified
+                IsVerified = article.IsVerified,
+                User = _mapper.Map<ReadUserDto>(article.User),
+                CreatedAt = article.CreatedAt,
+                UpdatedAt = article.UpdatedAt,
+                CreatedBy = article.CreatedBy,
+                UpdatedBy = article.UpdatedBy
             };
 
             return fullArticleDto;
+        }
+
+        public async Task<IEnumerable<ReadArticleDto>> SearchArticles(string searchInput, CancellationToken token = default)
+        {
+            IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.SearchArticles(searchInput);
+            foreach (Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
+            return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 
         public async Task<ReadArticleCommentsDto> GetArticleCommentsAsync(Guid id, CancellationToken token = default)
@@ -87,6 +113,11 @@ namespace Blog.BLL.Services
             _logger.LogInformation("Get all articles");
 
             IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetListAsync();
+            foreach(Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
             return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 
@@ -95,6 +126,11 @@ namespace Blog.BLL.Services
             _logger.LogInformation("Get all sorted by comments amount articles");
 
             IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetMostComentableAsync();
+            foreach (Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
             return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 
@@ -103,6 +139,11 @@ namespace Blog.BLL.Services
             _logger.LogInformation("Get all sorted by likes amount articles");
 
             IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetMostLikeableAsync();
+            foreach (Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
             return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 
@@ -112,6 +153,23 @@ namespace Blog.BLL.Services
             _logger.LogInformation("Get articles for which current user {currentUserId} subscribed", currentUserId);
 
             IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetArticlesBySubscriptionAsync(currentUserId);
+            foreach (Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
+            return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
+        }
+
+        public async Task<IEnumerable<ReadArticleDto>> GetUserArticlesAsync(Guid userId, CancellationToken token = default)
+        {
+            _logger.LogInformation("Get articles for user {UserId} subscribed", userId);
+            IEnumerable<Article> articles = await _unitOfWork.ArticleRepository.GetUserArticlesAsync(userId);
+            foreach (Article article in articles)
+            {
+                article.LikesAmount = await _unitOfWork.ArticleRepository.GetLikesAmount(article.Id);
+                article.CommentsAmount = await _unitOfWork.ArticleRepository.GetCommentsAmount(article.Id);
+            }
             return _mapper.Map<IEnumerable<ReadArticleDto>>(articles);
         }
 

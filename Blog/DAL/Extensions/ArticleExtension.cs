@@ -20,9 +20,21 @@ namespace Blog.DAL.Extensions
                 .HasMaxLength(100);
 
             modelBuilder.Entity<Article>()
+                .HasOne(p => p.User)
+                .WithMany(p => p.Articles)
+                .HasForeignKey(p => p.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Article>()
                 .Property(p => p.Content)
                 .IsRequired()
                 .HasMaxLength(10000);
+
+            modelBuilder.Entity<Article>()
+                .Ignore(p => p.LikesAmount);
+
+            modelBuilder.Entity<Article>()
+                .Ignore(p => p.CommentsAmount);
 
             modelBuilder.Entity<Article>()
                 .Property(p => p.IsDeleted)
