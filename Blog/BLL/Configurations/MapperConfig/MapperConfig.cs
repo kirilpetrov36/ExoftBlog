@@ -44,6 +44,8 @@ namespace Blog.BLL.Configurations.MapperConfig
             CreateMap<ArticleFile, ReadArticleFileDto>().ReverseMap();
 
             CreateMap<UserFile, ReadUserFileDto>().ReverseMap();
+
+            CreateMap<UserSubscription, UserSubscriptionDto>().ReverseMap();
         }
     }
 }
