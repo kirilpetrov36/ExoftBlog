@@ -57,6 +57,7 @@ namespace Blog.DAL.Repositories
             //return await _context.Articles.Where(article => subscriptions.Any(s => s.UserToSubscribeId == article.CreatedBy))
             return await _context.Articles.Where(article => subscribedUsersId.Contains(article.CreatedBy))
                     .Include(p => p.User)
+                        .ThenInclude(p => p.Files)
                     .Include(p => p.ArticleFiles)
                     .ToListAsync();
         }
