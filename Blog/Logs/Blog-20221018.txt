@@ -149,3 +149,1666 @@ FROM (
 ) AS [t]
 LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
 ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:14:46.4282655+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:14:47.6864662+03:00  [INF] Executed DbCommand ("141"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:14:47.8384003+03:00  [INF] Executed DbCommand ("135"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:14:48.4850631+03:00  [INF] Executed DbCommand ("166"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-18T01:14:48.6924112+03:00  [INF] Executed DbCommand ("114"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-18T01:14:48.8516152+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-10-18T01:14:48.8535821+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-10-18T01:14:48.8643851+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-18T01:14:48.8662468+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-18T01:14:48.8677932+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-10-18T01:15:36.2593598+03:00  [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:15:37.4300441+03:00  [INF] Executed DbCommand ("133"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:15:37.5764050+03:00  [INF] Executed DbCommand ("130"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:15:38.1153970+03:00  [INF] Executed DbCommand ("157"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-18T01:15:38.3077299+03:00  [INF] Executed DbCommand ("112"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2022-10-18T01:15:38.4365065+03:00  [INF] Now listening on: "https://localhost:7183" (d826f4b8)
+2022-10-18T01:15:38.4390183+03:00  [INF] Now listening on: "http://localhost:5183" (d826f4b8)
+2022-10-18T01:15:38.4490974+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-18T01:15:38.4510258+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-18T01:15:38.4525255+03:00  [INF] Content root path: "D:\Everything\camp\Blog\Blog\Blog" (b5d60022)
+2022-10-18T01:15:51.8221378+03:00 0HMLGHKFKAU1G:00000003 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:15:51.9421691+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:15:52.0564117+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:15:52.0804273+03:00 0HMLGHKFKAU1G:00000003 [INF] Get all articles (3fabed84)
+2022-10-18T01:15:52.2527180+03:00 0HMLGHKFKAU1G:00000003 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-18T01:15:52.3870159+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("124"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:15:52.6307437+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:52.7596439+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:52.8904670+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.0068764+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.1221589+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.2358733+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.3519124+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.4665702+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.5804401+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.6947277+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.8075088+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:53.9203511+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:54.0339178+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:15:54.1473446+03:00 0HMLGHKFKAU1G:00000003 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:06.9735904+03:00 0HMLGHKFKAU1G:00000007 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:16:07.0934648+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:16:07.2079446+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:16:07.3916871+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("114"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__get_Item_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:07.5162675+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("111"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid), @__p_1='?' (Size = 450), @__p_2='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserId], [a].[LoginProvider], [a].[Name], [a].[Value]
+FROM [AspNetUserTokens] AS [a]
+WHERE (([a].[UserId] = @__get_Item_0) AND ([a].[LoginProvider] = @__p_1)) AND ([a].[Name] = @__p_2)" (0723d8ff)
+2022-10-18T01:16:07.6598931+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("124"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:07.7901030+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:08.1348603+03:00 0HMLGHKFKAU1G:00000007 [INF] Executed DbCommand ("112"ms) [Parameters=["@p19='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 32), @p6='?' (DbType = Boolean), @p7='?' (Size = 32), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (DbType = DateTime2), @p18='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [CreatedAt] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [IsDeleted] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UpdatedAt] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2022-10-18T01:16:38.5045758+03:00 0HMLGHKFKAU1G:0000000B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:16:38.6176058+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:16:38.7321512+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:16:38.8629310+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:38.9803879+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("112"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:39.0988243+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url]
+FROM [UserFiles] AS [u]
+WHERE [u].[CreatedBy] = @__userId_0" (0723d8ff)
+2022-10-18T01:16:39.2334230+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("116"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid), @__p_1='?' (Size = 450), @__p_2='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserId], [a].[LoginProvider], [a].[Name], [a].[Value]
+FROM [AspNetUserTokens] AS [a]
+WHERE (([a].[UserId] = @__get_Item_0) AND ([a].[LoginProvider] = @__p_1)) AND ([a].[Name] = @__p_2)" (0723d8ff)
+2022-10-18T01:16:39.3620333+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:39.4782100+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("113"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:39.7161407+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DELETE FROM [AspNetUserTokens]
+WHERE [LoginProvider] = @p0 AND [Name] = @p1 AND [UserId] = @p2;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2022-10-18T01:16:39.8302407+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@p19='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 32), @p6='?' (DbType = Boolean), @p7='?' (Size = 32), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (DbType = DateTime2), @p18='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [CreatedAt] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [IsDeleted] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UpdatedAt] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2022-10-18T01:16:40.0808121+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid), @__p_1='?' (Size = 450), @__p_2='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserId], [a].[LoginProvider], [a].[Name], [a].[Value]
+FROM [AspNetUserTokens] AS [a]
+WHERE (([a].[UserId] = @__get_Item_0) AND ([a].[LoginProvider] = @__p_1)) AND ([a].[Name] = @__p_2)" (0723d8ff)
+2022-10-18T01:16:40.2078433+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("112"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:40.3222613+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:16:40.5534756+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (DbType = Guid), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AspNetUserTokens] ([LoginProvider], [Name], [UserId], [Value])
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-10-18T01:16:40.6662679+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("110"ms) [Parameters=["@p19='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 32), @p6='?' (DbType = Boolean), @p7='?' (Size = 32), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (DbType = DateTime2), @p18='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [CreatedAt] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [IsDeleted] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UpdatedAt] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2022-10-18T01:16:40.9161571+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("110"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0" (0723d8ff)
+2022-10-18T01:16:41.0608394+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("111"ms) [Parameters=["@__normalizedRoleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0" (0723d8ff)
+2022-10-18T01:16:41.1784594+03:00 0HMLGHKFKAU1G:0000000B [INF] Executed DbCommand ("110"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid), @__get_Item_1='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE ([a].[UserId] = @__get_Item_0) AND ([a].[RoleId] = @__get_Item_1)" (0723d8ff)
+2022-10-18T01:16:41.2092852+03:00 0HMLGHKFKAU1G:0000000F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:16:41.3249003+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:16:41.4376482+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:16:41.4392000+03:00 0HMLGHKFKAU1G:0000000F [INF] Get all articles (3fabed84)
+2022-10-18T01:16:41.5533702+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:16:41.6682093+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:41.7860285+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("114"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:41.8998790+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.0144972+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.1367200+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("119"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.2544852+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("114"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.3685118+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.4831536+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.6009082+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.7156257+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.8293483+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:42.9426850+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:43.0560395+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:16:43.1702934+03:00 0HMLGHKFKAU1G:0000000F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:40.0634295+03:00 0HMLGHKFKAU1G:00000013 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:17:40.1758420+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:17:40.2892173+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:17:40.2906762+03:00 0HMLGHKFKAU1G:00000013 [INF] Get all articles (3fabed84)
+2022-10-18T01:17:40.4078279+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:17:40.5242150+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:40.6420588+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:40.7570575+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:40.8717273+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:40.9846977+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.0989215+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.2133401+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.3271791+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.4426003+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.5560690+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.6699100+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.7838083+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:41.9002833+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("114"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:17:42.0129827+03:00 0HMLGHKFKAU1G:00000013 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:40.4438596+03:00 0HMLGHKFKAU1G:00000017 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:19:40.5573616+03:00 0HMLGHKFKAU1G:00000017 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:19:40.6692677+03:00 0HMLGHKFKAU1G:00000017 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:19:40.6732161+03:00 0HMLGHKFKAU1G:00000017 [INF] Get articles for which current user fce24a00-c9ed-41b8-3853-08dab0477c6f subscribed (7bb2a9c6)
+2022-10-18T01:19:40.6865320+03:00 0HMLGHKFKAU1G:00000017 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-18T01:19:40.8060535+03:00 0HMLGHKFKAU1G:00000017 [INF] Executed DbCommand ("111"ms) [Parameters=["@__currentUserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[UserId], [u].[UserToSubscribeId], [u].[CreatedAt]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__currentUserId_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+LEFT JOIN [UserSubscriptions] AS [u] ON [t].[Id] = [u].[UserId]
+ORDER BY [t].[Id], [r].[UserId], [r].[Id], [u].[UserId]" (0723d8ff)
+2022-10-18T01:19:40.8249284+03:00 0HMLGHKFKAU1G:00000017 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-18T01:19:40.9438924+03:00 0HMLGHKFKAU1G:00000017 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE 0 = 1
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id]" (0723d8ff)
+2022-10-18T01:19:43.4915317+03:00 0HMLGHKFKAU1G:0000001B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:19:43.6055215+03:00 0HMLGHKFKAU1G:0000001B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:19:43.7197303+03:00 0HMLGHKFKAU1G:0000001B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:19:43.8356511+03:00 0HMLGHKFKAU1G:0000001B [INF] Executed DbCommand ("111"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__get_Item_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:19:43.8387184+03:00 0HMLGHKFKAU1G:0000001B [INF] Get articles for user fce24a00-c9ed-41b8-3853-08dab0477c6f subscribed (aac18b6d)
+2022-10-18T01:19:43.8531518+03:00 0HMLGHKFKAU1G:0000001B [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-18T01:19:43.9726229+03:00 0HMLGHKFKAU1G:0000001B [INF] Executed DbCommand ("111"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = @__userId_0
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:19:44.8437828+03:00 0HMLGHKFKAU1G:0000001F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:19:44.9583501+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:19:45.0726620+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:19:45.0741627+03:00 0HMLGHKFKAU1G:0000001F [INF] Get all articles (3fabed84)
+2022-10-18T01:19:45.1906556+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:19:45.3060654+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.4198544+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.5326009+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.6460425+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.7610117+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.8757687+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:45.9997174+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("120"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.1140799+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.2289756+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.3424015+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.4608110+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.5761363+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.6887703+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:19:46.8031777+03:00 0HMLGHKFKAU1G:0000001F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:46.0853411+03:00 0HMLGHKFKAU1G:00000023 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:20:46.1989356+03:00 0HMLGHKFKAU1G:00000023 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:20:46.3148373+03:00 0HMLGHKFKAU1G:00000023 [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:20:46.3183239+03:00 0HMLGHKFKAU1G:00000023 [INF] Get full article with id - 36c0c201-7bbf-4dbb-bf6d-08dab089d069 (cd779051)
+2022-10-18T01:20:46.3390661+03:00 0HMLGHKFKAU1G:00000023 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2022-10-18T01:20:46.4587864+03:00 0HMLGHKFKAU1G:00000023 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt0], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted0], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt0], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [a1].[Id], [a1].[ArticleId], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[IsDeleted], [a1].[UpdatedAt], [a1].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [a2].[Id], [a2].[ArticleId], [a2].[BlobName], [a2].[CreatedAt], [a2].[CreatedBy], [a2].[UpdatedAt], [a2].[UpdatedBy], [a2].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id] AS [Id0], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt] AS [CreatedAt0], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted] AS [IsDeleted0], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt] AS [UpdatedAt0], [a0].[UserName]
+    FROM [Articles] AS [a]
+    INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id0] = [r].[UserId]
+LEFT JOIN [ArticleLikes] AS [a1] ON [t].[Id] = [a1].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a2] ON [t].[Id] = [a2].[ArticleId]
+ORDER BY [t].[Id], [t].[Id0], [r].[UserId], [r].[Id], [a1].[Id], [c].[Id]" (0723d8ff)
+2022-10-18T01:20:51.1542660+03:00 0HMLGHKFKAU1G:00000027 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:20:51.2676806+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:20:51.3814246+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:20:51.3828220+03:00 0HMLGHKFKAU1G:00000027 [INF] Get all articles (3fabed84)
+2022-10-18T01:20:51.4969318+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:20:51.6111002+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:51.7265096+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:51.8439665+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:51.9587948+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.0728200+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.1905756+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("114"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.3057327+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.4187221+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.5329150+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.6474430+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.7623006+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.8762841+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:52.9884458+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:53.1006604+03:00 0HMLGHKFKAU1G:00000027 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:20:56.2610328+03:00 0HMLGHKFKAU1G:0000002B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:20:56.3748052+03:00 0HMLGHKFKAU1G:0000002B [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:20:56.4881956+03:00 0HMLGHKFKAU1G:0000002B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:20:56.4900195+03:00 0HMLGHKFKAU1G:0000002B [INF] Get full article with id - 67855423-cd6a-437d-bf6c-08dab089d069 (cd779051)
+2022-10-18T01:20:56.6057122+03:00 0HMLGHKFKAU1G:0000002B [INF] Executed DbCommand ("113"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt0], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted0], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt0], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [a1].[Id], [a1].[ArticleId], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[IsDeleted], [a1].[UpdatedAt], [a1].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy], [a2].[Id], [a2].[ArticleId], [a2].[BlobName], [a2].[CreatedAt], [a2].[CreatedBy], [a2].[UpdatedAt], [a2].[UpdatedBy], [a2].[Url]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id] AS [Id0], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt] AS [CreatedAt0], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted] AS [IsDeleted0], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt] AS [UpdatedAt0], [a0].[UserName]
+    FROM [Articles] AS [a]
+    INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id0] = [r].[UserId]
+LEFT JOIN [ArticleLikes] AS [a1] ON [t].[Id] = [a1].[ArticleId]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+LEFT JOIN [ArticleFiles] AS [a2] ON [t].[Id] = [a2].[ArticleId]
+ORDER BY [t].[Id], [t].[Id0], [r].[UserId], [r].[Id], [a1].[Id], [c].[Id]" (0723d8ff)
+2022-10-18T01:21:01.8633823+03:00 0HMLGHKFKAU1G:0000002F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:21:01.9769157+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:21:02.0938300+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("114"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:21:02.0957312+03:00 0HMLGHKFKAU1G:0000002F [INF] Get all articles (3fabed84)
+2022-10-18T01:21:02.2095151+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:21:02.3248209+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:02.4386238+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:02.5535768+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:02.6670585+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:02.7804333+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:02.8944191+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.0079902+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.1283275+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("118"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.2422385+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.3554565+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.4683711+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.5808605+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.6945531+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:03.8071044+03:00 0HMLGHKFKAU1G:0000002F [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:16.9731427+03:00 0HMLGHKFKAU1G:00000033 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:21:17.0849555+03:00 0HMLGHKFKAU1G:00000033 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:21:17.1994099+03:00 0HMLGHKFKAU1G:00000033 [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:21:17.3145476+03:00 0HMLGHKFKAU1G:00000033 [INF] Executed DbCommand ("111"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__get_Item_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:21:17.3160389+03:00 0HMLGHKFKAU1G:00000033 [INF] Get articles for user fce24a00-c9ed-41b8-3853-08dab0477c6f subscribed (aac18b6d)
+2022-10-18T01:21:17.4308771+03:00 0HMLGHKFKAU1G:00000033 [INF] Executed DbCommand ("111"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = @__userId_0
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:21:17.9331980+03:00 0HMLGHKFKAU1G:00000037 [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:21:18.0491201+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:21:18.1692521+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("119"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:21:18.1709752+03:00 0HMLGHKFKAU1G:00000037 [INF] Get all articles (3fabed84)
+2022-10-18T01:21:18.2846102+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:21:18.3995372+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:18.5130723+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:18.6288120+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:18.7416974+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:18.8552534+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:18.9682260+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.0832961+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.1975753+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.3094860+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.4350224+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("122"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.5502859+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.6625990+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.7761278+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:19.8897014+03:00 0HMLGHKFKAU1G:00000037 [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:21.5338317+03:00 0HMLGHKFKAU1G:0000003B [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:21:21.6494044+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("113"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:21:21.7631989+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:21:21.8783030+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[IsDeleted], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UpdatedAt], [t].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Id] = @__get_Item_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id], [r].[UserId]" (0723d8ff)
+2022-10-18T01:21:21.8800854+03:00 0HMLGHKFKAU1G:0000003B [INF] Get articles for user 00a92565-ee59-4e9c-e664-08daaf862794 subscribed (aac18b6d)
+2022-10-18T01:21:21.9951247+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("112"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy], [a0].[Id], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[CreatedAt], [a0].[Email], [a0].[EmailConfirmed], [a0].[FirstName], [a0].[IsDeleted], [a0].[LastName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UpdatedAt], [a0].[UserName], [r].[UserId], [r].[Id], [r].[Expires], [r].[Token], [u].[Id], [u].[BlobName], [u].[CreatedAt], [u].[CreatedBy], [u].[UpdatedAt], [u].[UpdatedBy], [u].[Url], [a1].[Id], [a1].[ArticleId], [a1].[BlobName], [a1].[CreatedAt], [a1].[CreatedBy], [a1].[UpdatedAt], [a1].[UpdatedBy], [a1].[Url]
+FROM [Articles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[CreatedBy] = [a0].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a0].[Id] = [r].[UserId]
+LEFT JOIN [UserFiles] AS [u] ON [a0].[Id] = [u].[CreatedBy]
+LEFT JOIN [ArticleFiles] AS [a1] ON [a].[Id] = [a1].[ArticleId]
+WHERE [a].[CreatedBy] = @__userId_0
+ORDER BY [a].[Id], [a0].[Id], [r].[UserId], [r].[Id], [u].[Id]" (0723d8ff)
+2022-10-18T01:21:22.1113409+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("112"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.2259281+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.3384190+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("110"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.4652623+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("124"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.5795273+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.6942916+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.8087792+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [a0].[Id], [a0].[ArticleId], [a0].[CreatedAt], [a0].[CreatedBy], [a0].[IsDeleted], [a0].[UpdatedAt], [a0].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ArticleLikes] AS [a0] ON [t].[Id] = [a0].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:21:22.9234043+03:00 0HMLGHKFKAU1G:0000003B [INF] Executed DbCommand ("111"ms) [Parameters=["@__id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Content], [t].[CreatedAt], [t].[CreatedBy], [t].[IsDeleted], [t].[IsVerified], [t].[Title], [t].[UpdatedAt], [t].[UpdatedBy], [c].[Id], [c].[ArticleId], [c].[CreatedAt], [c].[CreatedBy], [c].[ParentCommentId], [c].[Text], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[Content], [a].[CreatedAt], [a].[CreatedBy], [a].[IsDeleted], [a].[IsVerified], [a].[Title], [a].[UpdatedAt], [a].[UpdatedBy]
+    FROM [Articles] AS [a]
+    WHERE [a].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Comments] AS [c] ON [t].[Id] = [c].[ArticleId]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-10-18T01:24:20.8526114+03:00 0HMLGHKFKAU1G:0000003F [INF] Entity Framework Core "6.0.8" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "None" (d2805559)
+2022-10-18T01:24:20.9659789+03:00 0HMLGHKFKAU1G:0000003F [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-10-18T01:24:21.0795183+03:00 0HMLGHKFKAU1G:0000003F [INF] Executed DbCommand ("111"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0" (0723d8ff)
+2022-10-18T01:24:21.0875413+03:00 0HMLGHKFKAU1G:0000003F [INF] User - fce24a00-c9ed-41b8-3853-08dab0477c6f subscribe to user - 00a92565-ee59-4e9c-e664-08daaf862794 (ca0e874f)
+2022-10-18T01:24:21.3194560+03:00 0HMLGHKFKAU1G:0000003F [INF] Executed DbCommand ("111"ms) [Parameters=["@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime2)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [UserSubscriptions] ([UserId], [UserToSubscribeId], [CreatedAt])
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-10-18T01:24:21.6401404+03:00 0HMLGHKFKAU1G:0000003F [ERR] Connection id ""0HMLGHKFKAU1G"", Request id ""0HMLGHKFKAU1G:0000003F"": An unhandled exception was thrown by the application. (560e7d32)
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UserSubscription -> UserSubscriptionDto
+Blog.DAL.Entities.UserSubscription -> Blog.BLL.DTO.UserDto.UserSubscriptionDto
+   at lambda_method942(Closure , Object , UserSubscriptionDto , ResolutionContext )
+   at Blog.BLL.Services.UserSubscriptionService.CreateUserSubscriptionAsync(Guid userToSubscribeId, CancellationToken token) in D:\Everything\camp\Blog\Blog\Blog\BLL\Services\UserSubscriptionService.cs:line 30
+   at Blog.API.Controllers.AccountController.Subscribe(Guid UserToSubscribeId, CancellationToken token) in D:\Everything\camp\Blog\Blog\Blog\API\Controllers\AccountController.cs:line 165
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
