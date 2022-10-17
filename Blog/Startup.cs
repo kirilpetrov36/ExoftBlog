@@ -54,7 +54,7 @@ namespace Blog
                 name: "AllowOrigin",
                 builder =>
                 {
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().WithOrigins("http://localhost:4200");
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().WithOrigins("https://exoftfrontend.azurewebsites.net");
                 });
             });
 
