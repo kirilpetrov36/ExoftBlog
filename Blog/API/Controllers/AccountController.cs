@@ -22,9 +22,9 @@ namespace  Blog.API.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly IUserSubscriptionService _userSubscriptionService;
 
-        public AccountController(UserManager<User> userManager, 
-                                 IAccountService accountService, 
-                                 IConfiguration config, 
+        public AccountController(UserManager<User> userManager,
+                                 IAccountService accountService,
+                                 IConfiguration config,
                                  SignInManager<User> signInManager,
                                  IUserSubscriptionService userSubscriptionService)
         {
@@ -88,15 +88,20 @@ namespace  Blog.API.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, model.Token);
             if (result.Succeeded)
             {
-                string refreshToken = _accountService.GetRefreshToken(user);
-                _accountService.SaveToken(user, refreshToken);
-                AuthSucceededResponseDto response =  new AuthSucceededResponseDto()
+
+                var refreshToken = await _userManager.GenerateUserTokenAsync(user, "MyApp", "RefreshToken");
+                await _userManager.SetAuthenticationTokenAsync(user, "MyApp", "RefreshToken", refreshToken);
+
+
+                AuthSucceededResponseDto response = new AuthSucceededResponseDto()
                 {
                     Token = await _accountService.GetAccessTokenAsync(user),
                     RefreshToken = refreshToken,
                     Success = true,
                     UserFirstName = user.FirstName,
-                    UserLastName = user.LastName
+                    UserLastName = user.LastName,
+                    UserId = user.Id,
+                    IsAdmin = await _userManager.IsInRoleAsync(user, "Admin")
                 };
                 return Ok(response);
             }
@@ -118,7 +123,7 @@ namespace  Blog.API.Controllers
             {
                 return BadRequest("Invalid email or user doesn't exist");
             }
-       
+
             var isEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
             if (isEmailConfirmed)
             {
@@ -128,14 +133,14 @@ namespace  Blog.API.Controllers
             else
             {
                 return BadRequest("Email is not confirmed");
-            }           
+            }
         }
 
         [HttpPost]
         [Route("logout")]
-        public async Task<IActionResult> Logout(RefreshTokenDto refreshTokenDto, CancellationToken token = default)
+        public async Task<IActionResult> Logout([FromBody] RefreshTokenDto refreshTokenDto, CancellationToken token = default)
         {
-            AuthenticationResultDto logoutResponse = _accountService.LogoutAsync(refreshTokenDto);
+            AuthenticationResultDto logoutResponse = await _accountService.LogoutAsync(refreshTokenDto);
             return GetRegisterAuthResponse(logoutResponse);
         }
 
@@ -143,7 +148,7 @@ namespace  Blog.API.Controllers
         [Route("refreshJwt")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshToken, CancellationToken token = default)
         {
-            AuthenticationResultDto refreshTokenResponse = await _accountService.RefreshTokenAsync(refreshToken.RefreshToken);
+            AuthenticationResultDto refreshTokenResponse = await _accountService.RefreshTokenAsync(refreshToken);
 
             if (!refreshTokenResponse.Success)
             {
@@ -152,9 +157,9 @@ namespace  Blog.API.Controllers
             return Ok(refreshTokenResponse as TokenResponseDto);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Authorize]
-        [Route("SubscribeToUser")]
+        [Route("SubscribeToUser/{UserToSubscribeId}")]
         public async Task<IActionResult> Subscribe(Guid UserToSubscribeId, CancellationToken token = default)
         {
             UserSubscriptionDto userSubscription = await _userSubscriptionService.CreateUserSubscriptionAsync(UserToSubscribeId);
@@ -163,7 +168,7 @@ namespace  Blog.API.Controllers
 
         [HttpDelete]
         [Authorize]
-        [Route("UnsubscribeFromUser")]
+        [Route("UnsubscribeFromUser/{UserToUnsubscribeId}")]
         public async Task<IActionResult> Unsubscribe(Guid UserToUnsubscribeId, CancellationToken token = default)
         {
             await _userSubscriptionService.DeleteUserSubscriptionAsync(UserToUnsubscribeId);

@@ -22,7 +22,7 @@ namespace Blog.DAL.Repositories
         public virtual async Task<User> GetUserByRefreshToken(string refreshToken, CancellationToken cancellationToken = default)
         {
             return await _context.Users
-                .SingleOrDefaultAsync(user => user.RefreshTokens.Any(rtokens => rtokens.Token == refreshToken));
+                .FirstOrDefaultAsync(user => user.RefreshTokens.Any(rtokens => rtokens.Token == refreshToken));
         }
 
         public async Task<User> GetAsync(Guid id, CancellationToken token = default)

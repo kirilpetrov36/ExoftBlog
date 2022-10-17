@@ -10,9 +10,11 @@ namespace Blog.BLL.Services.Interfaces
         Task DeleteArticleAsync(Guid id, CancellationToken token = default);
         Task<ReadArticleDto> GetArticleAsync(Guid id, CancellationToken token = default);
         Task<ReadFullArticleDto> GetFullArticleAsync(Guid id, CancellationToken token = default);
+        Task<IEnumerable<ReadArticleDto>> SearchArticles(string searchInput, CancellationToken token = default);
         Task<IEnumerable<ReadArticleDto>> GetMostCommentableArticlesAsync(CancellationToken token = default);
         Task<IEnumerable<ReadArticleDto>> GetMostLikeableArticlesAsync(CancellationToken token = default);
         Task<IEnumerable<ReadArticleDto>> GetArticlesBySubscriptionAsync(CancellationToken token = default);
+        Task<IEnumerable<ReadArticleDto>> GetUserArticlesAsync(Guid userId, CancellationToken token = default);
         Task<ReadArticleCommentsDto> GetArticleCommentsAsync(Guid id, CancellationToken token = default);
         Task<ReadArticleLikesDto> GetArticleLikesAsync(Guid id, CancellationToken token = default);
         Task<IEnumerable<ReadArticleDto>> GetArticlesAsync(CancellationToken token = default);

@@ -12,6 +12,7 @@ using Blog.BLL.DTO.AccountDto;
 using Blog.DAL.UnitOfWork;
 using Blog.BLL.DTO.LoginRegisterDto;
 using Blog.BLL.DTO.UserDto;
+using Blog.DAL.Repositories.Interfaces;
 
 namespace Blog.BLL.Services
 {
@@ -54,6 +55,7 @@ namespace Blog.BLL.Services
             try
             {
                 User user = await _userManager.FindByEmailAsync(loginViewModel.Email);
+                List<UserFile> files = await _unitOfWork.UserFileRepository.GetUserFilesAsync(user.Id);
                 if (user == null)
                 {
                     return new AuthFailedResponseDto
@@ -71,15 +73,21 @@ namespace Blog.BLL.Services
                         Errors = new[] { ErrorMessages.NoUserWithThePassword }
                     };
                 }
-                string refreshToken = GetRefreshToken(user);
-                SaveToken(user, refreshToken);
+
+                await _userManager.RemoveAuthenticationTokenAsync(user, "MyApp", "RefreshToken");
+                var refreshToken = await _userManager.GenerateUserTokenAsync(user, "MyApp", "RefreshToken");
+                await _userManager.SetAuthenticationTokenAsync(user, "MyApp", "RefreshToken", refreshToken);
+
                 return new AuthSucceededResponseDto
                 {
                     Token = await GetAccessTokenAsync(user),
                     RefreshToken = refreshToken,
                     Success = true,
                     UserFirstName = user.FirstName,
-                    UserLastName = user.LastName
+                    UserLastName = user.LastName,
+                    UserId = user.Id,
+                    AvatarUrl = files.Count() > 0 ? files[0].Url : null,
+                    IsAdmin = await _userManager.IsInRoleAsync(user, "Admin")
                 };
             }
             catch (SqlException sqlExc)
@@ -92,11 +100,12 @@ namespace Blog.BLL.Services
             }
         }
 
-        public AuthenticationResultDto LogoutAsync(RefreshTokenDto refreshToken, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationResultDto> LogoutAsync(RefreshTokenDto refreshToken, CancellationToken cancellationToken = default)
         {
             try
             {
-                _unitOfWork.UserRepository.DeleteAllUserRefreshTokens(refreshToken.RefreshToken, cancellationToken);
+                User user = await _userManager.FindByIdAsync(refreshToken.UserId.ToString());
+                await _userManager.RemoveAuthenticationTokenAsync(user, "MyApp", "RefreshToken");
                 return new AuthSucceededResponseDto
                 {
                     Success = true
@@ -120,9 +129,10 @@ namespace Blog.BLL.Services
             }
         }
 
-        public async Task<AuthenticationResultDto> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationResultDto> RefreshTokenAsync(RefreshTokenDto refreshToken, CancellationToken cancellationToken = default)
         {
-            User user = await _unitOfWork.UserRepository.GetUserByRefreshToken(refreshToken, cancellationToken);
+            User user = await _userManager.FindByIdAsync(refreshToken.UserId.ToString());
+
             if (user == null)
             {
                 return new AuthFailedResponseDto
@@ -131,8 +141,10 @@ namespace Blog.BLL.Services
                     ErrorCode = StatusCodes.Status401Unauthorized
                 };
             }
-            RefreshToken approvedRefreshToken = user.RefreshTokens.Single(x => x.Token == refreshToken);
-            if (approvedRefreshToken.IsExpired)
+
+            bool isValid = await _userManager.VerifyUserTokenAsync(user, "MyApp", "RefreshToken", refreshToken.RefreshToken);
+
+            if (isValid)
             {
                 return new AuthFailedResponseDto
                 {
@@ -183,25 +195,25 @@ namespace Blog.BLL.Services
             return token;
         }
 
-        public string GetRefreshToken(User user)
-        {
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            byte[] key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
-            SecurityTokenDescriptor refreshTokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString())
-                }),
-                Expires = DateTime.UtcNow.Add(_jwtSettings.RefreshTokenLifeTime),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            SecurityToken jwt = tokenHandler.CreateToken(refreshTokenDescriptor);
-            string token = new JwtSecurityTokenHandler().WriteToken(jwt);
-            return token;
-        }
+        //public string GetRefreshToken(User user)
+        //{
+        //    JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+        //    byte[] key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
+        //    SecurityTokenDescriptor refreshTokenDescriptor = new SecurityTokenDescriptor
+        //    {
+        //        Subject = new ClaimsIdentity(new[]
+        //        {
+        //            new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+        //            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        //            new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString())
+        //        }),
+        //        Expires = DateTime.UtcNow.Add(_jwtSettings.RefreshTokenLifeTime),
+        //        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        //    };
+        //    SecurityToken jwt = tokenHandler.CreateToken(refreshTokenDescriptor);
+        //    string token = new JwtSecurityTokenHandler().WriteToken(jwt);
+        //    return token;
+        //}
 
         private AuthenticationResultDto GetErrors(dynamic exception)
         {
@@ -215,11 +227,6 @@ namespace Blog.BLL.Services
                 ErrorCode = StatusCodes.Status500InternalServerError,
                 Errors = list
             };
-        }
-
-        public void SaveToken(User user, string refreshToken)
-        {
-            _unitOfWork.UserRepository.UpdateUserByRefreshToken(user, refreshToken, _jwtSettings.RefreshTokenLifeTime);
         }
 
         public async Task<ReadUserDto> UpdateUserInfo(User oldUser, UpdateUserDto updatedUser)

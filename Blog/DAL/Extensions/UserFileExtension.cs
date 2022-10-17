@@ -21,7 +21,7 @@ namespace Blog.DAL.Extensions
             modelBuilder.Entity<UserFile>()
                 .HasOne(p => p.User)
                 .WithMany(p => p.Files)
-                .HasForeignKey(p => p.UserId)
+                .HasForeignKey(p => p.CreatedBy)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
         }

@@ -39,6 +39,7 @@ namespace Blog.BLL.Services.ExternalServices
                 foreach (var formFile in files)
                 {
                     var userId = _accountService.GetUserId().ToString();
+
                     var fileName = formFile.FileName;
                     string guid = Guid.NewGuid().ToString();
                     var client = container.GetBlobClient($"/Users/{userId}/{guid}_{fileName}");
@@ -54,8 +55,7 @@ namespace Blog.BLL.Services.ExternalServices
                         UserFile file = new UserFile()
                         {
                             Url = container.Uri + $"/Users/{userId}/{guid}_{fileName}",
-                            BlobName = $"/Users/{userId}/{guid}_{fileName}",
-                            UserId = Guid.Parse(userId)
+                            BlobName = $"/Users/{userId}/{guid}_{fileName}"
                         };
                         dataFiles.Add(file);
                         _unitOfWork.UserFileRepository.CreateAsync(file);

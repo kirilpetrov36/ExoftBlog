@@ -48,18 +48,22 @@ namespace Blog.DAL.UnitOfWork
 
             foreach (EntityEntry entity in entries)
             {
-                BaseEntity baseEntity = (BaseEntity)entity.Entity;
+                if (entity.Entity is not User)
+                {
+                    BaseEntity baseEntity = (BaseEntity)entity.Entity;
 
-                if (entity.State == EntityState.Added)
-                {
-                    baseEntity.CreatedAt = DateTime.Now;
-                    baseEntity.CreatedBy = userId;
+                    if (entity.State == EntityState.Added)
+                    {
+                        baseEntity.CreatedAt = DateTime.Now;
+                        baseEntity.CreatedBy = userId;
+                    }
+                    else if (entity.State == EntityState.Modified)
+                    {
+                        baseEntity.UpdatedAt = DateTime.Now;
+                        baseEntity.UpdatedBy = userId;
+                    }
                 }
-                else if (entity.State == EntityState.Modified)
-                {
-                    baseEntity.UpdatedAt = DateTime.Now;
-                    baseEntity.UpdatedBy = userId;
-                }
+                    
             }
             await _context.SaveChangesAsync();
         }

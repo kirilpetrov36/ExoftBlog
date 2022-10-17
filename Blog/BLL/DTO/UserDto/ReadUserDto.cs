@@ -1,5 +1,4 @@
-﻿using Blog.BLL.DTO.LikeDto;
-using Blog.BLL.DTO.CommentDto;
+﻿using Blog.BLL.DTO.UserFileDto;
 
 namespace Blog.BLL.DTO.UserDto
 {
@@ -7,5 +6,6 @@ namespace Blog.BLL.DTO.UserDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public List<ReadUserFileDto> Files { get; set; }
     }
 }

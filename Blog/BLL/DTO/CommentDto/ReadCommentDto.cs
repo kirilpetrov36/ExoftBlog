@@ -8,8 +8,8 @@ namespace Blog.BLL.DTO.CommentDto
     {
         public string Text { get; set; }
         public ReadUserDto User { get; set; }
-        public ReadArticleDto Article { get; set; }
-        public ReadCommentDto? ParentComment { get; set; }
+        //public ReadCommentDto? ParentComment { get; set; }
+        public Guid? ParentCommentId { get; set; }
         public List<ReadCommentDto>? ChildComments { get; set; }
         public List<ReadCommentLikeDto>? Likes { get; set; }
     }

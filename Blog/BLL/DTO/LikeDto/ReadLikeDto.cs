@@ -11,13 +11,11 @@ namespace Blog.BLL.DTO.LikeDto
 
     public class ReadArticleLikeDto : ReadLikeDto
     {     
-        public ReadUserDto User { get; set; }
-        public ReadArticleDto Article { get; set; }
+        public Guid ArticleId { get; set; }
     }
 
     public class ReadCommentLikeDto : ReadLikeDto
     {
-        public ReadUserDto User { get; set; }
-        public ReadCommentDto Comment { get; set; }
+        public Guid CommentId { get; set; }
     }
 }

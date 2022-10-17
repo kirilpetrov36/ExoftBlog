@@ -17,12 +17,12 @@ namespace Blog.DAL.Extensions
             modelBuilder.Entity<ArticleLike>()
                 .HasOne(p => p.User)
                 .WithMany(b => b.ArticleLikes)
-                .HasForeignKey(p => p.UserId)
+                .HasForeignKey(p => p.CreatedBy)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
             modelBuilder.Entity<ArticleLike>()
-                .Property(p => p.UserId)
+                .Property(p => p.CreatedBy)
                 .IsRequired();
 
             modelBuilder.Entity<ArticleLike>()
@@ -56,12 +56,12 @@ namespace Blog.DAL.Extensions
             modelBuilder.Entity<CommentLike>()
                 .HasOne(p => p.User)
                 .WithMany(b => b.CommentLikes)
-                .HasForeignKey(p => p.UserId)
+                .HasForeignKey(p => p.CreatedBy)
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
             modelBuilder.Entity<CommentLike>()
-                .Property(p => p.UserId)
+                .Property(p => p.CreatedBy)
                 .IsRequired();
 
             modelBuilder.Entity<CommentLike>()
